@@ -6,6 +6,8 @@ import { Link } from "react-scroll";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 
+/* The `navLinks` constant is an array of objects that represents the navigation links in the Navbar
+component. Each object in the array has two properties: `title` and `href`. */
 const navLinks = [
   { title: "Home", href: "home" },
   { title: "Services", href: "services" },
@@ -16,10 +18,15 @@ const navLinks = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
+  /**
+   * The toggleMenu function toggles the value of the open state variable.
+   */
   const toggleMenu = () => {
     setOpen((prevOpen) => !prevOpen);
   };
 
+  /* The `menuVars` constant is an object that defines the animation variants for the menu in the
+  Navbar component. It has three properties: `initial`, `animate`, and `exit`. */
   const menuVars = {
     initial: {
       scaleY: 0,
@@ -40,6 +47,8 @@ const Navbar = () => {
       },
     },
   };
+  /* The `containerVars` constant is an object that defines the animation variants for the container of
+  the mobile navigation links in the Navbar component. */
   const containerVars = {
     initial: {
       transition: {
@@ -162,6 +171,8 @@ const Navbar = () => {
 
 export default Navbar;
 
+/* The `mobileLinkVars` constant is an object that defines the animation variants for the mobile
+navigation links in the Navbar component. */
 const mobileLinkVars = {
   initial: {
     y: "30vh",
@@ -179,6 +190,14 @@ const mobileLinkVars = {
   },
 };
 
+/**
+ * The MobileNavLink function returns a div element with a link inside, using the title and href
+ * provided as props.
+ * @returns The MobileNavLink component is returning a div element with the motion.div component from
+ * the Framer Motion library. Inside the motion.div, there is a Link component from the React Router
+ * library, which is wrapped in a div element. The Link component is rendered with the provided title
+ * as its content.
+ */
 const MobileNavLink = ({ title, href }) => {
   return (
     <motion.div variants={mobileLinkVars} className="text-5xl uppercase ">
