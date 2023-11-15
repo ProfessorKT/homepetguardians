@@ -114,7 +114,7 @@ const Navbar = () => {
           </div>
         </div>
         <div onClick={toggleMenu} className="flex md:hidden z-30">
-          <Hamburger />
+          <Hamburger toggled={open}/>
         </div>
       </div>
       <AnimatePresence>
@@ -138,7 +138,7 @@ const Navbar = () => {
                   className="cursor-pointer text-3xl justify-center items-center flex text-white"
                   onClick={toggleMenu}
                 >
-                  <Hamburger />
+                  <Hamburger toggled={open}/>
                 </p>
               </div>
 
