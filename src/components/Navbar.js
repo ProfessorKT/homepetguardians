@@ -58,12 +58,12 @@ const Navbar = () => {
 
   return (
     <header>
-      <div className="fixed w-full h-[80px] flex items-center px-4 bg-[#04A777] text-white z-8">
+      <div className="fixed w-full h-[70px] flex items-center px-4 bg-[#04A777] text-white z-10">
         <div>
           <Image
             src={Logo}
             alt=""
-            style={{ width: "60px", minWidth: "60px" }}
+            style={{ width: "55px", minWidth: "55px" }}
             priority={true}
           />
         </div>
@@ -95,7 +95,7 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
-          <div className="pr-4 items-center hidden md:flex">
+          <div className="items-center hidden md:flex">
             <a className="mr-4 ml-1 h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer">
               <p>Sign up</p>
             </a>
@@ -104,7 +104,7 @@ const Navbar = () => {
             </a>
           </div>
         </div>
-        <div onClick={toggleMenu} className="flex md:hidden z-10">
+        <div onClick={toggleMenu} className="flex md:hidden z-30">
           <Hamburger />
         </div>
       </div>
@@ -115,7 +115,7 @@ const Navbar = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="fixed left-0 top-0 bg-[#04A777] w-full h-screen origin-top p-10 z-10"
+            className="fixed left-0 top-0 bg-[#04A777] w-full h-screen origin-top p-10 z-20"
           >
             <div className="flex h-full flex-col">
               <div className="flex justify-between">
@@ -182,7 +182,7 @@ const mobileLinkVars = {
 const MobileNavLink = ({ title, href }) => {
   return (
     <motion.div variants={mobileLinkVars} className="text-5xl uppercase ">
-      <Link to={href} smooth={true} duration={500}>
+      <Link to={href} smooth={true} duration={500} className="cursor-pointer">
         {title}
       </Link>
     </motion.div>
