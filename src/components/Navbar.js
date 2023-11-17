@@ -1,9 +1,13 @@
+// "use client";
+
 import React, { useState } from "react";
 import Logo from "../assets/logo.svg";
 import { Squash as Hamburger } from "hamburger-react";
-import { Link } from "react-scroll";
+import { Link as LinkScroll } from "react-scroll";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 /* The `navLinks` constant is an array of objects that represents the navigation links in the Navbar
 component. Each object in the array has two properties: `title` and `href`. */
@@ -16,6 +20,10 @@ const navLinks = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
+  const isSignupOrLoginPage = ["/Signup/Signup", "/Login/Login"].includes(
+    router.pathname
+  );
 
   /**
    * The toggleMenu function toggles the value of the open state variable.
@@ -78,98 +86,112 @@ const Navbar = () => {
         <div className="flex justify-between w-full items-center">
           <ul className="hidden md:flex px-4 text-xl ">
             <li>
-              <Link to="home" smooth={true} duration={500}>
-                Home
-              </Link>
+              {isSignupOrLoginPage ? (
+                <Link href="/">Return to Home</Link>
+              ) : (
+                <LinkScroll to="home" smooth={true} duration={500}>
+                  Home
+                </LinkScroll>
+              )}
             </li>
-            <li>
-              <Link to="services" smooth={true} duration={500}>
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="about-us"
-                smooth={true}
-                duration={500}
-                className="whitespace-nowrap"
-              >
-                About us
-              </Link>
-            </li>
-            <li className="!pr-0">
-              <Link to="contact" smooth={true} duration={500}>
-                Contact
-              </Link>
-            </li>
+            {!isSignupOrLoginPage && (
+              <>
+                <li>
+                  <LinkScroll to="services" smooth={true} duration={500}>
+                    Services
+                  </LinkScroll>
+                </li>
+                <li>
+                  <LinkScroll
+                    to="about-us"
+                    smooth={true}
+                    duration={500}
+                    className="whitespace-nowrap"
+                  >
+                    About us
+                  </LinkScroll>
+                </li>
+                <li className="!pr-0">
+                  <LinkScroll to="contact" smooth={true} duration={500}>
+                    Contact
+                  </LinkScroll>
+                </li>
+              </>
+            )}
           </ul>
-          <div className="items-center hidden md:flex">
-            <a
-              className="mr-4 ml-1 h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
-              href=""
-            >
-              <p>Sign up</p>
-            </a>
-            <a
-              className="h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
-              href=""
-            >
-              <p>Login</p>
-            </a>
-          </div>
-        </div>
-        <div onClick={toggleMenu} className="flex md:hidden z-30">
-          <Hamburger toggled={open} />
-        </div>
-      </div>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            variants={menuVars}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            className="fixed left-0 top-0 bg-[#04A777] w-full h-screen origin-top p-10 z-20"
-          >
-            <div className="flex h-full flex-col">
-              <div className="flex justify-between">
-                <Image
-                  src={Logo}
-                  alt=""
-                  style={{ width: "60px", minWidth: "60px" }}
-                  priority={true}
-                />
-                <p
-                  className="cursor-pointer text-3xl justify-center items-center flex text-white"
-                  onClick={toggleMenu}
-                >
-                  <Hamburger toggled={open} />
-                </p>
-              </div>
-
-              <motion.div
-                variants={containerVars}
-                initial="initial"
-                animate="open"
-                exit="initial"
-                className="flex flex-col h-full justify-center items-center gap-8"
+          {!isSignupOrLoginPage && (
+            <div className="items-center hidden md:flex">
+              <Link
+                href="/Signup/Signup"
+                className="mr-4 ml-1 h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
               >
-                {navLinks.map((link, index) => {
-                  return (
-                    <div className="overflow-hidden text-white">
-                      <MobileNavLink
-                        title={link.title}
-                        href={link.href}
-                        key={index}
-                      />
-                    </div>
-                  );
-                })}
-              </motion.div>
+                Sign up
+              </Link>
+              <Link
+                className="h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
+                href="/Login/Login"
+              >
+                Login
+              </Link>
             </div>
-          </motion.div>
+          )}
+        </div>
+        {!isSignupOrLoginPage && (
+          <div onClick={toggleMenu} className="flex md:hidden z-30">
+            <Hamburger toggled={open} />
+          </div>
         )}
-      </AnimatePresence>
+      </div>
+      {!isSignupOrLoginPage && (
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              variants={menuVars}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="fixed left-0 top-0 bg-[#04A777] w-full h-screen origin-top p-10 z-20"
+            >
+              <div className="flex h-full flex-col">
+                <div className="flex justify-between">
+                  <Image
+                    src={Logo}
+                    alt=""
+                    style={{ width: "60px", minWidth: "60px" }}
+                    priority={true}
+                  />
+                  <p
+                    className="cursor-pointer text-3xl justify-center items-center flex text-white"
+                    onClick={toggleMenu}
+                  >
+                    <Hamburger toggled={open} />
+                  </p>
+                </div>
+
+                <motion.div
+                  variants={containerVars}
+                  initial="initial"
+                  animate="open"
+                  exit="initial"
+                  className="flex flex-col h-full justify-center items-center gap-8"
+                >
+                  {navLinks.map((link, index) => {
+                    return (
+                      <div className="overflow-hidden text-white">
+                        <MobileNavLink
+                          title={link.title}
+                          href={link.href}
+                          key={index}
+                        />
+                      </div>
+                    );
+                  })}
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
     </header>
   );
 };
@@ -206,9 +228,14 @@ const mobileLinkVars = {
 const MobileNavLink = ({ title, href }) => {
   return (
     <motion.div variants={mobileLinkVars} className="text-5xl uppercase ">
-      <Link to={href} smooth={true} duration={500} className="cursor-pointer">
+      <LinkScroll
+        to={href}
+        smooth={true}
+        duration={500}
+        className="cursor-pointer"
+      >
         {title}
-      </Link>
+      </LinkScroll>
     </motion.div>
   );
 };
