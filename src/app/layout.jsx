@@ -2,10 +2,9 @@
 
 import { Open_Sans } from "next/font/google";
 import "../styles/globals.css";
-
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbar.jsx";
 import Head from "next/head";
-import { metadata } from "./metadata";
+import { metadata } from "./metadata.jsx";
 
 const opensans = Open_Sans({ subsets: ["latin"] });
 
