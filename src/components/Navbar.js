@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Logo from "../assets/logo.svg";
-import { BsFillPersonFill } from "react-icons/bs";
 import { Squash as Hamburger } from "hamburger-react";
 import { Link } from "react-scroll";
 import Image from "next/image";
@@ -105,16 +104,22 @@ const Navbar = () => {
             </li>
           </ul>
           <div className="items-center hidden md:flex">
-            <a className="mr-4 ml-1 h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer">
+            <a
+              className="mr-4 ml-1 h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
+              href=""
+            >
               <p>Sign up</p>
             </a>
-            <a className="h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer">
+            <a
+              className="h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
+              href=""
+            >
               <p>Login</p>
             </a>
           </div>
         </div>
         <div onClick={toggleMenu} className="flex md:hidden z-30">
-          <Hamburger toggled={open}/>
+          <Hamburger toggled={open} />
         </div>
       </div>
       <AnimatePresence>
@@ -138,7 +143,7 @@ const Navbar = () => {
                   className="cursor-pointer text-3xl justify-center items-center flex text-white"
                   onClick={toggleMenu}
                 >
-                  <Hamburger toggled={open}/>
+                  <Hamburger toggled={open} />
                 </p>
               </div>
 
