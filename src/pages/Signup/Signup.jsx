@@ -3,8 +3,9 @@ import RootLayout from "@/app/layout.jsx";
 
 export default function Signup() {
   return (
-    <RootLayout>
+    <>
+      <RootLayout className="h-" />
       <div className="">Tu ma być rejestracja</div>
-    </RootLayout>
+    </>
   );
 }
