@@ -43,7 +43,7 @@ export default function Signup() {
             text-[18px] placeholder-black"
           />
 
-          <button className="bg-[#04A777] md:w-[260px] w-[685px] mx-auto py-2 rounded-3xl md:mt-[80px] mt-8 text-white font-semibold text-[24px]">
+          <button className="bg-[#04A777] md:w-[260px] w-[685px] md:mx-auto py-2 rounded-3xl md:mt-[80px] mt-8 text-white font-semibold text-[24px]">
             Sign Up
           </button>
 
