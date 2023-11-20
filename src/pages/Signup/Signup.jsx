@@ -5,8 +5,8 @@ import Link from "next/link";
 export default function Signup() {
   return (
     <RootLayout>
-      <div className="pt-[100px] text-center">
-        <h1 className="text-[#04A777] font-semibold text-[36px] pt-[100px] md:pt-[32px]">
+      <div className="text-center">
+        <h1 className="text-[#04A777] font-semibold text-[36px] pt-[100px] md:pt-[132px]">
           Sign up
         </h1>
         <form
@@ -18,8 +18,8 @@ export default function Signup() {
             name="name"
             id="name"
             placeholder="Name"
-            className="md:mt-10 mt-16 py-3 px-3 font-light border border-[#04A777] rounded-lg md:text-[24px]
-            text-[18px] placeholder-black
+            className="md:mt-10 mt-16 py-3 px-3 w-[85%] md:w-[35%] font-light border-2 border-[#04A777] rounded-lg md:text-[24px]
+            text-[18px] placeholder-black focus:outline-none focus:box-shadow-none
             "
           />
           <input
@@ -27,8 +27,8 @@ export default function Signup() {
             name="email"
             id="email"
             placeholder="Email Address"
-            className="mt-8 py-3 px-3 font-light border border-[#04A777] rounded-lg md:text-[24px]
-            text-[18px] placeholder-black"
+            className="mt-8 py-3 px-3 w-[85%] md:w-[35%] font-light border-2 border-[#04A777] rounded-lg md:text-[24px]
+            text-[18px] placeholder-black focus:outline-none focus:box-shadow-none"
           />
 
           <input
@@ -36,11 +36,11 @@ export default function Signup() {
             name="password"
             id="password"
             placeholder="Password "
-            className="mt-8 py-3 px-3 font-light border border-[#04A777] rounded-lg md:text-[24px]
-            text-[18px] placeholder-black"
+            className="mt-8 py-3 px-3 w-[85%] md:w-[35%] font-light border-2 border-[#04A777] rounded-lg md:text-[24px]
+            text-[18px] placeholder-black focus:outline-none focus:box-shadow-none"
           />
           <div className="flex content-center">
-            <button className="bg-[#04A777] md:w-[260px] w-[200px] md:mx-auto py-2 rounded-3xl md:mt-[80px] mt-8 text-white font-semibold text-[24px]">
+            <button className="bg-[#04A777] md:w-[260px] w-[330px] md:mx-auto py-2 rounded-3xl md:mt-[80px] mt-8 text-white font-semibold text-[24px]">
               Sign Up
             </button>
           </div>

@@ -73,7 +73,7 @@ const Navbar = () => {
   };
 
   return (
-    <header>
+    <header className="h-[70px]">
       <div className="fixed w-full h-[70px] flex items-center px-4 bg-[#04A777] text-white z-10">
         <div>
           <Image
