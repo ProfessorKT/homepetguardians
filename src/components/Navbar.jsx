@@ -8,6 +8,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { FiArrowLeft } from "react-icons/fi";
 
 /* The `navLinks` constant is an array of objects that represents the navigation links in the Navbar
 component. Each object in the array has two properties: `title` and `href`. */
@@ -84,18 +85,29 @@ const Navbar = () => {
           />
         </div>
         <div className="flex justify-between w-full items-center">
+          {isSignupOrLoginPage && (
+            <Link
+              href="/"
+              className="p-4 block text-xl transform transition duration-300 hover:scale-105"
+            >
+              <div className="flex items-center">
+                <FiArrowLeft className="mr-1 text-2xl leading-none" />
+                <span>Return to Home</span>
+              </div>
+            </Link>
+          )}
           <ul className="hidden md:flex px-4 text-xl ">
-            <li>
-              {isSignupOrLoginPage ? (
-                <Link href="/">Return to Home</Link>
-              ) : (
-                <LinkScroll to="home" smooth={true} duration={500}>
-                  Home
-                </LinkScroll>
-              )}
-            </li>
             {!isSignupOrLoginPage && (
               <>
+                <li>
+                  {isSignupOrLoginPage ? (
+                    <Link href="/">Return to Home</Link>
+                  ) : (
+                    <LinkScroll to="home" smooth={true} duration={500}>
+                      Home
+                    </LinkScroll>
+                  )}
+                </li>
                 <li>
                   <LinkScroll to="services" smooth={true} duration={500}>
                     Services
