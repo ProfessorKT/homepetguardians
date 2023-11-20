@@ -1,5 +1,6 @@
 import React from "react";
 import RootLayout from "@/app/layout.jsx";
+import Link from "next/link";
 
 export default function Login() {
   return (
@@ -20,14 +21,21 @@ export default function Login() {
             name="password"
             id="password"
             placeholder="Password"
-            className="w-[686px] h-[80px] text-[32px] placeholder-black border-[#04A777] border-[1.5px] rounded-[8px] mb-[72px] px-[14px] mx-auto"
+            className="w-[686px] h-[80px] text-[32px] placeholder-black border-[#04A777] border-[1.5px] rounded-[8px]  px-[14px] mx-auto"
           />
+          <div className="flex justify-between">
+            <Link href="#" className="mt-[12px] text-[20px] text-[#04A777]">Forgot password?</Link>
+            <div className="mt-[12px] text-[20px] flex items-center">
+              <p className="">Don't have an account?&nbsp;</p>
+              <Link href="#" className="text-[#04A777]">Sign Up</Link>
+            </div>
+          </div>
           <input 
             type="submit" 
             name="submit"
             id="submit"
             value="Sign In"
-            className=" w-[280px] h-[56px] text-[32px] bg-[#04A777] text-[#FFFBFF] rounded-[24px] mx-auto flex items-center justify-center"
+            className=" w-[280px] h-[56px] text-[32px] bg-[#04A777] text-[#FFFBFF] rounded-[24px] mt-[32px] mx-auto flex items-center justify-center"
           />
         </form>
       </div>
