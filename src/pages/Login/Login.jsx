@@ -5,7 +5,10 @@ export default function Login() {
   return (
     <>
       <RootLayout />
-      <div className="">Tu ma być login</div>
+      <div className="h-screen w-screen flex justify-center">
+        <p className="text-[#04A777] font-semibold text-[36px] pt-[88px]">Sing In</p>
+      </div>
+      
     </>
   );
 }
