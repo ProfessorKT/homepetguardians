@@ -16,6 +16,8 @@ const navLinks = [
   { title: "Services", href: "services" },
   { title: "About us", href: "about-us" },
   { title: "Contact", href: "contact" },
+  { title: "Sign-up", href: "/Signup/Signup" },
+  { title: "Login", href: "/Login/Login" },
 ];
 
 const Navbar = () => {
@@ -228,14 +230,15 @@ const mobileLinkVars = {
 const MobileNavLink = ({ title, href }) => {
   return (
     <motion.div variants={mobileLinkVars} className="text-5xl uppercase ">
-      <LinkScroll
+      <Link
         to={href}
         smooth={true}
         duration={500}
         className="cursor-pointer"
+        href={href}
       >
         {title}
-      </LinkScroll>
+      </Link>
     </motion.div>
   );
 };

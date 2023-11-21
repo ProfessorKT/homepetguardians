@@ -34,7 +34,7 @@ export default function Login() {
             </Link>
             <div className="md:mt-[12px] mt-[3px] md:text-[20px] text-[12px] flex items-center">
               <p className="">Don't have an account?&nbsp;</p>
-              <Link href="#" className="text-[#04A777]">
+              <Link href="../Signup/Signup" className="text-[#04A777]">
                 Sign Up
               </Link>
             </div>
