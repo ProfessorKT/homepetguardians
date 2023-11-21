@@ -5,12 +5,13 @@ import "../styles/globals.css";
 import Navbar from "@/components/Navbar.jsx";
 import Head from "next/head";
 import { metadata } from "./metadata.jsx";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const opensans = Open_Sans({ subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
   return (
-    <>
+    <ClerkProvider>
       <Head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <title>{metadata.title}</title>
@@ -20,6 +21,6 @@ export default function RootLayout({ children }) {
         <Navbar />
         {children}
       </div>
-    </>
+    </ClerkProvider>
   );
 }

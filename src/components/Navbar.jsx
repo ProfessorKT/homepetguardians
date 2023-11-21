@@ -9,6 +9,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FiArrowLeft } from "react-icons/fi";
+import { UserButton } from "@clerk/nextjs";
+import { SignInButton } from "@clerk/nextjs";
+import { SignUpButton } from "@clerk/nextjs";
 
 /* The `navLinks` constant is an array of objects that represents the navigation links in the Navbar
 component. Each object in the array has two properties: `title` and `href`. */
@@ -133,18 +136,23 @@ const Navbar = () => {
           </ul>
           {!isSignupOrLoginPage && (
             <div className="items-center hidden md:flex">
-              <Link
+              {/* <UserButton afterSignOutUrl="/" /> */}
+              {/* <Link
                 href="/Signup/Signup"
                 className="mr-4 ml-1 h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
-              >
+              > */}
+              <SignUpButton className="mr-4 ml-1 h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer">
                 Sign up
-              </Link>
-              <Link
+              </SignUpButton>
+              {/* </Link> */}
+              {/* <Link
                 className="h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
                 href="/Login/Login"
-              >
+              > */}
+              <SignInButton className="h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer">
                 Login
-              </Link>
+              </SignInButton>
+              {/* </Link> */}
             </div>
           )}
         </div>
