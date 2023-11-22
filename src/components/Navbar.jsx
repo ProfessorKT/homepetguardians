@@ -248,14 +248,15 @@ const mobileLinkVars = {
 const MobileNavLink = ({ title, href }) => {
   return (
     <motion.div variants={mobileLinkVars} className="text-5xl uppercase ">
-      <LinkScroll
+      <Link
         to={href}
         smooth={true}
         duration={500}
+        href={href}
         className="cursor-pointer"
       >
         {title}
-      </LinkScroll>
+      </Link>
     </motion.div>
   );
 };
