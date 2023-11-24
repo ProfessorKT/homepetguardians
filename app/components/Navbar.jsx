@@ -8,8 +8,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FiArrowLeft } from "react-icons/fi";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import { auth } from "@clerk/nextjs";
 import { useUser } from "@clerk/clerk-react";
+import { useRouter as RouterReact } from "next/router";
 
 /* The `navLinks` constant is an array of objects that represents the navigation links in the Navbar
 component. Each object in the array has two properties: `title` and `href`. */
@@ -21,16 +21,18 @@ const navLinks = [
 ];
 
 const Navbar = () => {
-  // const { userId } = auth();
-  const { user } = useUser();
-
-  // console.log(user);
   const [open, setOpen] = useState(false);
 
   const router = useRouter();
-  const isSignupOrLoginPage = ["/sign-up", "/sign-in"].includes(
-    router.pathname
-  );
+  // const isSignupOrLoginPage = ["/sign-up", "/sign-in"].includes(
+  //   router.pathname
+  // );
+
+  const { pathname } = router;
+
+  const isSignupOrLoginPage =
+    pathname === "/sign-in" || pathname === "/sign-up";
+  // const isAuthPage = pathname === "/sign-in" || pathname === "/sign-up";
 
   /**
    * The toggleMenu function toggles the value of the open state variable.
@@ -102,6 +104,7 @@ const Navbar = () => {
               </div>
             </Link>
           )}
+
           <ul className="hidden md:flex px-4 text-xl ">
             {!isSignupOrLoginPage && (
               <>
@@ -143,7 +146,6 @@ const Navbar = () => {
             )}
           </ul>
           <div className="items-center hidden md:flex">
-            {/* {!user && ( */}
             <SignedOut>
               <>
                 <Link
@@ -223,11 +225,24 @@ const Navbar = () => {
                           title={link.title}
                           href={link.href}
                           key={index}
+                          toggleMenu={toggleMenu}
                         />
                       </div>
                     );
                   })}
                 </motion.div>
+                <div className="flex w-full justify-center items-center">
+                  <Link href="sign-up" onClick={toggleMenu}>
+                    <div className="h-[60px] w-[150px] mr-3 text-white justify-center items-center align-middle bg-[#03312E] flex rounded-3xl cursor-pointer text-xl">
+                      Sign up
+                    </div>
+                  </Link>
+                  <Link href="sign-in" onClick={toggleMenu}>
+                    <div className="h-[60px] w-[150px] ml-3 text-white justify-center items-center align-middle bg-[#03312E] flex rounded-3xl cursor-pointer text-xl">
+                      Sign in
+                    </div>
+                  </Link>
+                </div>
               </div>
             </motion.div>
           )}
@@ -253,7 +268,7 @@ const mobileLinkVars = {
     y: 0,
     transition: {
       ease: [0, 0.55, 0.45, 1],
-      duration: 0.7,
+      duration: 0.5,
     },
   },
 };
@@ -266,18 +281,22 @@ const mobileLinkVars = {
  * library, which is wrapped in a div element. The Link component is rendered with the provided title
  * as its content.
  */
-const MobileNavLink = ({ title, href }) => {
+const MobileNavLink = ({ title, href, toggleMenu }) => {
+  const handleClick = () => {
+    toggleMenu();
+  };
   return (
     <motion.div variants={mobileLinkVars} className="text-5xl uppercase ">
-      <Link
+      <LinkScroll
         to={href}
+        href={href}
         smooth={true}
         duration={500}
-        href={href}
         className="cursor-pointer"
+        onClick={handleClick}
       >
         {title}
-      </Link>
+      </LinkScroll>
     </motion.div>
   );
 };
