@@ -1,13 +1,13 @@
-import { SignIn } from "@clerk/nextjs";
 import React from "react";
+import { UserProfile } from "@clerk/nextjs";
 
-const SignInPage = () => {
+const ProfilePage = () => {
   return (
     <div className="flex items-center justify-center h-screen">
-      <SignIn
+      <UserProfile
         appearance={{
           elements: {
-            formButtonPrimary: "bg-[#04A777] hover:bg-[#03312E]",
+            card: "h-[80vh]",
           },
         }}
       />
@@ -15,4 +15,4 @@ const SignInPage = () => {
   );
 };
 
-export default SignInPage;
+export default ProfilePage;

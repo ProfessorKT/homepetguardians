@@ -3,11 +3,14 @@ import { SignUp } from "@clerk/nextjs";
 
 const SignUpPage = () => {
   return (
-    <div
-      style={{ height: "calc(100vh - 70px)" }}
-      className="flex items-center justify-center"
-    >
-      <SignUp />
+    <div className="flex items-center justify-center h-screen">
+      <SignUp
+        appearance={{
+          elements: {
+            formButtonPrimary: "bg-[#04A777] hover:bg-[#03312E]",
+          },
+        }}
+      />
     </div>
   );
 };
