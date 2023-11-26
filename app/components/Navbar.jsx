@@ -5,11 +5,11 @@ import { Link as LinkScroll } from "react-scroll";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { FiArrowLeft } from "react-icons/fi";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { useUser } from "@clerk/clerk-react";
-import { useRouter as RouterReact } from "next/router";
+// import { useRouter as useNextRouter } from "next/router";
 
 /* The `navLinks` constant is an array of objects that represents the navigation links in the Navbar
 component. Each object in the array has two properties: `title` and `href`. */
@@ -24,15 +24,12 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   const router = useRouter();
-  // const isSignupOrLoginPage = ["/sign-up", "/sign-in"].includes(
-  //   router.pathname
-  // );
+  const pathname = usePathname();
+  // const router = useNextRouter();
 
-  const { pathname } = router;
-
-  const isSignupOrLoginPage =
-    pathname === "/sign-in" || pathname === "/sign-up";
-  // const isAuthPage = pathname === "/sign-in" || pathname === "/sign-up";
+  const isSignupOrLoginPage = ["/sign-up", "/sign-in"].includes(
+    router.pathname
+  );
 
   /**
    * The toggleMenu function toggles the value of the open state variable.
