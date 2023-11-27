@@ -13,11 +13,11 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <Head>
+        <head>
           <link rel="icon" href="/favicon.ico" sizes="any" />
           <title>{metadata.title}</title>
           <meta name="description" content={metadata.description} />
-        </Head>
+        </head>
         <body className={opensans.className}>
           <Navbar />
           <main>
