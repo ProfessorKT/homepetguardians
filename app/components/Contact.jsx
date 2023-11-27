@@ -4,13 +4,13 @@ const Contact = () => {
   return (
     <div
       name="contact"
-      className="md:w-full w-[400px] h-screen flex justify-center align-center flex-col"
+      className="md:w-full h-screen flex justify-center align-center flex-col"
     >
-      <div className="md:ml-[180px] mt-[-100px]">
-        <h1 className="text-[40px] font-medium border-b-[4px] border-[#04A777] text-left md:w-[180px]">
+      <div className="md:ml-[180px] md:mt-[-100px]">
+        <h1 className="text-[40px] font-medium border-b-[4px] border-[#04A777] text-left w-[180px] ">
           Contact
         </h1>
-        <p className="text-left py-2 text-[20px]">
+        <p className="text-left py-2 text-[20px] hidden md:block">
           If you have any questions just ask us! We will be happy to answer all
           of them.
         </p>
@@ -18,7 +18,7 @@ const Contact = () => {
 
       <form
         action="https://getform.io/f/41890a8d-e5bd-4717-a2ba-2e88c2c00728"
-        className="flex flex-col md:w-[700px] mx-auto pt-[80px]"
+        className="flex flex-col justify-center md:w-[700px] w-full mx-auto pt-[80px]"
         autoComplete="off"
         method="POST"
       >
@@ -27,14 +27,14 @@ const Contact = () => {
           name="name"
           id="name"
           placeholder="Name"
-          className=" border-[3px] border-[#03312E] bg-[#F1DABF] my-2 text-[24px] py-2 px-4 rounded-t-3xl"
+          className=" border-[3px] border-[#03312E] bg-[#F1DABF] my-2 text-[24px] py-2 px-4 rounded-t-3xl w-[90%] md:w-auto mx-auto md:mx-0"
         />
         <input
           type="email"
           name="email"
           id="email"
           placeholder="E-mail"
-          className="border-[3px] border-[#03312E] bg-[#F1DABF] my-2 text-[24px] py-2 px-4"
+          className="border-[3px] border-[#03312E] bg-[#F1DABF] my-2 text-[24px] py-2 px-4 w-[90%] md:w-auto mx-auto md:mx-0"
         />
         <textarea
           name="message"
@@ -42,9 +42,9 @@ const Contact = () => {
           cols="30"
           rows="6"
           placeholder="Your message..."
-          className="border-[3px] border-[#03312E] bg-[#F1DABF] my-2 text-[24px] py-2 px-4 rounded-b-3xl"
+          className="border-[3px] border-[#03312E] bg-[#F1DABF] my-2 text-[24px] py-2 px-4 rounded-b-3xl w-[90%] md:w-auto mx-auto md:mx-0"
         ></textarea>
-        <button className="mt-[28px] w-[300px] mx-auto px-[10px] py-[15px] text-[28px] bg-[#04A777] text-white rounded-full shadow-xl font-semibold ">
+        <button className="mt-[28px] w-[300px] mx-auto md:px-[10px] py-[15px] text-[28px] bg-[#04A777] text-white rounded-full shadow-xl font-semibold ">
           Submit
         </button>
       </form>
