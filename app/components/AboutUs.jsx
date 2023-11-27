@@ -5,7 +5,7 @@ import piesek from "../assets/piesek.png";
 const AboutUs = () => {
   return (
 <section name="about-us" className="grid gap-8 md:grid-cols-2 w-full h-screen">
-  <div className="md:col-span-1 mb-[250px] flex justify-center md:mt-[250px] order-last ">
+  <div className="md:col-span-1 mb-[200px] flex justify-center md:mt-[250px] order-last ">
     <Image src={piesek} alt="" className=""/>
   </div>
   <div className="md:col-span-1 order-first md:order-last">
