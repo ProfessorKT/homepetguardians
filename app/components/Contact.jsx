@@ -12,6 +12,37 @@ const Contact = () => {
           of them.
         </p>
       </div>
+      <form
+        action=""
+        className="flex flex-col w-[700px] mx-auto pt-[80px]"
+        autoComplete="off"
+      >
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Name"
+          className=" border-[2px] border-black bg-[#F1DABF] my-2 text-[24px] py-2 px-4 rounded-t-3xl"
+        />
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="E-mail"
+          className="border-[2px] border-black bg-[#F1DABF] my-2 text-[24px] py-2 px-4"
+        />
+        <textarea
+          name="message"
+          id="message"
+          cols="30"
+          rows="6"
+          placeholder="Your message..."
+          className="border-[2px] border-black bg-[#F1DABF] my-2 text-[24px] py-2 px-4 rounded-b-3xl"
+        ></textarea>
+        <button className="mt-[28px] w-[300px] mx-auto px-[10px] py-[10px] text-[28px] bg-[#04A777] text-white rounded-full ">
+          Submit
+        </button>
+      </form>
     </div>
   );
 };
