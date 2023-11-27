@@ -5,11 +5,10 @@ import { Link as LinkScroll } from "react-scroll";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { FiArrowLeft } from "react-icons/fi";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import { useUser } from "@clerk/clerk-react";
-// import { useRouter as useNextRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 /* The `navLinks` constant is an array of objects that represents the navigation links in the Navbar
 component. Each object in the array has two properties: `title` and `href`. */
@@ -21,16 +20,26 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  /* The line `const [open, setOpen] = useState(false);` is using the `useState` hook from React to
+  create a state variable called `open` and a corresponding setter function called `setOpen`. The
+  initial value of the `open` state variable is `false`. This state variable is used to control the
+  visibility of the mobile menu in the Navbar component. When `open` is `true`, the mobile menu is
+  displayed, and when `open` is `false`, the mobile menu is hidden. The `setOpen` function is used
+  to update the value of the `open` state variable. */
   const [open, setOpen] = useState(false);
 
-  const router = useRouter();
+  /* The code `const pathname = usePathname();` is using the `usePathname` hook from the
+ `next/navigation` package to get the current pathname of the URL. */
   const pathname = usePathname();
-  // const router = useNextRouter();
 
-  const isSignupOrLoginPage = ["/sign-up", "/sign-in"].includes(
-    router.pathname
-  );
+  /* The `isSignupOrLoginPage` constant is a boolean variable that checks if the current `pathname` is
+  equal to "/sign-in" or "/sign-up". It is used to determine if the user is on the sign-in or
+  sign-up page, and it is used to conditionally render certain elements in the Navbar component. */
+  const isSignupOrLoginPage =
+    pathname === "/sign-in" || pathname === "/sign-up";
 
+  const isSignUpPage = pathname === "/sign-up";
+  const isSignInPage = pathname === "/sign-in";
   /**
    * The toggleMenu function toggles the value of the open state variable.
    */
@@ -146,21 +155,20 @@ const Navbar = () => {
             <SignedOut>
               <>
                 <Link
-                  href="sign-up"
+                  href="/sign-up"
                   className="mr-4 ml-1 h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
                 >
                   Sign up
                 </Link>
-
                 <Link
-                  href="sign-in"
+                  href="/sign-in"
                   className="h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
                 >
                   Sign in
                 </Link>
               </>
             </SignedOut>
-            {/* )} */}
+
             <SignedIn>
               <Link href="profile" className="mr-4 text-lg">
                 Profile

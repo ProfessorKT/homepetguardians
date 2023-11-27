@@ -7,7 +7,8 @@ import Navbar from "./components/Navbar";
 import Head from "next/head";
 import { metadata } from "./metadata.jsx";
 const opensans = Open_Sans({ subsets: ["latin"] });
-
+import { NavigationEvents } from "./components/navigation-events";
+import { Suspense } from "react";
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
@@ -21,6 +22,9 @@ export default function RootLayout({ children }) {
           <Navbar />
           <main>
             <div>{children}</div>
+            <Suspense fallback={null}>
+              <NavigationEvents />
+            </Suspense>
           </main>
         </body>
       </html>
