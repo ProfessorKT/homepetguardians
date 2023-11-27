@@ -27,14 +27,14 @@ const Contact = () => {
           name="name"
           id="name"
           placeholder="Name"
-          className=" border-[3px] border-[#03312E] bg-[#F1DABF] my-2 text-[24px] py-2 px-4 rounded-t-3xl w-[90%] md:w-auto mx-auto md:mx-0"
+          className=" border-[3px] border-[#03312E] bg-[#F1DABF] my-2 text-[24px] py-2 px-4 rounded-t-3xl w-[90%] md:w-auto mx-auto md:mx-0 focus:outline-none"
         />
         <input
           type="email"
           name="email"
           id="email"
           placeholder="E-mail"
-          className="border-[3px] border-[#03312E] bg-[#F1DABF] my-2 text-[24px] py-2 px-4 w-[90%] md:w-auto mx-auto md:mx-0"
+          className="border-[3px] border-[#03312E] bg-[#F1DABF] my-2 text-[24px] py-2 px-4 w-[90%] md:w-auto mx-auto md:mx-0 focus:outline-none"
         />
         <textarea
           name="message"
@@ -42,7 +42,7 @@ const Contact = () => {
           cols="30"
           rows="6"
           placeholder="Your message..."
-          className="border-[3px] border-[#03312E] bg-[#F1DABF] my-2 text-[24px] py-2 px-4 rounded-b-3xl w-[90%] md:w-auto mx-auto md:mx-0"
+          className="border-[3px] border-[#03312E] bg-[#F1DABF] my-2 text-[24px] py-2 px-4 rounded-b-3xl w-[90%] md:w-auto mx-auto md:mx-0 focus:outline-none"
         ></textarea>
         <button className="mt-[28px] w-[300px] mx-auto md:px-[10px] py-[15px] text-[28px] bg-[#04A777] text-white rounded-full shadow-xl font-semibold ">
           Submit
