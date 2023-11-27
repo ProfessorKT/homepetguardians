@@ -5,7 +5,6 @@ import { Link as LinkScroll } from "react-scroll";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { FiArrowLeft } from "react-icons/fi";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
@@ -38,8 +37,17 @@ const Navbar = () => {
   const isSignupOrLoginPage =
     pathname === "/sign-in" || pathname === "/sign-up";
 
+  /* The line `const isSignUpPage = pathname === "/sign-up";` is checking if the current `pathname`
+  variable is equal to "/sign-up". It assigns the boolean value `true` to the `isSignUpPage`
+  constant if the condition is true, and `false` otherwise. This constant is used to conditionally
+  render certain elements in the Navbar component based on whether the user is on the sign-up page
+  or not. */
   const isSignUpPage = pathname === "/sign-up";
+
+  /* The above code is checking if the current pathname is equal to "/sign-in" and assigning the result
+  to the variable isSignInPage. */
   const isSignInPage = pathname === "/sign-in";
+
   /**
    * The toggleMenu function toggles the value of the open state variable.
    */
@@ -154,18 +162,24 @@ const Navbar = () => {
           <div className="items-center hidden md:flex">
             <SignedOut>
               <>
-                <Link
-                  href="/sign-up"
-                  className="mr-4 ml-1 h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
-                >
-                  Sign up
-                </Link>
-                <Link
-                  href="/sign-in"
-                  className="h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
-                >
-                  Sign in
-                </Link>
+                {!isSignUpPage && (
+                  <Link
+                    href="/sign-up"
+                    className={`h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer ${
+                      !isSignInPage ? "mr-4" : ""
+                    }`}
+                  >
+                    Sign up
+                  </Link>
+                )}
+                {!isSignInPage && (
+                  <Link
+                    href="/sign-in"
+                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
+                  >
+                    Sign in
+                  </Link>
+                )}
               </>
             </SignedOut>
 
@@ -182,6 +196,32 @@ const Navbar = () => {
                 afterSignOutUrl="/"
               />
             </SignedIn>
+          </div>
+          <div
+            className={`items-center md:hidden flex ${
+              pathname === "/" ? "hidden" : ""
+            }`}
+          >
+            <SignedOut>
+              <>
+                {!isSignUpPage && (
+                  <Link
+                    href="/sign-up"
+                    className=" h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
+                  >
+                    Sign up
+                  </Link>
+                )}
+                {!isSignInPage && (
+                  <Link
+                    href="/sign-in"
+                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
+                  >
+                    Sign in
+                  </Link>
+                )}
+              </>
+            </SignedOut>
           </div>
         </div>
         {!isSignupOrLoginPage && (
