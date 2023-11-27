@@ -2,19 +2,23 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <div name="contact" className="w-full h-screen">
-      <div className="pt-[140px]">
-        <h1 className="text-[40px] font-medium w-[180px] border-b-[4px] border-[#04A777] border- ml-[200px]">
+    <div
+      name="contact"
+      className="md:w-full w-[400px] h-screen flex justify-center align-center flex-col"
+    >
+      <div className="md:ml-[180px] mt-[-100px]">
+        <h1 className="text-[40px] font-medium border-b-[4px] border-[#04A777] text-left md:w-[180px]">
           Contact
         </h1>
-        <p className="ml-[200px] py-2 text-[20px]">
+        <p className="text-left py-2 text-[20px]">
           If you have any questions just ask us! We will be happy to answer all
           of them.
         </p>
       </div>
+
       <form
         action="https://getform.io/f/41890a8d-e5bd-4717-a2ba-2e88c2c00728"
-        className="flex flex-col w-[700px] mx-auto pt-[80px]"
+        className="flex flex-col md:w-[700px] mx-auto pt-[80px]"
         autoComplete="off"
         method="POST"
       >
