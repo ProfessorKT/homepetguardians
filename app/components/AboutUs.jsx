@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import piesek from "../assets/piesek.png";
+import piesek from "../assets/dog.png";
 
 const AboutUs = () => {
   return (
