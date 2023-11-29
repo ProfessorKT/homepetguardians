@@ -3,6 +3,7 @@ import Image from "next/image";
 import piesek from "../assets/dog.png";
 
 
+
 const AboutUs = () => {
   return (
 
@@ -12,10 +13,11 @@ const AboutUs = () => {
   </div>
   <div className="ml-[10px] md:col-span-2 md:ml-[200px] border-b-[4px] border-[#04A777] w-[170px] order-first">
     <h1 className="text-[40px] font-medium ">About us</h1>
+    
   </div>
   
   <div className="md:col-span-1 order-first md:order-last">
-    <p className="font-bold text-[26px] mx-[10px] md:mt-60 mt-10 md:text-right md:mr-[200px]">
+    <p className="font-bold text-[22px] mx-[10px] md:mt-60 mt-10 md:text-right md:mr-[200px] md:text-[26px]">
       Welcome to <span className="text-[#04A777]">HomePetGuardians</span>
     </p>
     <p className="text-[16px]  mx-[10px] md:text-right  md:mr-[200px] md:text-[22px]">
@@ -40,7 +42,9 @@ const AboutUs = () => {
       of mind, knowing that your pets are in the hands of skilled and
       compassionate professionals who treat them like family.
     </p>
+    
   </div>
+  
 </section>
 
 
