@@ -6,8 +6,8 @@ const Contact = () => {
       name="contact"
       className="md:w-full h-screen flex justify-center align-center flex-col"
     >
-      <div className="md:ml-[180px] md:mt-[-100px]">
-        <h1 className="text-[40px] font-medium border-b-[4px] border-[#04A777] text-left w-[180px] ">
+      <div className="md:mt-[-50px] md:flex-col md:w-[80%] md:mx-auto">
+        <h1 className="text-[40px] font-medium border-b-[4px] border-[#04A777] text-left w-[180px] md:ml-0 ml-[16px]">
           Contact
         </h1>
         <p className="text-left py-2 text-[20px] hidden md:block">

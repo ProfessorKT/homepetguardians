@@ -8,7 +8,10 @@ const Footer = () => {
       <div className="lg:hidden py-4 mt-4 w-[80%] mx-auto">
         <h1 className="font-bold pb-2 text-[22px]">Newsletter</h1>
         <p className="pb-2">Enter your email address</p>
-        <input type="text" className="w-[99%] mx-auto active:outline-none" />
+        <input
+          type="text"
+          className="max-w-[40%] min-w-[190px]  mx-auto active:outline-none border-b-2 border-[#7979792b]"
+        />
       </div>
       <div className="flex justify-between align-middle w-[80%] mx-auto mt-6 md:mt-0">
         <Image
@@ -46,7 +49,7 @@ const Footer = () => {
           <input
             type="text"
             placeholder="Enter your email address"
-            className="bg-inherit py-3 text-[18px] focus:outline-none hidden lg:block border-b-4 border-[#7979792b]"
+            className="bg-inherit py-3 text-[18px] focus:outline-none hidden lg:block border-b-2 border-[#7979792b]"
           />
           <h1 className="lg:hidden block md:text-[18px] text-[14px]   pr-2 md:pr-0 whitespace-nowrap">
             (123) 456-7890
