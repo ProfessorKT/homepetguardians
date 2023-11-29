@@ -11,7 +11,7 @@ const AboutUs = () => {
   <div className="md:col-span-1 mb-[200px] flex justify-center md:mt-[150px] order-last ">
     <Image src={piesek} alt="" className="lg:max-w-[480px] max-w-[250px]"/>
   </div>
-  <div className="ml-[10px] md:col-span-2 md:ml-[200px] border-b-[4px] border-[#04A777] w-[170px] order-first">
+  <div className="mt-[70px] ml-[10px] md:col-span-2 md:ml-[200px] border-b-[4px] border-[#04A777] w-[170px] order-first md:mt-[10px]">
     <h1 className="text-[40px] font-medium ">About us</h1>
     
   </div>
