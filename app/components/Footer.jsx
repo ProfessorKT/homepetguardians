@@ -4,7 +4,7 @@ import Logo from "../assets/logo.png";
 
 const Footer = () => {
   return (
-    <div className="w-full h-[400px] flex justify-center flex-col mx-auto bg-[#dfdcdb]">
+    <div className="w-full h-[400px] flex justify-center flex-col mx-auto bg-[#ffffff]">
       <div className="lg:hidden py-4 mt-4 w-[80%] mx-auto">
         <h1 className="font-bold pb-2 text-[22px]">Newsletter</h1>
         <p className="pb-2">Enter your email address</p>
@@ -46,9 +46,9 @@ const Footer = () => {
           <input
             type="text"
             placeholder="Enter your email address"
-            className="bg-inherit py-3 text-[18px] focus:outline-none hidden lg:block"
+            className="bg-inherit py-3 text-[18px] focus:outline-none hidden lg:block border-b-4 border-[#7979792b]"
           />
-          <h1 className="lg:hidden block md:text-[18px] text-[10px]   pr-2 md:pr-0 whitespace-nowrap">
+          <h1 className="lg:hidden block md:text-[18px] text-[14px]   pr-2 md:pr-0 whitespace-nowrap">
             (123) 456-7890
           </h1>
         </div>
