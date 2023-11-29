@@ -17,27 +17,27 @@ const AboutUs = () => {
   </div>
   
   <div className="md:col-span-1 order-first md:order-last">
-    <p className="font-bold text-[22px] mx-[10px] md:mt-60 mt-10 md:text-right md:mr-[200px] md:text-[26px]">
+    <p className="font-bold text-[20px] mx-[10px] md:mt-60 mt-10 md:text-right md:mr-[200px] md:text-[26px]">
       Welcome to <span className="text-[#04A777]">HomePetGuardians</span>
     </p>
-    <p className="text-[16px]  mx-[10px] md:text-right  md:mr-[200px] md:text-[22px]">
+    <p className="text-[14px]  mx-[10px] md:text-right  md:mr-[200px] md:text-[22px]">
       your trusted partner in professional pet care!
     </p>
-    <p className="text-[16px] my-[10px] mx-[10px] md:text-right  md:mr-[200px] md:text-[22px] md:my-[0px]">
+    <p className="text-[14px] my-[10px] mx-[10px] md:text-right  md:mr-[200px] md:text-[22px] md:my-[0px]">
       At <span className="text-[#04A777]">HomePetGuardians</span>, we take pride
       in our team of dedicated caregivers who understand the special bond you
       share with your pets.
     </p>
-    <p className="text-[16px] my-[10px] mx-[10px] md:text-right  md:mr-[200px] md:text-[22px] md:my-[0px]">
+    <p className="text-[14px] my-[10px] mx-[10px] md:text-right  md:mr-[200px] md:text-[22px] md:my-[0px]">
       Our experienced professionals are committed to providing exceptional care
       for your furry family members in the comfort of their own homes.
     </p>
-    <p className="text-[16px] my-[10px] mx-[10px] md:text-right  md:mr-[200px] md:text-[22px] md:my-[0px]">
+    <p className="text-[14px] my-[10px] mx-[10px] md:text-right  md:mr-[200px] md:text-[22px] md:my-[0px]">
       With a passion for animals and a focus on their well-being, our caregivers
       ensure that your pets receive the attention, love, and specialized care
       they deserve.
     </p>
-    <p className="text-[16px] my-[10px] mx-[10px] md:text-right  md:mr-[200px] md:text-[22px] md:my-[0px]">
+    <p className="text-[14px] my-[10px] mx-[10px] md:text-right  md:mr-[200px] md:text-[22px] md:my-[0px]">
       Choose <span className="text-[#04A777]">HomePetGuardians</span> for peace
       of mind, knowing that your pets are in the hands of skilled and
       compassionate professionals who treat them like family.
