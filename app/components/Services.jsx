@@ -4,8 +4,8 @@ const Services = () => {
   return (
     <div name="services" className="w-full h-screen">
       services
-      <div className="flex h-[80%] justify-center mx-4">
-        <div className="w-[980px] h-5 grid grid-cols-2 gap-x-[24px] gap-y-[24px] mr-[12px] ">
+      <div className="2xl:flex block h-screen justify-center mx-4 mt-[100px]">
+        <div className="w-[980px] h-[648px] grid grid-cols-2 gap-x-[24px] gap-y-[24px] mr-[12px]">
           <div
             name="siema4"
             className="bg-gradient-to-r from-[#F1DABF] to-[#E4CDB1] rounded-[32px] w-[340px] h-[240px] flex items-center justify-center"
@@ -43,7 +43,7 @@ const Services = () => {
             99/100 pets liked this
           </div>
         </div>
-        <div className="w-[704px] h-5 grid grid-cols-2 gap-x-[24px] gap-y-[24px] ml-[128px]">
+        <div className="w-[704px] h-[648px] grid grid-cols-2 gap-x-[24px] gap-y-[24px] 2xl:ml-[-128px] mt-8 2xl:mt-0">
           <div
             name="siema1"
             className="bg-gradient-to-r from-[#F1DABF] to-[#E4CDB1] rounded-[32px] w-100 h-[240px] flex items-center justify-center"
@@ -52,7 +52,7 @@ const Services = () => {
           </div>
           <div
             name="siema2"
-            className="bg-gradient-to-r from-[#F1DABF] to-[#E4CDB1] rounded-[32px] flex items-center justify-center"
+            className="bg-gradient-to-r from-[#F1DABF] to-[#E4CDB1] rounded-[32px] h-[240px] flex items-center justify-center"
           >
             3
           </div>
