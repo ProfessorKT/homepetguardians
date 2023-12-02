@@ -124,7 +124,6 @@ const Navbar = () => {
                     to="about-us"
                     smooth={true}
                     duration={500}
-                    offset={-60}  //dodalem zeby po nacisnieciu w navbar bylo widac napis about us
                     className="whitespace-nowrap"
                   >
                     About us
