@@ -4,6 +4,7 @@ import dognormal from "../assets/dog.png";
 import dogshadow1 from "../assets/dog-shadow1.png";
 
 const AboutUs = () => {
+
   return (
     <div name="about-us" className="w-full h-screen">
       <div className="grid h-screen place-items-center mx-auto w-full">
@@ -86,6 +87,7 @@ const AboutUs = () => {
       </div>
     </div>
   );
+
 };
 
 export default AboutUs;
