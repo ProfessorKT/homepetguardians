@@ -4,7 +4,45 @@ const Services = () => {
   return (
     <div name="services" className="w-full h-screen">
       services
-      <div className="2xl:flex block h-screen justify-center mx-4 mt-[100px]">
+      <div className="2xl:hidden grid grid-cols-2 w-[352px] gap-x-[9px] gap-y-[8px] mx-auto">
+        <div
+          name="uwu1"
+          className="bg-gradient-to-r from-[#F1DABF] to-[#E4CDB1] rounded-[32px] w-[100] h-[130px] flex items-center justify-center"
+        >
+          grafika
+        </div>
+        <div
+          name="uwu1"
+          className="bg-gradient-to-r from-[#F1DABF] to-[#E4CDB1] rounded-[32px] w-[100] h-[130px] flex items-center justify-center"
+        >
+          3
+        </div>
+        <div
+          name="uwu1"
+          className="bg-gradient-to-r from-[#F1DABF] to-[#E4CDB1] rounded-[32px] w-[100] h-[130px] flex items-center justify-center col-span-2"
+        >
+          kot
+        </div>
+        <div
+          name="uwu1"
+          className="bg-gradient-to-r from-[#F1DABF] to-[#E4CDB1] rounded-[32px] w-[100] h-[130px] flex items-center justify-center"
+        >
+          10
+        </div>
+        <div
+          name="uwu1"
+          className="bg-gradient-to-r from-[#F1DABF] to-[#E4CDB1] rounded-[32px] w-[100] h-[130px] flex items-center justify-center"
+        >
+          5
+        </div>
+        <div
+          name="uwu1"
+          className="bg-gradient-to-r from-[#F1DABF] to-[#E4CDB1] rounded-[32px] w-[100] h-[130px] flex items-center justify-center col-span-2"
+        >
+          food
+        </div>
+      </div>
+      <div className="hidden 2xl:flex h-screen justify-center mx-4 mt-[100px]">
         <div className="w-[980px] h-[648px] grid grid-cols-2 gap-x-[24px] gap-y-[24px] mr-[12px]">
           <div
             name="siema4"
