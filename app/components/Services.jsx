@@ -9,9 +9,9 @@ const Services = () => {
       <div className="flex justify-center mt-[24px]">
         <div
           name="bento"
-          className="grid md:grid-cols-4 md:grid-rows-3 w-full md:max-w-[800px] md:h-[560px] lg:max-w-[1106px] lg:h-[752px] xl:max-w-[1106px] 2xl:max-w-[1408px] mx-8 gap-x-[8px] xl:gap-x-[16px] gap-y-[8px] xl:gap-y-[16px]"
+          className="grid md:grid-cols-4 md:grid-rows-3 w-11/12 md:w-4/5 md:h-[752px] gap-x-[8px] gap-y-[8px] md:gap-x-[16px] md:gap-y-[16px]"
         >
-          <div className="w-full h-[190px] md:h-full bg-gradient-to-r from-[#F1DABF] to-[#E4CDB1] rounded-[32px] flex items-center justify-center col-span-2 row-span-2">
+          <div className="w-full h-[197px] md:h-full bg-gradient-to-r from-[#F1DABF] to-[#E4CDB1] rounded-[32px] flex items-center justify-center col-span-2 row-span-2">
             1
           </div>
           <div className="w-full h-[130px] md:h-full bg-gradient-to-r from-[#F1DABF] to-[#E4CDB1] rounded-[32px] flex items-center justify-center">
@@ -20,7 +20,7 @@ const Services = () => {
           <div className="w-full h-[130px] md:h-full bg-gradient-to-r from-[#F1DABF] to-[#E4CDB1] rounded-[32px] flex items-center justify-center">
             3
           </div>
-          <div className="w-full h-[190px] md:h-full bg-gradient-to-r from-[#F1DABF] to-[#E4CDB1] rounded-[32px] flex items-center justify-center col-span-2 row-span-2">
+          <div className="w-full h-[197px] md:h-full bg-gradient-to-r from-[#F1DABF] to-[#E4CDB1] rounded-[32px] flex items-center justify-center col-span-2 row-span-2">
             4
           </div>
           <div className="w-full h-[130px] md:h-full bg-gradient-to-r from-[#F1DABF] to-[#E4CDB1] rounded-[32px] flex items-center justify-center">
