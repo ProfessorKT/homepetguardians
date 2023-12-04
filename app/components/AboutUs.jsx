@@ -28,20 +28,20 @@ const AboutUs = () => {
             />
             </div>
           </div>
-          <div class="lg:flex lg:place-content-end mt-10 lg:mt-0 lg:text-[24px] lg:text-right xl:col-span-2 sm:text-left">
+          <div className="lg:flex lg:place-content-end mt-10 lg:mt-0 lg:text-[24px] lg:text-right xl:col-span-2 sm:text-left">
             <div>
-              <span class="sm:text-[24px] md:text-[32px]  font-bold text-black">Welcome to</span>
-              <span class=" sm:text-[24px] md:text-[32px]  font-bold text-[#04A777]">HomePetGuardians</span>,
-              <br class="sm:mt-0"></br>
-              <span class=" sm:text-[14px] md:text-[20px] lg:text-[24px]">your trusted partner in professional pet care!</span>
-              <br class="lg:hidden"></br><br></br>
-              <span class=" sm:text-[14px] md:text-[20px] lg:text-[24px]">At <span class="font-bold text-[#04A777]">HomePetGuardians</span>, we take pride in our team of dedicated caregivers who understand the special bond you share with your pets.</span>
-              <br class="lg:hidden"></br><br></br>
-              <span class=" sm:text-[14px] md:text-[20px] lg:text-[24px]">Our experienced professionals are committed to providing exceptional care for your furry family members in the comfort of their own homes.</span>
-              <br class="lg:hidden"></br><br></br>
-              <span class=" sm:text-[14px] md:text-[20px] lg:text-[24px]">With a passion for animals and a focus on their well-being, our caregivers ensure that your pets receive the attention, love, and specialized care they deserve.</span>
-              <br class="lg:hidden"></br><br></br>
-              <span class=" sm:text-[14px] md:text-[20px] lg:text-[24px]">Choose <span class="font-bold text-[#04A777]">HomePetGuardians</span> for peace of mind, knowing that your pets are in the hands of skilled and compassionate professionals who treat them like family.</span>
+              <span className="sm:text-[24px] md:text-[32px]  font-bold text-black">Welcome to</span>
+              <span className=" sm:text-[24px] md:text-[32px]  font-bold text-[#04A777]">HomePetGuardians</span>,
+              <br className="sm:mt-0"></br>
+              <span className=" sm:text-[14px] md:text-[20px] lg:text-[24px]">your trusted partner in professional pet care!</span>
+              <br className="lg:hidden"></br><br></br>
+              <span className=" sm:text-[14px] md:text-[20px] lg:text-[24px]">At <span className="font-bold text-[#04A777]">HomePetGuardians</span>, we take pride in our team of dedicated caregivers who understand the special bond you share with your pets.</span>
+              <br className="lg:hidden"></br><br></br>
+              <span className=" sm:text-[14px] md:text-[20px] lg:text-[24px]">Our experienced professionals are committed to providing exceptional care for your furry family members in the comfort of their own homes.</span>
+              <br className="lg:hidden"></br><br></br>
+              <span className=" sm:text-[14px] md:text-[20px] lg:text-[24px]">With a passion for animals and a focus on their well-being, our caregivers ensure that your pets receive the attention, love, and specialized care they deserve.</span>
+              <br className="lg:hidden"></br><br></br>
+              <span className=" sm:text-[14px] md:text-[20px] lg:text-[24px]">Choose <span className="font-bold text-[#04A777]">HomePetGuardians</span> for peace of mind, knowing that your pets are in the hands of skilled and compassionate professionals who treat them like family.</span>
             </div>
           </div>
             <Image
