@@ -3,11 +3,11 @@ import React from "react";
 const Services = () => {
   return (
     <div name="services" className="w-full h-screen">
-      <h1 className="text-[36px] font-medium border-b-[4px] border-[#04A777] w-[137px] ml-[8px]">
+      <h1 className="text-[36px] font-medium border-b-[4px] border-[#04A777] w-[137px] ml-[8px] pt-[76px]">
         Services
       </h1>
 
-      <div className="2xl:hidden grid grid-cols-2 w-[352px] gap-x-[9px] gap-y-[8px] mx-auto">
+      <div className="2xl:hidden grid grid-cols-2 w-[352px] gap-x-[9px] gap-y-[8px] mx-auto pt-[43px]">
         <div
           name="uwu1"
           className="bg-gradient-to-r from-[#F1DABF] to-[#E4CDB1] rounded-[32px] w-[100] h-[130px] flex items-center justify-center"
@@ -45,7 +45,7 @@ const Services = () => {
           food
         </div>
       </div>
-      <div className="hidden 2xl:flex h-screen justify-center mx-4">
+      <div className="hidden 2xl:flex h-screen justify-center mx-4 mt-[267px]">
         <div className="w-[980px] h-[648px] grid grid-cols-2 gap-x-[24px] gap-y-[24px] mr-[12px]">
           <div
             name="siema4"
