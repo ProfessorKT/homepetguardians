@@ -7,11 +7,11 @@ const AboutUs = () => {
   return (
     <div name="about-us" className="w-full h-screen">
       <div className="grid h-screen place-items-center mx-auto w-full">
-        <div className="  lg:mt-[100px] lg:grid xl:grid-cols-4 lg:grid-cols-2 block gap-0 mx-[15%] lg:mx-[50px] w-[95%] sm:w-[90%] xl:w-[90%] 2xl:w-[85%]">
+        <div className="  lg:mt-[100px] lg:grid xl:grid-cols-4 lg:grid-cols-2 block gap-0 mx-[15%] lg:mx-[50px] w-[95%] sm:w-[95%] xl:w-[90%] 2xl:w-[85%]">
           <div className="grid content-center lg:col-span-1 xl:col-span-2 lg:max-w-[840px] w-full lg:mr-8">
             <div className="grid w-full items-center  text-3xl lg:text-6xl xl:text-7xl font-medium grow ">
               <div className="md:mt-[-50px] md:flex-col md:w-[80%] md:mx-auto">
-                <h1 className="text-[40px] font-medium border-b-[4px] border-[#04A777] text-left w-[180px] lg:mt-[-150px] lg:ml-[-30px] md:ml-[-30px] md:mt-10px mt-20">
+                <h1 className="text-[40px] font-medium border-b-[4px] border-[#04A777] text-left w-[180px] lg:mt-[-150px] lg:ml-[10px] md:ml-[-20px] md:mt-10px mt-20 leading-[60px]">
                   About Us
                 </h1>
               </div>
@@ -31,7 +31,7 @@ const AboutUs = () => {
             <div>
               <span className="sm:text-[24px] md:text-[32px]  font-bold text-black">
                 Welcome to
-              </span>
+              </span>{" "}
               <span className=" sm:text-[24px] md:text-[32px]  font-bold text-[#04A777]">
                 HomePetGuardians
               </span>
