@@ -6,7 +6,7 @@ import { getAuth, signInWithCustomToken } from "firebase/auth";
 import { useEffect } from "react";
 import firebaseConfig from "../../lib/firebase.config";
 
-initializeApp(firebaseConfig);
+// initializeApp(firebaseConfig);
 
 const DashboardPage = () => {
   const { getToken } = useAuth();
