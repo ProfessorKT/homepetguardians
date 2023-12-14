@@ -165,7 +165,7 @@ const Navbar = () => {
                 {!isSignUpPage && (
                   <Link
                     href="/sign-up"
-                    className={`relative inline-flex inline-block items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-dark-green rounded-full hover:bg-almond group ${
+                    className={`relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-dark-green rounded-full hover:bg-almond group ${
                       !isSignInPage ? "mr-4" : ""
                     }`}
                   >
@@ -178,7 +178,7 @@ const Navbar = () => {
                 {!isSignInPage && (
                   <Link
                     href="/sign-in"
-                    className="relative inline-flex inline-block items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-dark-green rounded-full hover:bg-almond group"
+                    className="relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-dark-green rounded-full hover:bg-almond group"
                   >
                     <span class=" absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-almond rounded-full"></span>
                     <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-black whitespace-nowrap">
