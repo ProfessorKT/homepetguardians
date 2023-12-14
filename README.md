@@ -1,3 +1,5 @@
+"HomePetGuardians - Twoi opiekunowie zwierząt. Zapewniamy profesjonalną opiekę w domu dla Twojego zwierzaka podczas Twojej nieobecności. Codzienne karmienie, spacery i czystość - to, czym się zajmujemy, aby Twój pupil był szczęśliwy i zadbany."
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
