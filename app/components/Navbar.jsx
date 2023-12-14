@@ -165,19 +165,25 @@ const Navbar = () => {
                 {!isSignUpPage && (
                   <Link
                     href="/sign-up"
-                    className={`h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer ${
+                    className={`relative inline-flex inline-block items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-dark-green rounded-full hover:bg-almond group ${
                       !isSignInPage ? "mr-4" : ""
                     }`}
                   >
-                    Sign up
+                    <span class="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-almond rounded-full"></span>
+                    <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-black whitespace-nowrap">
+                      Sign-Up
+                    </span>
                   </Link>
                 )}
                 {!isSignInPage && (
                   <Link
                     href="/sign-in"
-                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
+                    className="relative inline-flex inline-block items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-dark-green rounded-full hover:bg-almond group"
                   >
-                    Sign in
+                    <span class=" absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-almond rounded-full"></span>
+                    <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-black whitespace-nowrap">
+                      Sign-In
+                    </span>
                   </Link>
                 )}
               </>
@@ -207,7 +213,7 @@ const Navbar = () => {
                 {!isSignUpPage && (
                   <Link
                     href="/sign-up"
-                    className=" h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
+                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
                   >
                     Sign up
                   </Link>
