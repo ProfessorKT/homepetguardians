@@ -21,7 +21,7 @@ const HomeSection = () => {
             <div className="mt-12 mb-12 lg:mb-0 lg:flex lg:w-[350px] w-full grid place-content-center lg:place-content-start">
               <Link
                 href="/dashboard"
-                className="relative inline-flex items-center justify-center w-[250px] h-[60px] p-4 px-6 py-3 overflow-hidden font-medium text-jade transition duration-300 ease-out border-2 border-jade rounded-full shadow-md group"
+                className="relative inline-flex items-center justify-center w-[250px] h-[60px] p-4 px-6 py-3 overflow-hidden font-medium text-jade transition duration-300 ease-out border-2 border-jade rounded-full group"
               >
                 <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-jade group-hover:translate-x-0 ease">
                   <svg
