@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "../assets/logo.svg";
 import { Squash as Hamburger } from "hamburger-react";
 import { Link as LinkScroll } from "react-scroll";
@@ -19,6 +19,33 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  const [activeLink, setActiveLink] = useState("home");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 150;
+
+      const sections = document.querySelectorAll("section");
+
+      sections.forEach((section) => {
+        const offsetTop = section.offsetTop;
+        const height = section.offsetHeight;
+
+        if (
+          scrollPosition >= offsetTop &&
+          scrollPosition < offsetTop + height
+        ) {
+          setActiveLink(section.id);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   /* The line `const [open, setOpen] = useState(false);` is using the `useState` hook from React to
   create a state variable called `open` and a corresponding setter function called `setOpen`. The
   initial value of the `open` state variable is `false`. This state variable is used to control the
@@ -108,11 +135,8 @@ const Navbar = () => {
         </div>
         <div className="flex justify-between w-full items-center">
           {isSignupOrLoginPage && (
-            <Link
-              href="/"
-              className="p-4 block text-xl transform transition duration-300 hover:scale-105"
-            >
-              <div className="flex items-center">
+            <Link href="/" className="p-4 block text-xl">
+              <div className="flex items-center nav-link relative pb-2 -mb-2">
                 <FiArrowLeft className="mr-1 text-2xl leading-none" />
                 <span>Return to Home</span>
               </div>
@@ -126,13 +150,29 @@ const Navbar = () => {
                   {isSignupOrLoginPage ? (
                     <Link href="/">Return to Home</Link>
                   ) : (
-                    <LinkScroll to="home" smooth={true} duration={500}>
+                    <LinkScroll
+                      to="home"
+                      smooth={true}
+                      duration={500}
+                      className="nav-link relative block pb-1"
+                      spy={true}
+                      exact={true}
+                      activeClass="active"
+                    >
                       Home
                     </LinkScroll>
                   )}
                 </li>
                 <li>
-                  <LinkScroll to="services" smooth={true} duration={500}>
+                  <LinkScroll
+                    to="services"
+                    smooth={true}
+                    duration={500}
+                    className="nav-link relative block pb-1"
+                    spy={true}
+                    exact={true}
+                    activeClass="active"
+                  >
                     Services
                   </LinkScroll>
                 </li>
@@ -141,7 +181,10 @@ const Navbar = () => {
                     to="about-us"
                     smooth={true}
                     duration={500}
-                    className="whitespace-nowrap"
+                    className="whitespace-nowrap nav-link relative block pb-1"
+                    spy={true}
+                    exact={true}
+                    activeClass="active"
                   >
                     About us
                   </LinkScroll>
@@ -152,6 +195,10 @@ const Navbar = () => {
                     href="/"
                     smooth={true}
                     duration={500}
+                    className="nav-link relative block pb-1"
+                    spy={true}
+                    exact={true}
+                    activeClass="active"
                   >
                     Contact
                   </LinkScroll>
@@ -244,7 +291,7 @@ const Navbar = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="fixed left-0 top-0 bg-[#04A777] w-full h-screen origin-top p-10 z-20"
+              className="fixed left-0 top-0 bg-[#04A777] w-full h-screen origin-top p-10 z-50"
             >
               <div className="flex h-full flex-col">
                 <div className="flex justify-between">

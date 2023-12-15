@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Services = () => {
   return (
-    <div name="services" className="w-full h-screen">
+    <div id="services" name="services" className="w-full h-screen">
       <div className="md:w-[80%] md:mx-auto">
         <h1 className="text-[40px] font-medium border-b-[4px] border-[#04A777] w-[180px] pt-[72px] md:pt-[80px] ml-[16px] md:ml-[0px]">
           Services

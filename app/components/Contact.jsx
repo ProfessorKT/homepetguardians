@@ -10,6 +10,7 @@ export default function Contact() {
   return (
     <div
       name="contact"
+      id="contact"
       className="md:w-full h-screen flex justify-center align-center flex-col"
     >
       <div className="mt-[-54px] md:mt-[-80px] md:flex-col md:w-[80%] md:mx-auto">
