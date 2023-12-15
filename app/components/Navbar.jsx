@@ -22,6 +22,10 @@ const Navbar = () => {
   const [activeLink, setActiveLink] = useState("home");
 
   useEffect(() => {
+    /**
+     * This function handles scrolling and updates the active link based on the current scroll
+     * position.
+     */
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 150;
 
