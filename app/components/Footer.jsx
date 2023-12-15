@@ -4,7 +4,7 @@ import Logo from "../assets/logo.png";
 
 const Footer = () => {
   return (
-    <div className="w-full h-[400px] flex justify-center flex-col mx-auto bg-[#ffffff]">
+    <div className="w-full h-[400px] flex justify-center flex-col mx-auto">
       <div className="lg:hidden py-4 mt-4 w-[80%] mx-auto">
         <h1 className="font-bold pb-2 text-[22px]">Newsletter</h1>
         <p className="pb-2">Enter your email address</p>

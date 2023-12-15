@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
           <title>{metadata.title}</title>
           <meta name="description" content={metadata.description} />
         </head>
-        <body className={opensans.className}>
+        <body className={`${opensans.className} bg-gradient-background`}>
           <Navbar />
           <main>
             <div>{children}</div>

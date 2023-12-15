@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "../assets/logo.svg";
 import { Squash as Hamburger } from "hamburger-react";
 import { Link as LinkScroll } from "react-scroll";
@@ -19,6 +19,37 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  const [activeLink, setActiveLink] = useState("home");
+
+  useEffect(() => {
+    /**
+     * This function handles scrolling and updates the active link based on the current scroll
+     * position.
+     */
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 150;
+
+      const sections = document.querySelectorAll("section");
+
+      sections.forEach((section) => {
+        const offsetTop = section.offsetTop;
+        const height = section.offsetHeight;
+
+        if (
+          scrollPosition >= offsetTop &&
+          scrollPosition < offsetTop + height
+        ) {
+          setActiveLink(section.id);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   /* The line `const [open, setOpen] = useState(false);` is using the `useState` hook from React to
   create a state variable called `open` and a corresponding setter function called `setOpen`. The
   initial value of the `open` state variable is `false`. This state variable is used to control the
@@ -108,11 +139,8 @@ const Navbar = () => {
         </div>
         <div className="flex justify-between w-full items-center">
           {isSignupOrLoginPage && (
-            <Link
-              href="/"
-              className="p-4 block text-xl transform transition duration-300 hover:scale-105"
-            >
-              <div className="flex items-center">
+            <Link href="/" className="p-4 block text-xl">
+              <div className="flex items-center nav-link relative pb-2 -mb-2">
                 <FiArrowLeft className="mr-1 text-2xl leading-none" />
                 <span>Return to Home</span>
               </div>
@@ -126,13 +154,29 @@ const Navbar = () => {
                   {isSignupOrLoginPage ? (
                     <Link href="/">Return to Home</Link>
                   ) : (
-                    <LinkScroll to="home" smooth={true} duration={500}>
+                    <LinkScroll
+                      to="home"
+                      smooth={true}
+                      duration={500}
+                      className="nav-link relative block pb-1"
+                      spy={true}
+                      exact={true}
+                      activeClass="active"
+                    >
                       Home
                     </LinkScroll>
                   )}
                 </li>
                 <li>
-                  <LinkScroll to="services" smooth={true} duration={500}>
+                  <LinkScroll
+                    to="services"
+                    smooth={true}
+                    duration={500}
+                    className="nav-link relative block pb-1"
+                    spy={true}
+                    exact={true}
+                    activeClass="active"
+                  >
                     Services
                   </LinkScroll>
                 </li>
@@ -141,7 +185,10 @@ const Navbar = () => {
                     to="about-us"
                     smooth={true}
                     duration={500}
-                    className="whitespace-nowrap"
+                    className="whitespace-nowrap nav-link relative block pb-1"
+                    spy={true}
+                    exact={true}
+                    activeClass="active"
                   >
                     About us
                   </LinkScroll>
@@ -152,6 +199,10 @@ const Navbar = () => {
                     href="/"
                     smooth={true}
                     duration={500}
+                    className="nav-link relative block pb-1"
+                    spy={true}
+                    exact={true}
+                    activeClass="active"
                   >
                     Contact
                   </LinkScroll>
@@ -165,19 +216,25 @@ const Navbar = () => {
                 {!isSignUpPage && (
                   <Link
                     href="/sign-up"
-                    className={`h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer ${
+                    className={`relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-dark-green rounded-full hover:bg-almond group ${
                       !isSignInPage ? "mr-4" : ""
                     }`}
                   >
-                    Sign up
+                    <span class="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-almond rounded-full"></span>
+                    <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-black whitespace-nowrap">
+                      Sign-Up
+                    </span>
                   </Link>
                 )}
                 {!isSignInPage && (
                   <Link
                     href="/sign-in"
-                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
+                    className="relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-dark-green rounded-full hover:bg-almond group"
                   >
-                    Sign in
+                    <span class=" absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-almond rounded-full"></span>
+                    <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-black whitespace-nowrap">
+                      Sign-In
+                    </span>
                   </Link>
                 )}
               </>
@@ -207,7 +264,7 @@ const Navbar = () => {
                 {!isSignUpPage && (
                   <Link
                     href="/sign-up"
-                    className=" h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
+                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
                   >
                     Sign up
                   </Link>
@@ -238,7 +295,7 @@ const Navbar = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="fixed left-0 top-0 bg-[#04A777] w-full h-screen origin-top p-10 z-20"
+              className="fixed left-0 top-0 bg-[#04A777] w-full h-screen origin-top p-10 z-50"
             >
               <div className="flex h-full flex-col">
                 <div className="flex justify-between">

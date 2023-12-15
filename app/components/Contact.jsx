@@ -1,9 +1,16 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 
-const Contact = () => {
+export default function Contact() {
+  /* In this code, `useState` is a React hook that allows you to add state to functional components. */
+  const [message, setMessage] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
   return (
     <div
       name="contact"
+      id="contact"
       className="md:w-full h-screen flex justify-center align-center flex-col"
     >
       <div className="mt-[-54px] md:mt-[-80px] md:flex-col md:w-[80%] md:mx-auto">
@@ -17,7 +24,7 @@ const Contact = () => {
       </div>
 
       <form
-        action="https://getform.io/f/41890a8d-e5bd-4717-a2ba-2e88c2c00728"
+        action="https://getform.io/f/851d7e38-704f-4098-82d5-8c7df3f79aa4"
         className="flex flex-col justify-center md:w-[700px] w-full mx-auto pt-[80px]"
         autoComplete="off"
         method="POST"
@@ -27,6 +34,7 @@ const Contact = () => {
           name="name"
           id="name"
           placeholder="Name"
+          onChange={(e) => setName(e.target.value)}
           className=" border-[3px] border-[#03312E] bg-[#F1DABF] my-2 text-[24px] py-2 px-4 rounded-t-3xl w-[90%] md:w-auto mx-auto md:mx-0 focus:outline-none"
         />
         <input
@@ -34,9 +42,13 @@ const Contact = () => {
           name="email"
           id="email"
           placeholder="E-mail"
+          onChange={(e) => setEmail(e.target.value)}
           className="border-[3px] border-[#03312E] bg-[#F1DABF] my-2 text-[24px] py-2 px-4 w-[90%] md:w-auto mx-auto md:mx-0 focus:outline-none"
         />
+        {/* To prevent Spam */}
+        <input type="hidden" name="_gotcha" className="!hidden"></input>
         <textarea
+          onChange={(e) => setMessage(e.target.value)}
           name="message"
           id="message"
           cols="30"
@@ -44,12 +56,32 @@ const Contact = () => {
           placeholder="Your message..."
           className="border-[3px] border-[#03312E] bg-[#F1DABF] my-2 text-[24px] py-2 px-4 rounded-b-3xl w-[90%] md:w-auto mx-auto md:mx-0 focus:outline-none"
         ></textarea>
-        <button className="mt-[28px] w-[300px] mx-auto md:px-[10px] py-[15px] text-[28px] bg-[#04A777] text-white rounded-full shadow-xl font-semibold ">
-          Submit
+        <button
+          type="submit"
+          disabled={name.length < 3 || email.length < 6 || message.length < 20}
+          title={
+            name.length < 3 || email.length < 6 || message.length < 20
+              ? "The name should have at least 3 letters, email 6 symbols and message 20 symbols"
+              : ""
+          }
+          className={`mt-[28px] rounded-full text-center py-[12px] mx-auto w-[300px] h-[70px] md:relative px-5 overflow-hidden group transition-all ease-out duration-300 ${
+            name.length < 3 || email.length < 6 || message.length < 20
+              ? "bg-gray-300"
+              : "bg-jade hover:bg-gradient-to-r hover:from-jade hover:to-[#04e4a1] text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400"
+          }`}
+        >
+          <span className="hidden md:block md:absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+          <span
+            className={`md:relative text-[28px] font-semibold ${
+              name.length < 3 || email.length < 6 || message.length < 20
+                ? "text-gray-600"
+                : "text-white"
+            }`}
+          >
+            Submit
+          </span>
         </button>
       </form>
     </div>
   );
-};
-
-export default Contact;
+}
