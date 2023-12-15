@@ -17,6 +17,7 @@ module.exports = {
         almond: "#f1dabf",
         "snow-white": "#fffbff",
         jade: "#04a777",
+        "light-green": "#0febaa",
       },
     },
   },
