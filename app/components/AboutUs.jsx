@@ -5,7 +5,7 @@ import dogshadow1 from "../assets/dog-shadow1.png";
 
 const AboutUs = () => {
   return (
-    <div name="about-us" className="w-full h-screen">
+    <div name="about-us" id="about-us" className="w-full h-screen">
       <div className="grid h-screen place-items-center mx-auto w-full">
         <div className="  lg:mt-[100px] lg:grid xl:grid-cols-4 lg:grid-cols-2 block gap-0 mx-[15%] lg:mx-[50px] w-[95%] sm:w-[95%] xl:w-[90%] 2xl:w-[85%]">
           <div className="grid content-center lg:col-span-1 xl:col-span-2 lg:max-w-[840px] w-full lg:mr-8">
