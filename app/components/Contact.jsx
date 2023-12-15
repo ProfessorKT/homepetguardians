@@ -55,7 +55,7 @@ export default function Contact() {
           placeholder="Your message..."
           className="border-[3px] border-[#03312E] bg-[#F1DABF] my-2 text-[24px] py-2 px-4 rounded-b-3xl w-[90%] md:w-auto mx-auto md:mx-0 focus:outline-none"
         ></textarea>
-        <button
+        {/* <button
           type="submit"
           disabled={name.length < 1 || email.length < 1 || message.length < 20}
           className={`mt-[28px] rounded-full text-center py-[12px] mx-auto w-[300px] h-[70px]  px-5 overflow-hidden group transition-all ease-out duration-500 ${
@@ -66,6 +66,24 @@ export default function Contact() {
         >
           <span
             className={`text-[28px] font-semibold ${
+              message.length < 20 ? "text-gray-600" : "text-white"
+            }`}
+          >
+            Submit
+          </span>
+        </button> */}
+        <button
+          type="submit"
+          disabled={message.length < 20}
+          className={`mt-[28px] rounded-full text-center py-[12px] mx-auto w-[300px] h-[70px] md:relative px-5 overflow-hidden group transition-all ease-out duration-300 ${
+            message.length < 20
+              ? "bg-gray-300"
+              : "bg-jade hover:bg-gradient-to-r hover:from-jade hover:to-[#04e4a1] text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400"
+          }`}
+        >
+          <span className="hidden md:block md:absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+          <span
+            className={`md:relative text-[28px] font-semibold ${
               message.length < 20 ? "text-gray-600" : "text-white"
             }`}
           >
