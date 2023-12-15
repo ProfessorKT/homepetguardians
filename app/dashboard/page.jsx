@@ -5,6 +5,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth, signInWithCustomToken } from "firebase/auth";
 import { useEffect } from "react";
 import firebaseConfig from "../../lib/firebase.config";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 // initializeApp(firebaseConfig);
 
@@ -15,13 +16,17 @@ const DashboardPage = () => {
     const signInWithClerk = async () => {
       const auth = getAuth();
       const token = await getToken({ template: "integration_firebase" });
-      const userCredentials = await signInWithCustomToken(auth, token);
+      try {
+        const userCredentials = await signInWithCustomToken(auth, token);
+        console.log("user ::", userCredentials.user);
+      } catch (error) {
+        console.log("Error: " + error.code + error.message);
+      }
 
       /**
        * The userCredentials.user object will call the methods of
        * the Firebase platform as an authenticated user.
        */
-      console.log("user ::", userCredentials.user);
     };
 
     signInWithClerk();
