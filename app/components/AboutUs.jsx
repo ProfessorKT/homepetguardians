@@ -11,7 +11,7 @@ const AboutUs = () => {
           <div className="grid content-center lg:col-span-1 xl:col-span-2 lg:max-w-[840px] w-full lg:mr-8">
             <div className="grid w-full items-center  text-3xl lg:text-6xl xl:text-7xl font-medium grow ">
               <div className="md:mt-[-50px] md:flex-col md:w-[80%] md:mx-auto">
-                <h1 className="text-[40px] font-medium border-b-[4px] border-[#04A777] text-left w-[180px] lg:mt-[-150px] lg:ml-[10px] md:ml-[-20px] md:mt-10px mt-20 leading-[60px]">
+                <h1 className="text-[40px] font-medium border-b-[4px] border-jade text-left w-[180px] lg:mt-[-150px] lg:ml-[10px] md:ml-[-20px] md:mt-10px mt-20 leading-[60px]">
                   About Us
                 </h1>
               </div>
@@ -32,7 +32,7 @@ const AboutUs = () => {
               <span className="sm:text-[24px] md:text-[32px]  font-bold text-black">
                 Welcome to
               </span>{" "}
-              <span className=" sm:text-[24px] md:text-[32px]  font-bold text-[#04A777]">
+              <span className=" sm:text-[24px] md:text-[32px]  font-bold text-jade">
                 HomePetGuardians
               </span>
               ,<br className="sm:mt-0"></br>
@@ -43,7 +43,7 @@ const AboutUs = () => {
               <br></br>
               <span className=" sm:text-[14px] md:text-[20px] lg:text-[24px]">
                 At{" "}
-                <span className="font-bold text-[#04A777]">
+                <span className="font-bold text-jade">
                   HomePetGuardians
                 </span>
                 , we take pride in our team of dedicated caregivers who
@@ -67,7 +67,7 @@ const AboutUs = () => {
               <br></br>
               <span className=" sm:text-[14px] md:text-[20px] lg:text-[24px]">
                 Choose{" "}
-                <span className="font-bold text-[#04A777]">
+                <span className="font-bold text-jade">
                   HomePetGuardians
                 </span>{" "}
                 for peace of mind, knowing that your pets are in the hands of

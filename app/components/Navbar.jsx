@@ -128,7 +128,7 @@ const Navbar = () => {
 
   return (
     <header className="h-[70px] fixed w-full">
-      <div className="fixed w-full h-[70px] flex items-center px-4 bg-[#04A777] text-white z-10">
+      <div className="fixed w-full h-[70px] flex items-center px-4 bg-jade text-white z-10">
         <div>
           <Image
             src={Logo}
@@ -264,7 +264,7 @@ const Navbar = () => {
                 {!isSignUpPage && (
                   <Link
                     href="/sign-up"
-                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
+                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-dark-green flex rounded-2xl cursor-pointer"
                   >
                     Sign up
                   </Link>
@@ -272,7 +272,7 @@ const Navbar = () => {
                 {!isSignInPage && (
                   <Link
                     href="/sign-in"
-                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
+                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-dark-green flex rounded-2xl cursor-pointer"
                   >
                     Sign in
                   </Link>
@@ -295,7 +295,7 @@ const Navbar = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="fixed left-0 top-0 bg-[#04A777] w-full h-screen origin-top p-10 z-50"
+              className="fixed left-0 top-0 bg-jade w-full h-screen origin-top p-10 z-50"
             >
               <div className="flex h-full flex-col">
                 <div className="flex justify-between">
@@ -335,12 +335,12 @@ const Navbar = () => {
                 </motion.div>
                 <div className="flex w-full justify-center items-center">
                   <Link href="sign-up" onClick={toggleMenu}>
-                    <div className="h-[60px] w-[150px] mr-3 text-white justify-center items-center align-middle bg-[#03312E] flex rounded-3xl cursor-pointer text-xl">
+                    <div className="h-[60px] w-[150px] mr-3 text-white justify-center items-center align-middle bg-dark-green flex rounded-3xl cursor-pointer text-xl">
                       Sign up
                     </div>
                   </Link>
                   <Link href="sign-in" onClick={toggleMenu}>
-                    <div className="h-[60px] w-[150px] ml-3 text-white justify-center items-center align-middle bg-[#03312E] flex rounded-3xl cursor-pointer text-xl">
+                    <div className="h-[60px] w-[150px] ml-3 text-white justify-center items-center align-middle bg-dark-green flex rounded-3xl cursor-pointer text-xl">
                       Sign in
                     </div>
                   </Link>
