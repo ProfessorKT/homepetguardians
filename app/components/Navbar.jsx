@@ -78,6 +78,7 @@ const Navbar = () => {
   /* The above code is checking if the current pathname is equal to "/sign-in" and assigning the result
   to the variable isSignInPage. */
   const isSignInPage = pathname === "/sign-in";
+  const isHomePage = pathname === "/";
 
   /**
    * The toggleMenu function toggles the value of the open state variable.
@@ -239,20 +240,25 @@ const Navbar = () => {
                 )}
               </>
             </SignedOut>
-
-            <SignedIn>
-              <Link href="profile" className="mr-4 text-lg">
-                Profile
-              </Link>
-              <UserButton
-                appearance={{
-                  elements: {
-                    avatarBox: "w-[38px] h-[38px] rounded-full",
-                  },
-                }}
-                afterSignOutUrl="/"
-              />
-            </SignedIn>
+            {!isHomePage ? (
+              <SignedIn>
+                <Link href="profile" className="mr-4 text-lg">
+                  Profile
+                </Link>
+                <UserButton
+                  appearance={{
+                    elements: {
+                      avatarBox: "w-[38px] h-[38px] rounded-full",
+                    },
+                  }}
+                  afterSignOutUrl="/"
+                />
+              </SignedIn>
+            ) : (
+              <SignedIn>
+                <Link href="/dashboard">Return to Home</Link>
+              </SignedIn>
+            )}
           </div>
           <div
             className={`items-center md:hidden flex ${
