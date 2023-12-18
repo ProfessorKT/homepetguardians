@@ -161,7 +161,6 @@ const Navbar = () => {
                       duration={500}
                       className="nav-link relative block pb-1"
                       spy={true}
-                      exact={true}
                       activeClass="active"
                     >
                       Home
@@ -175,7 +174,6 @@ const Navbar = () => {
                     duration={500}
                     className="nav-link relative block pb-1"
                     spy={true}
-                    exact={true}
                     activeClass="active"
                   >
                     Services
@@ -188,7 +186,6 @@ const Navbar = () => {
                     duration={500}
                     className="whitespace-nowrap nav-link relative block pb-1"
                     spy={true}
-                    exact={true}
                     activeClass="active"
                   >
                     About us
@@ -202,7 +199,6 @@ const Navbar = () => {
                     duration={500}
                     className="nav-link relative block pb-1"
                     spy={true}
-                    exact={true}
                     activeClass="active"
                   >
                     Contact
