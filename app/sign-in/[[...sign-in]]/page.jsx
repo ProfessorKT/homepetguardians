@@ -7,7 +7,7 @@ const SignInPage = () => {
       <SignIn
         appearance={{
           elements: {
-            formButtonPrimary: "bg-[#04A777] hover:bg-[#03312E]",
+            formButtonPrimary: "bg-jade hover:bg-dark-green",
           },
         }}
       />

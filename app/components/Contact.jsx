@@ -14,7 +14,7 @@ export default function Contact() {
       className="md:w-full h-screen flex justify-center align-center flex-col"
     >
       <div className="mt-[-54px] md:mt-[-80px] md:flex-col md:w-[80%] md:mx-auto">
-        <h1 className="text-[40px] font-medium border-b-[4px] border-[#04A777] text-left w-[180px] md:ml-0 ml-[16px]">
+        <h1 className="text-[40px] font-medium border-b-[4px] border-jade text-left w-[180px] md:ml-0 ml-[16px]">
           Contact
         </h1>
         <p className="text-left py-2 text-[20px] hidden md:block">
@@ -35,7 +35,7 @@ export default function Contact() {
           id="name"
           placeholder="Name"
           onChange={(e) => setName(e.target.value)}
-          className=" border-[3px] border-[#03312E] bg-[#F1DABF] my-2 text-[24px] py-2 px-4 rounded-t-3xl w-[90%] md:w-auto mx-auto md:mx-0 focus:outline-none"
+          className=" border-[3px] border-dark-green bg-almond my-2 text-[24px] py-2 px-4 rounded-t-3xl w-[90%] md:w-auto mx-auto md:mx-0 focus:outline-none"
         />
         <input
           type="email"
@@ -43,7 +43,7 @@ export default function Contact() {
           id="email"
           placeholder="E-mail"
           onChange={(e) => setEmail(e.target.value)}
-          className="border-[3px] border-[#03312E] bg-[#F1DABF] my-2 text-[24px] py-2 px-4 w-[90%] md:w-auto mx-auto md:mx-0 focus:outline-none"
+          className="border-[3px] border-dark-green bg-almond my-2 text-[24px] py-2 px-4 w-[90%] md:w-auto mx-auto md:mx-0 focus:outline-none"
         />
         {/* To prevent Spam */}
         <input type="hidden" name="_gotcha" className="!hidden"></input>
@@ -54,7 +54,7 @@ export default function Contact() {
           cols="30"
           rows="6"
           placeholder="Your message..."
-          className="border-[3px] border-[#03312E] bg-[#F1DABF] my-2 text-[24px] py-2 px-4 rounded-b-3xl w-[90%] md:w-auto mx-auto md:mx-0 focus:outline-none"
+          className="border-[3px] border-dark-green bg-almond my-2 text-[24px] py-2 px-4 rounded-b-3xl w-[90%] md:w-auto mx-auto md:mx-0 focus:outline-none"
         ></textarea>
         <button
           type="submit"
@@ -67,7 +67,7 @@ export default function Contact() {
           className={`mt-[28px] rounded-full text-center py-[12px] mx-auto w-[300px] h-[70px] md:relative px-5 overflow-hidden group transition-all ease-out duration-300 ${
             name.length < 3 || email.length < 6 || message.length < 20
               ? "bg-gray-300"
-              : "bg-jade hover:bg-gradient-to-r hover:from-jade hover:to-[#04e4a1] text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400"
+              : "bg-jade hover:bg-gradient-to-r hover:from-jade hover:to-lightTurquoiseColor text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400"
           }`}
         >
           <span className="hidden md:block md:absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
