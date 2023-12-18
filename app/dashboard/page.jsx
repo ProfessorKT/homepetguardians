@@ -21,6 +21,7 @@ const DashboardPage = () => {
         console.log("user ::", userCredentials.user);
       } catch (error) {
         console.log("Error: " + error.code + error.message);
+        window.location.reload();
       }
 
       /**
