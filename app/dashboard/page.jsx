@@ -5,6 +5,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth, signInWithCustomToken } from "firebase/auth";
 import { useEffect } from "react";
 import firebaseConfig from "../../lib/firebase.config";
+import PetsittersAvailable from "./PetsittersAvailable";
 
 // initializeApp(firebaseConfig);
 
@@ -28,7 +29,7 @@ const DashboardPage = () => {
   }, []);
   return (
     <>
-      <div> DashboardPage </div>
+      <PetsittersAvailable />
     </>
   );
 };
