@@ -2,6 +2,13 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../lib/firebaseConfig";
 import { getDocs, collection } from "firebase/firestore";
 import { FaSortUp, FaSortDown } from "react-icons/fa";
+import {
+  APIProvider,
+  Map,
+  AdvancedMarker,
+  Pin,
+  InfoWindow,
+} from "@vis.gl/react-google-maps";
 
 async function fetchDataFromFirestore() {
   const querySnapshot = await getDocs(collection(db, "petsitters"));
@@ -17,6 +24,9 @@ async function fetchDataFromFirestore() {
 const PetsittersAvailable = () => {
   const [petsitterData, setPetsitterData] = useState([]);
   const [sortOrder, setSortOrder] = useState("asc");
+
+  //defines the starting position of the map - Gdańsk
+  const position = { lat: 54.372158, lng: 18.638306 };
 
   useEffect(() => {
     async function fetchData() {
@@ -66,9 +76,16 @@ const PetsittersAvailable = () => {
           })}
         </div>
       </div>
-      <div>
-        <h1> Map</h1>
-      </div>
+
+      <APIProvider apiKey="AIzaSyBIQZ9fVWd9ViTSwwakS09ufWio7zz4vxs">
+        <div className="h-[500px] w-[500px]">
+          <Map zoom={10} center={position} mapId="215c0bcb4534194a">
+            {/* <AdvancedMarker position={position}>
+              <Pin glyphColor="white" />
+            </AdvancedMarker> */}
+          </Map>
+        </div>
+      </APIProvider>
     </div>
   );
 };
