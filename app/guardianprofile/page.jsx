@@ -5,6 +5,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth, signInWithCustomToken } from "firebase/auth";
 import { useEffect } from "react";
 import firebaseConfig from "../../lib/firebase.config";
+import GP from "../components/GP";
 
 const GuardianProfile = () => {
   const { getToken } = useAuth();
@@ -25,7 +26,11 @@ const GuardianProfile = () => {
     signInWithClerk();
   }, []);
 
-  return <h2 className="pt-[500px] text-[100px]">GuardianProfile</h2>;
+  return (
+    <>
+      <GP />
+    </>
+  );
 };
 
 export default GuardianProfile;
