@@ -49,3 +49,12 @@ select:-webkit-autofill:focus {
 .nav-link.active::after {
   width: 100%;
 }
+.react-datepicker__header {
+  background-color: #04a777 !important;
+}
+.react-datepicker__current-month {
+  color: #fffbff !important;
+}
+.react-datepicker__day-name {
+  color: #fffbff !important;
+}
