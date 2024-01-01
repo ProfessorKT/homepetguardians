@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from "react";
-import firebase from "firebase/app";
 import { db } from "../../lib/firebase.config.js";
 import "firebase/firestore";
 import { collection, getDocs } from "firebase/firestore";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Select from "react-select";
 
 const DashboardSelectForm = () => {
   const [cities, setCities] = useState([]);
   const [pets, setPets] = useState([]);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+
+  //const for button disabling
+  const [city, setCity] = useState("Choose city");
+  const [pet, setPet] = useState("Choose pet");
+  const [dateRange, setDateRange] = useState("Choose date range");
 
   const formatDateRange = (start, end) => {
     if (!start || !end) return "Choose date range";
@@ -56,6 +61,8 @@ const DashboardSelectForm = () => {
             name=""
             id=""
             className="w-[450px] my-5 mx-auto border-solid border-[1px] rounded-xl p-1 bg-almond border-jade"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
           >
             <option value="">Choose city</option>
             {cities.map((city, index) => (
@@ -68,6 +75,8 @@ const DashboardSelectForm = () => {
             name=""
             id=""
             className="w-[450px] my-5 mx-auto border-solid border-[1px] rounded-xl p-1 bg-almond border-jade"
+            value={pet}
+            onChange={(e) => setPet(e.target.value)}
           >
             <option value="">Choose pet</option>
             {pets.map((pet, index) => (
@@ -80,7 +89,7 @@ const DashboardSelectForm = () => {
             type="text"
             value={formatDateRange(startDate, endDate)}
             readOnly
-            className="w-[450px] my-5 mx-auto border-solid border-[1px] rounded-xl p-1 bg-almond border-jade"
+            className="w-[450px] my-5 mx-auto border-solid border-[1px] rounded-xl p-1 bg-almond border-jade focus-visible:outline-none"
           />
           <div className="flex justify-center">
             <DatePicker
@@ -97,13 +106,26 @@ const DashboardSelectForm = () => {
               className=""
             />
           </div>
-          <a
+          <button
+            disabled={
+              city === "Choose city" ||
+              pet === "Choose pet" ||
+              startDate === null ||
+              endDate === null
+            }
             href="#_"
-            class=" w-[200px] mx-auto text-center rounded-2xl px-5 py-2.5 my-4 overflow-hidden group bg-jade relative hover:bg-gradient-to-r hover:from-jade hover:lightTurquoiseColor text-snow-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300"
+            class={`w-[200px] mx-auto text-center rounded-2xl px-5 py-2.5 my-4 overflow-hidden group relative hover:ring-2 hover:ring-offset-2  transition-all ease-out duration-300 ${
+              city === "Choose city" ||
+              pet === "Choose pet" ||
+              startDate === null ||
+              endDate === null
+                ? "bg-gray-400 hover:ring-gray-400"
+                : "bg-jade hover:bg-gradient-to-r hover:from-jade hover:lightTurquoiseColor text-snow-white hover:ring-green-400"
+            }`}
           >
             <span class="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-snow-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-            <span class="relative">Button Text</span>
-          </a>
+            <span class="relative">Look for petsitter</span>
+          </button>
         </form>
       </div>
     </div>
