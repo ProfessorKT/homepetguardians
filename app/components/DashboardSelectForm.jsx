@@ -50,7 +50,9 @@ const DashboardSelectForm = () => {
   return (
     <div className="w-full h-screen">
       <div className="flex justify-center pt-[100px]">
-        <p className="text-3xl font-bold">Find proven care for your pet</p>
+        <p className="text-3xl font-bold text-dark-green">
+          Find proven care for your pet
+        </p>
       </div>
       <div className="flex justify-center">
         <form
@@ -127,6 +129,40 @@ const DashboardSelectForm = () => {
             <span class="relative">Look for petsitter</span>
           </button>
         </form>
+      </div>
+      <div className="grid grid-cols-3 gap-4 mt-[50px] mx-8">
+        <div className="flex justify-center">
+          <div className="flex flex-col justify-center">
+            <p className="flex justify-center mb-5 font-bold text-[24px] text-jade">
+              HomePetGuardian.com
+            </p>
+            <p className="flex justify-center text-center">
+              exists to help you find the perfect pet sitter for your pet when
+              you need it.
+            </p>
+          </div>
+        </div>
+        <div className="flex justify-center">
+          <div className="flex flex-col justify-center">
+            <p className="flex justify-center mb-5 font-bold text-[24px] text-jade">
+              We understand
+            </p>
+            <p className="flex justify-center text-center">
+              that entrusting your pet to someone else's care is a challenge in
+              many respects.
+            </p>
+          </div>
+        </div>
+        <div className="flex justify-center">
+          <div className="flex flex-col justify-center">
+            <p className="flex justify-center mb-5 font-bold text-[24px] text-jade">
+              Safety
+            </p>
+            <p className="flex justify-center text-center">
+              Your pet will be in good hands - a safe and caring environment.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
