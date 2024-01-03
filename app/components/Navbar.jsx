@@ -78,7 +78,14 @@ const Navbar = () => {
   /* The above code is checking if the current pathname is equal to "/sign-in" and assigning the result
   to the variable isSignInPage. */
   const isSignInPage = pathname === "/sign-in";
+
+  /* The above code is checking if the current pathname is equal to "/". It is assigning the result of
+  this check to the variable isHomePage. */
   const isHomePage = pathname === "/";
+
+  /* The above code is checking if the current pathname is equal to "/dashboard" and assigning the
+  result to the variable isDashboardPage. */
+  const isDashboardPage = pathname === "/dashboard";
 
   /**
    * The toggleMenu function toggles the value of the open state variable.
@@ -149,61 +156,70 @@ const Navbar = () => {
           )}
 
           <ul className="hidden md:flex px-4 text-xl ">
-            {!isSignupOrLoginPage && (
+            {isDashboardPage && (
               <>
-                <li>
-                  {isSignupOrLoginPage ? (
-                    <Link href="/">Return to Home</Link>
-                  ) : (
-                    <LinkScroll
-                      to="home"
-                      smooth={true}
-                      duration={500}
-                      className="nav-link relative block pb-1"
-                      spy={true}
-                      activeClass="active"
-                    >
-                      Home
-                    </LinkScroll>
-                  )}
-                </li>
-                <li>
-                  <LinkScroll
-                    to="services"
-                    smooth={true}
-                    duration={500}
-                    className="nav-link relative block pb-1"
-                    spy={true}
-                    activeClass="active"
-                  >
-                    Services
-                  </LinkScroll>
-                </li>
-                <li>
-                  <LinkScroll
-                    to="about-us"
-                    smooth={true}
-                    duration={500}
-                    className="whitespace-nowrap nav-link relative block pb-1"
-                    spy={true}
-                    activeClass="active"
-                  >
-                    About us
-                  </LinkScroll>
-                </li>
-                <li className="!pr-0">
-                  <LinkScroll
-                    to="contact"
-                    href="/"
-                    smooth={true}
-                    duration={500}
-                    className="nav-link relative block pb-1"
-                    spy={true}
-                    activeClass="active"
-                  >
-                    Contact
-                  </LinkScroll>
-                </li>
+                <li className="cursor-default">Find petsitter</li>
+              </>
+            )}
+            {!isDashboardPage && (
+              <>
+                {!isSignupOrLoginPage && (
+                  <>
+                    <li>
+                      {isSignupOrLoginPage ? (
+                        <Link href="/">Return to Home</Link>
+                      ) : (
+                        <LinkScroll
+                          to="home"
+                          smooth={true}
+                          duration={500}
+                          className="nav-link relative block pb-1"
+                          spy={true}
+                          activeClass="active"
+                        >
+                          Home
+                        </LinkScroll>
+                      )}
+                    </li>
+                    <li>
+                      <LinkScroll
+                        to="services"
+                        smooth={true}
+                        duration={500}
+                        className="nav-link relative block pb-1"
+                        spy={true}
+                        activeClass="active"
+                      >
+                        Services
+                      </LinkScroll>
+                    </li>
+                    <li>
+                      <LinkScroll
+                        to="about-us"
+                        smooth={true}
+                        duration={500}
+                        className="whitespace-nowrap nav-link relative block pb-1"
+                        spy={true}
+                        activeClass="active"
+                      >
+                        About us
+                      </LinkScroll>
+                    </li>
+                    <li className="!pr-0">
+                      <LinkScroll
+                        to="contact"
+                        href="/"
+                        smooth={true}
+                        duration={500}
+                        className="nav-link relative block pb-1"
+                        spy={true}
+                        activeClass="active"
+                      >
+                        Contact
+                      </LinkScroll>
+                    </li>
+                  </>
+                )}
               </>
             )}
           </ul>
