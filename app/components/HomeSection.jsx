@@ -42,7 +42,7 @@ const HomeSection = () => {
                 <span class="absolute flex items-center justify-center w-full h-full text-jade transition-all duration-300 transform group-hover:translate-x-full ease">
                   Check our offer
                 </span>
-                <span class="relative invisible"></span>
+                {/* <span class="relative invisible"></span> */}
               </Link>
               <Link
                 href="/dashboard"
