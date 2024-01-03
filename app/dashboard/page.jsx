@@ -3,6 +3,7 @@ import React from "react";
 import { useAuth } from "@clerk/nextjs";
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithCustomToken } from "firebase/auth";
+
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import firebaseConfig from "../../lib/firebase.config.js";
@@ -18,6 +19,9 @@ async function fetchPetsitterDataFromFirestore() {
   });
   return data;
 }
+
+import PetsittersAvailable from "./PetsittersAvailable";
+
 
 // initializeApp(firebaseConfig);
 
@@ -51,6 +55,7 @@ const DashboardPage = () => {
 
   return (
     <>
+
       {/* <div className="mt-[300px]">
         {petsitterData.map((petsitter) => (
           <div className="mb-4 ml-3" key={petsitter.id}>
@@ -63,6 +68,8 @@ const DashboardPage = () => {
         ))}
       </div> */}
       <DashboardSelectForm />
+      <PetsittersAvailable />
+
     </>
   );
 };
