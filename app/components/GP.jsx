@@ -1,8 +1,30 @@
-import React from "react";
-import PlaceholderProfilePicture from "../assets/PlaceholderProfilePicture.jpg";
+import React, { useState, useEffect } from "react";
+import { db } from "../../lib/firebaseConfig.js";
+import { getDocs, collection } from "firebase/firestore";
 import Image from "next/image";
+import PlaceholderProfilePicture from "../assets/PlaceholderProfilePicture.jpg";
+
+async function fetchDataFromFirestore() {
+  const querySnapshot = await getDocs(collection(db, "petsitters"));
+
+  const data = [];
+  querySnapshot.forEach((doc) => {
+    data.push({ id: doc.id, ...doc.data() });
+  });
+
+  return data;
+}
 
 const GuardianProfile = () => {
+  const [petsitterData, setPetsitterData] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      const data = await fetchDataFromFirestore();
+      setPetsitterData(data);
+    }
+    fetchData();
+  }, []);
+
   return (
     <div className="w-full h-screen flex flex-col items-center pt-[20px] lg:pt-[0px] lg:flex-row ">
       <div className="w-1/2 h-[calc(100vh-70px)] mt-[70px] flex flex-col gap-y-[10px] lg:gap-y-[20px] items-center justify-center">
@@ -14,26 +36,24 @@ const GuardianProfile = () => {
             priority={true}
           />
           <div className="flex flex-col items-stretch justify-center">
-            <p>Adam</p>
-            <p>Gdańsk</p>
-            <p>Rating: 5.0</p>
+            <p className="text-[18px] sm:text-[24px] lg:text-[30px] font-semibold">
+              Adam
+            </p>
+            <p className="text-[18px] sm:text-[24px] lg:text-[30px] font-semibold">
+              Gdańsk
+            </p>
+            <p className="text-[18px] sm:text-[24px] lg:text-[30px] font-semibold">
+              Rating:{" "}
+              <span className="text-[18px] sm:text-[24px] lg:text-[30px] font-semibold text-jade">
+                5.0
+              </span>
+            </p>
           </div>
         </div>
         <form
           action=""
-          className="w-[100%] lg:w-[60%] h-[200px] border-2 border-solid border-jade rounded-[28px] flex flex-col gap-y-[10px] lg:gap-y-[20px] items-center justify-center"
+          className="w-[100%] lg:w-[60%] py-[32px] border-2 border-solid border-jade rounded-[28px] flex flex-col gap-y-[10px] lg:gap-y-[20px] items-center justify-center"
         >
-          <select
-            name=""
-            id=""
-            className="bg-almond rounded-[10px] border-2 border-solid border-jade w-[60%] p-[10px]"
-          >
-            <option value="">When</option>
-            <option value="">Placeholder2</option>
-            <option value="">Placeholder3</option>
-            <option value="">Placeholder4</option>
-            <option value="">Placeholder5</option>
-          </select>
           <select
             name=""
             id=""
@@ -45,6 +65,18 @@ const GuardianProfile = () => {
             <option value="">Placeholder4</option>
             <option value="">Placeholder5</option>
           </select>
+          <select
+            name=""
+            id=""
+            className="bg-almond rounded-[10px] border-2 border-solid border-jade w-[60%] p-[10px]"
+          >
+            <option value="">Choose date</option>
+            <option value="">Placeholder2</option>
+            <option value="">Placeholder3</option>
+            <option value="">Placeholder4</option>
+            <option value="">Placeholder5</option>
+          </select>
+          <p>Cost: 100zł</p>
         </form>
         <button className="bg-jade rounded-[24px] text-white h-[35px] w-[100px] lg:h-[5%] lg:w-[15%]">
           Book
