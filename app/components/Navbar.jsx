@@ -135,8 +135,8 @@ const Navbar = () => {
   };
 
   return (
-    <header className="h-[70px] fixed w-full">
-      <div className="fixed w-full h-[70px] flex items-center px-4 bg-jade text-white z-10">
+    <header className="h-[70px] fixed w-full z-50">
+      <div className="fixed w-full h-[70px] flex items-center px-4 bg-jade text-white ">
         <div>
           <Image
             src={Logo}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { db } from "../../lib/firebaseConfig";
+import { db } from "../../lib/firebase.config.js";
 import { getDocs, collection } from "firebase/firestore";
 import { FaSortUp, FaSortDown } from "react-icons/fa";
 import {
@@ -9,7 +9,7 @@ import {
   Pin,
   InfoWindow,
 } from "@vis.gl/react-google-maps";
-import Guardian from "../assets/Guardian.png"
+import Guardian from "../assets/Guardian.png";
 import Image from "next/image";
 
 async function fetchDataFromFirestore() {
@@ -64,7 +64,8 @@ const PetsittersAvailable = () => {
               onClick={filterByPrice}
               className="border-2 border-jade p-2 flex items-center w-full md:w-[300px] rounded-[20px]"
             >
-              Sort by Price {sortOrder === "asc" ? <FaSortUp /> : <FaSortDown />}
+              Sort by Price{" "}
+              {sortOrder === "asc" ? <FaSortUp /> : <FaSortDown />}
             </button>
           </div>
           <div className="overflow-scroll max-h-[700px] md:w-full w-[95%] m-2">
@@ -107,8 +108,11 @@ const PetsittersAvailable = () => {
             })}
           </div>
         </div>
-  
-        <APIProvider apiKey="AIzaSyBIQZ9fVWd9ViTSwwakS09ufWio7zz4vxs" className="">
+
+        <APIProvider
+          apiKey="AIzaSyBIQZ9fVWd9ViTSwwakS09ufWio7zz4vxs"
+          className=""
+        >
           <div className="xl:h-[760px] w-full xl:ml-[50px] lg:w-[100%] lg:h-[760px] lg:ml-[20px] xl:w-[100%] md:w-[120%] md:h-[300px]  lg:mt-[60px] ">
             <Map zoom={10} center={position} mapId="215c0bcb4534194a">
               {/* <AdvancedMarker position={position}>
@@ -120,9 +124,6 @@ const PetsittersAvailable = () => {
       </div>
     </div>
   );
-  
-  
-  
 };
 
 export default PetsittersAvailable;
