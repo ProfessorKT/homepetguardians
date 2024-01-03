@@ -49,3 +49,31 @@ select:-webkit-autofill:focus {
 .nav-link.active::after {
   width: 100%;
 }
+.react-datepicker__header {
+  background-color: #04a777 !important;
+}
+.react-datepicker__current-month {
+  color: #fffbff !important;
+}
+.react-datepicker__day-name {
+  color: #fffbff !important;
+}
+.react-datepicker__day--in-range {
+  background-color: #04a777 !important;
+}
+.react-datepicker__day--keyboard-selected {
+  color: #fffbff !important;
+  background-color: #04a7763e !important;
+}
+.react-datepicker__day--keyboard-selected:hover {
+  background-color: #04a776b4 !important;
+}
+.react-datepicker__day--in-selecting-range {
+  background-color: #04a776b3 !important;
+}
+.react-datepicker__day--range-start {
+  background-color: #05835d !important;
+}
+.react-datepicker__day--range-end {
+  background-color: #05835d !important;
+}

@@ -79,6 +79,14 @@ const Navbar = () => {
   to the variable isSignInPage. */
   const isSignInPage = pathname === "/sign-in";
 
+  /* The above code is checking if the current pathname is equal to "/". It is assigning the result of
+  this check to the variable isHomePage. */
+  const isHomePage = pathname === "/";
+
+  /* The above code is checking if the current pathname is equal to "/dashboard" and assigning the
+  result to the variable isDashboardPage. */
+  const isDashboardPage = pathname === "/dashboard";
+
   /**
    * The toggleMenu function toggles the value of the open state variable.
    */
@@ -128,7 +136,7 @@ const Navbar = () => {
 
   return (
     <header className="h-[70px] fixed w-full">
-      <div className="fixed w-full h-[70px] flex items-center px-4 bg-[#04A777] text-white z-10">
+      <div className="fixed w-full h-[70px] flex items-center px-4 bg-jade text-white z-10">
         <div>
           <Image
             src={Logo}
@@ -148,65 +156,70 @@ const Navbar = () => {
           )}
 
           <ul className="hidden md:flex px-4 text-xl ">
-            {!isSignupOrLoginPage && (
+            {isDashboardPage && (
               <>
-                <li>
-                  {isSignupOrLoginPage ? (
-                    <Link href="/">Return to Home</Link>
-                  ) : (
-                    <LinkScroll
-                      to="home"
-                      smooth={true}
-                      duration={500}
-                      className="nav-link relative block pb-1"
-                      spy={true}
-                      exact={true}
-                      activeClass="active"
-                    >
-                      Home
-                    </LinkScroll>
-                  )}
-                </li>
-                <li>
-                  <LinkScroll
-                    to="services"
-                    smooth={true}
-                    duration={500}
-                    className="nav-link relative block pb-1"
-                    spy={true}
-                    exact={true}
-                    activeClass="active"
-                  >
-                    Services
-                  </LinkScroll>
-                </li>
-                <li>
-                  <LinkScroll
-                    to="about-us"
-                    smooth={true}
-                    duration={500}
-                    className="whitespace-nowrap nav-link relative block pb-1"
-                    spy={true}
-                    exact={true}
-                    activeClass="active"
-                  >
-                    About us
-                  </LinkScroll>
-                </li>
-                <li className="!pr-0">
-                  <LinkScroll
-                    to="contact"
-                    href="/"
-                    smooth={true}
-                    duration={500}
-                    className="nav-link relative block pb-1"
-                    spy={true}
-                    exact={true}
-                    activeClass="active"
-                  >
-                    Contact
-                  </LinkScroll>
-                </li>
+                <li className="cursor-default">Find petsitter</li>
+              </>
+            )}
+            {!isDashboardPage && (
+              <>
+                {!isSignupOrLoginPage && (
+                  <>
+                    <li>
+                      {isSignupOrLoginPage ? (
+                        <Link href="/">Return to Home</Link>
+                      ) : (
+                        <LinkScroll
+                          to="home"
+                          smooth={true}
+                          duration={500}
+                          className="nav-link relative block pb-1"
+                          spy={true}
+                          activeClass="active"
+                        >
+                          Home
+                        </LinkScroll>
+                      )}
+                    </li>
+                    <li>
+                      <LinkScroll
+                        to="services"
+                        smooth={true}
+                        duration={500}
+                        className="nav-link relative block pb-1"
+                        spy={true}
+                        activeClass="active"
+                      >
+                        Services
+                      </LinkScroll>
+                    </li>
+                    <li>
+                      <LinkScroll
+                        to="about-us"
+                        smooth={true}
+                        duration={500}
+                        className="whitespace-nowrap nav-link relative block pb-1"
+                        spy={true}
+                        activeClass="active"
+                      >
+                        About us
+                      </LinkScroll>
+                    </li>
+                    <li className="!pr-0">
+                      <LinkScroll
+                        to="contact"
+                        href="/"
+                        smooth={true}
+                        duration={500}
+                        className="nav-link relative block pb-1"
+                        spy={true}
+                        activeClass="active"
+                      >
+                        Contact
+                      </LinkScroll>
+                    </li>
+                  </>
+                )}
               </>
             )}
           </ul>
@@ -239,20 +252,25 @@ const Navbar = () => {
                 )}
               </>
             </SignedOut>
-
-            <SignedIn>
-              <Link href="profile" className="mr-4 text-lg">
-                Profile
-              </Link>
-              <UserButton
-                appearance={{
-                  elements: {
-                    avatarBox: "w-[38px] h-[38px] rounded-full",
-                  },
-                }}
-                afterSignOutUrl="/"
-              />
-            </SignedIn>
+            {!isHomePage ? (
+              <SignedIn>
+                <Link href="profile" className="mr-4 text-lg">
+                  Profile
+                </Link>
+                <UserButton
+                  appearance={{
+                    elements: {
+                      avatarBox: "w-[38px] h-[38px] rounded-full",
+                    },
+                  }}
+                  afterSignOutUrl="/"
+                />
+              </SignedIn>
+            ) : (
+              <SignedIn>
+                <Link href="/dashboard">Return to Home</Link>
+              </SignedIn>
+            )}
           </div>
           <div
             className={`items-center md:hidden flex ${
@@ -264,7 +282,7 @@ const Navbar = () => {
                 {!isSignUpPage && (
                   <Link
                     href="/sign-up"
-                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
+                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-dark-green flex rounded-2xl cursor-pointer"
                   >
                     Sign up
                   </Link>
@@ -272,7 +290,7 @@ const Navbar = () => {
                 {!isSignInPage && (
                   <Link
                     href="/sign-in"
-                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-[#03312E] flex rounded-2xl cursor-pointer"
+                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-dark-green flex rounded-2xl cursor-pointer"
                   >
                     Sign in
                   </Link>
@@ -295,7 +313,7 @@ const Navbar = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="fixed left-0 top-0 bg-[#04A777] w-full h-screen origin-top p-10 z-50"
+              className="fixed left-0 top-0 bg-jade w-full h-screen origin-top p-10 z-50"
             >
               <div className="flex h-full flex-col">
                 <div className="flex justify-between">
@@ -335,12 +353,12 @@ const Navbar = () => {
                 </motion.div>
                 <div className="flex w-full justify-center items-center">
                   <Link href="sign-up" onClick={toggleMenu}>
-                    <div className="h-[60px] w-[150px] mr-3 text-white justify-center items-center align-middle bg-[#03312E] flex rounded-3xl cursor-pointer text-xl">
+                    <div className="h-[60px] w-[150px] mr-3 text-white justify-center items-center align-middle bg-dark-green flex rounded-3xl cursor-pointer text-xl">
                       Sign up
                     </div>
                   </Link>
                   <Link href="sign-in" onClick={toggleMenu}>
-                    <div className="h-[60px] w-[150px] ml-3 text-white justify-center items-center align-middle bg-[#03312E] flex rounded-3xl cursor-pointer text-xl">
+                    <div className="h-[60px] w-[150px] ml-3 text-white justify-center items-center align-middle bg-dark-green flex rounded-3xl cursor-pointer text-xl">
                       Sign in
                     </div>
                   </Link>
