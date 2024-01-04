@@ -4,7 +4,7 @@ import { StarIcon } from "@heroicons/react/solid";
 const DashboardReviews = () => {
   return (
     <div className="w-full h-screen">
-      <div className="flex justify-center mt-[130px] text-center">
+      <div className="flex justify-center pt-[130px] text-center ">
         <p className="text-3xl font-semibold">
           See what customers say about{" "}
           <a className="text-jade text-3xl font-semibold">HomePetGuardians</a>
@@ -24,13 +24,13 @@ const DashboardReviews = () => {
         </p>
       </div>
       <div className="flex justify-center mt-10">
-        <div className="grid grid-cols-2 xl:grid-cols-3 mx-8 gap-x-[5%] xl:gap-x-[100px] gap-y-[50px]">
-          <div className="w-[100%] h-[150px] bg-almond rounded-[32px] p-6">
-            <div className="flex justify-center">
-              <p className="text-base xl:text-2xl font-semibold mr-3 xl:mr-5">
+        <div className="grid grid-cols-2 xl:grid-cols-3 mx-8 gap-x-[5%] xl:gap-x-[100px] md:gap-y-[50px] gap-y-[30px]">
+          <div className="w-[100%] h-[100%] bg-almond rounded-[32px] p-6">
+            <div className="flex justify-center flex-col md:flex-row">
+              <p className="text-base xl:text-2xl font-semibold mr-3 xl:mr-5 text-center md:text-left">
                 Szymon
               </p>
-              <div className="flex">
+              <div className="flex justify-center md:justify-start">
                 {Array(5)
                   .fill()
                   .map((_, i) => (
@@ -38,16 +38,16 @@ const DashboardReviews = () => {
                   ))}
               </div>
             </div>
-            <p className="text-sm lg:text-base mt-2 mx-5">
+            <p className="text-sm lg:text-base mt-2 md:mx-5">
               Amazing care! My dog loves spending time with the caregivers.
             </p>
           </div>
-          <div className="w-[100%] h-[150px] bg-almond rounded-[32px] p-6">
-            <div className="flex justify-center">
-              <p className="text-base xl:text-2xl font-semibold mr-3 xl:mr-5">
+          <div className="w-[100%] h-[100%] bg-almond rounded-[32px] p-6">
+            <div className="flex justify-center flex-col md:flex-row">
+              <p className="text-base xl:text-2xl font-semibold mr-3 xl:mr-5 text-center md:text-left">
                 Jakub
               </p>
-              <div className="flex">
+              <div className="flex justify-center md:justify-start">
                 {Array(4)
                   .fill()
                   .map((_, i) => (
@@ -56,17 +56,17 @@ const DashboardReviews = () => {
                 <StarIcon className="h-[24px] xl:h-[32px] px-1 text-white" />
               </div>
             </div>
-            <p className="text-sm lg:text-base mt-2 mx-5">
+            <p className="text-sm lg:text-base mt-2 md:mx-5">
               Professionalism and love for animals at the highest level. I
               highly recommend it.
             </p>
           </div>
-          <div className="w-[100%] h-[150px] bg-almond rounded-[32px] p-6">
-            <div className="flex justify-center">
-              <p className="text-base xl:text-2xl font-semibold mr-3 xl:mr-5">
+          <div className="w-[100%] h-[100%] bg-almond rounded-[32px] p-6">
+            <div className="flex justify-center flex-col md:flex-row">
+              <p className="text-base xl:text-2xl font-semibold mr-3 xl:mr-5 text-center md:text-left">
                 Adam
               </p>
-              <div className="flex">
+              <div className="flex justify-center md:justify-start">
                 {Array(5)
                   .fill()
                   .map((_, i) => (
@@ -74,16 +74,16 @@ const DashboardReviews = () => {
                   ))}
               </div>
             </div>
-            <p className="text-sm lg:text-base mt-2 mx-5">
+            <p className="text-sm lg:text-base mt-2 md:mx-5">
               Safety and joy for my cat are always the priority.
             </p>
           </div>
-          <div className="w-[100%] h-[150px] bg-almond rounded-[32px] p-6">
-            <div className="flex justify-center">
-              <p className="text-base xl:text-2xl font-semibold mr-3 xl:mr-5">
+          <div className="w-[100%] h-[100%] bg-almond rounded-[32px] p-6">
+            <div className="flex justify-center flex-col md:flex-row">
+              <p className="text-base xl:text-2xl font-semibold mr-3 xl:mr-5 text-center md:text-left">
                 Julia
               </p>
-              <div className="flex">
+              <div className="flex justify-center md:justify-start">
                 {Array(4)
                   .fill()
                   .map((_, i) => (
@@ -92,16 +92,19 @@ const DashboardReviews = () => {
                 <StarIcon className="h-[24px] xl:h-[32px] px-1 text-white" />
               </div>
             </div>
-            <p className="text-sm lg:text-base mt-2 mx-5">
-              Unique approach to each pet. Definitely the best care in the area!
+            <p className="text-sm lg:text-base mt-2 md:mx-5">
+              Unique approach to each pet.{" "}
+              <a className="md:block hidden">
+                Definitely the best care in the area!
+              </a>
             </p>
           </div>
-          <div className="sm:block hidden w-[100%] h-[150px] bg-almond rounded-[32px] p-6">
-            <div className="flex justify-center">
-              <p className="text-base xl:text-2xl font-semibold mr-3 xl:mr-5">
+          <div className="sm:block hidden w-[100%] h-[100%] bg-almond rounded-[32px] p-6">
+            <div className="flex justify-center flex-col md:flex-row">
+              <p className="text-base xl:text-2xl font-semibold mr-3 xl:mr-5 text-center md:text-left">
                 Kasia
               </p>
-              <div className="flex">
+              <div className="flex justify-center md:justify-start">
                 {Array(5)
                   .fill()
                   .map((_, i) => (
@@ -114,12 +117,12 @@ const DashboardReviews = () => {
               animals.
             </p>
           </div>
-          <div className="sm:block hidden w-[100%] h-[150px] bg-almond rounded-[32px] p-6">
-            <div className="flex justify-center">
-              <p className="text-base xl:text-2xl font-semibold mr-3 xl:mr-5">
+          <div className="sm:block hidden w-[100%] h-[100%] bg-almond rounded-[32px] p-6">
+            <div className="flex justify-center flex-col md:flex-row">
+              <p className="text-base xl:text-2xl font-semibold mr-3 xl:mr-5 text-center md:text-left">
                 Bartek
               </p>
-              <div className="flex">
+              <div className="flex justify-center md:justify-start">
                 {Array(5)
                   .fill()
                   .map((_, i) => (
