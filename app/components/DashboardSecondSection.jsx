@@ -6,11 +6,15 @@ import Image1 from "../assets/DashboardSecondSectionSecondImage.png";
 const DashboardSecondSection = () => {
   return (
     <div className="w-full h-screen">
-      <div className="grid md:grid-cols-2 grid-cols-1   h-full content-center">
-        <div className="mx-4 ">
+      <div className="grid md:grid-cols-2 grid-cols-1 h-full content-center">
+        <div className="mx-4 order-last md:order-first">
           <div className="my-8 flex justify-center">
-            <Image src={Image1} style={{ width: "120px" }} />
-            <div className="px-5 pl-10 flex flex-col justify-center gap-y-4">
+            <Image
+              src={Image1}
+              // style={{ width: "120px" }}
+              className=" md:w-[120px] md:h-[120px] w-[80px] h-[80px]"
+            />
+            <div className="px-5 md:pl-10 flex flex-col justify-center gap-y-4 md:text-left text-center">
               <p className="text-2xl font-semibold">Over</p>
               <p className="text-xl text-jade font-semibold hidden md:block">
                 400+ dogs
@@ -21,8 +25,8 @@ const DashboardSecondSection = () => {
             </div>
             <Image
               src={Image2}
-              //   style={{ width: "120px" }}
-              className="md:hidden w-[120px]"
+              // style={{ width: "120px" }}
+              className="md:hidden md:w-[120px] md:h-[120px] w-[80px] h-[80px]"
             />
           </div>
           <div className="my-8 md:flex justify-center hidden ">
@@ -32,7 +36,7 @@ const DashboardSecondSection = () => {
             </div>
             <Image src={Image2} style={{ width: "120px" }} />
           </div>
-          <div className="pt-10 flex justify-center">
+          <div className="pt-3 md:pt-10 flex justify-center">
             <div className="flex flex-col justify-center">
               <p className="text-xl font-bold">found a petsitter through</p>
               <p className="text-xl font-bold text-jade">
@@ -42,7 +46,7 @@ const DashboardSecondSection = () => {
           </div>
         </div>
         <div className="mt-12 mx-6">
-          <p className="flex justify-center mb-10 text-4xl font-bold text-dark-green text-center">
+          <p className="flex justify-center mb-6 md:mb-10 text-4xl font-bold text-dark-green text-center">
             Are petsitters verified?
           </p>
           <p className="text-2xl leading-8 text-center">

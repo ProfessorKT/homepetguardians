@@ -50,7 +50,7 @@ const DashboardSelectForm = () => {
   return (
     <div className="w-full h-screen">
       <div className="flex justify-center pt-[100px]">
-        <p className="text-3xl font-bold text-dark-green text-center">
+        <p className="text-3xl font-bold text-dark-green text-center mx-3 md:mx-0">
           Find proven care for your pet
         </p>
       </div>
