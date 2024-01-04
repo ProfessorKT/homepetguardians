@@ -6,8 +6,8 @@ import { getAuth, signInWithCustomToken } from "firebase/auth";
 
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import firebaseConfig from "../../lib/firebase.config.js";
-import { db } from "../../lib/firebase.config.js";
+import firebaseConfig from "../../lib/firebaseConfig.js";
+import { db } from "../../lib/firebaseConfig.js";
 import DashboardSelectForm from "../components/DashboardSelectForm.jsx";
 import PetsittersAvailable from "../components/PetsittersAvailable.jsx";
 import DashboardSecondSection from "../components/DashboardSecondSection.jsx";

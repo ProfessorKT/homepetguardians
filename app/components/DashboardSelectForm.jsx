@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { db } from "../../lib/firebase.config.js";
+import { db } from "../../lib/firebaseConfig.js";
 import "firebase/firestore";
 import { collection, getDocs } from "firebase/firestore";
 import DatePicker from "react-datepicker";
@@ -15,7 +15,7 @@ const DashboardSelectForm = () => {
   //const for button disabling
   const [city, setCity] = useState("Choose city");
   const [pet, setPet] = useState("Choose pet");
-  const [dateRange, setDateRange] = useState("Choose date range");
+  // const [dateRange, setDateRange] = useState("Choose date range");
 
   const formatDateRange = (start, end) => {
     if (!start || !end) return "Choose date range";
@@ -50,19 +50,19 @@ const DashboardSelectForm = () => {
   return (
     <div className="w-full h-screen">
       <div className="flex justify-center pt-[100px]">
-        <p className="text-3xl font-bold text-dark-green">
+        <p className="text-3xl font-bold text-dark-green text-center">
           Find proven care for your pet
         </p>
       </div>
       <div className="flex justify-center">
         <form
           action=""
-          className="w-[500px] flex flex-col justify-center border-jade border-solid border-[2px] rounded-2xl mt-4 active:outline-none"
+          className="w-[75%] md:w-[55%] lg:[45%] xl:w-[35%] p-6 flex flex-col justify-center border-jade border-solid border-[2px] rounded-2xl mt-4 active:outline-none"
         >
           <select
             name=""
             id=""
-            className="w-[450px] my-5 mx-auto border-solid border-[1px] rounded-xl p-1 bg-almond border-jade"
+            className="w-full mb-5 mx-auto border-solid border-[1px] rounded-xl p-1 bg-almond border-jade"
             value={city}
             onChange={(e) => setCity(e.target.value)}
           >
@@ -76,7 +76,7 @@ const DashboardSelectForm = () => {
           <select
             name=""
             id=""
-            className="w-[450px] my-5 mx-auto border-solid border-[1px] rounded-xl p-1 bg-almond border-jade"
+            className="w-full my-5 mx-auto border-solid border-[1px] rounded-xl p-1 bg-almond border-jade"
             value={pet}
             onChange={(e) => setPet(e.target.value)}
           >
@@ -91,7 +91,7 @@ const DashboardSelectForm = () => {
             type="text"
             value={formatDateRange(startDate, endDate)}
             readOnly
-            className="w-[450px] my-5 mx-auto border-solid border-[1px] rounded-xl p-1 bg-almond border-jade focus-visible:outline-none"
+            className="w-full my-5 mx-auto border-solid border-[1px] rounded-xl p-1 bg-almond border-jade focus-visible:outline-none"
           />
           <div className="flex justify-center">
             <DatePicker
@@ -116,7 +116,7 @@ const DashboardSelectForm = () => {
               endDate === null
             }
             href="#_"
-            class={`w-[200px] mx-auto text-center rounded-2xl px-5 py-2.5 my-4 overflow-hidden group relative hover:ring-2 hover:ring-offset-2  transition-all ease-out duration-300 ${
+            class={`w-[200px] mx-auto text-center rounded-2xl px-5 py-2.5 mt-4 overflow-hidden group relative hover:ring-2 hover:ring-offset-2  transition-all ease-out duration-300 ${
               city === "Choose city" ||
               pet === "Choose pet" ||
               startDate === null ||
@@ -130,19 +130,19 @@ const DashboardSelectForm = () => {
           </button>
         </form>
       </div>
-      <div className="grid grid-cols-3 gap-4 mt-[50px] mx-8">
-        <div className="flex justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-[30px] lg:mx-8">
+        <div className="md:flex hidden justify-center">
           <div className="flex flex-col justify-center">
             <p className="flex justify-center mb-5 font-bold text-[24px] text-jade">
               HomePetGuardian.com
             </p>
-            <p className="flex justify-center text-center">
+            <p className="flex justify-center text-center text-[16px]">
               exists to help you find the perfect pet sitter for your pet when
               you need it.
             </p>
           </div>
         </div>
-        <div className="flex justify-center">
+        <div className="md:flex hidden justify-center">
           <div className="flex flex-col justify-center">
             <p className="flex justify-center mb-5 font-bold text-[24px] text-jade">
               We understand
@@ -153,7 +153,7 @@ const DashboardSelectForm = () => {
             </p>
           </div>
         </div>
-        <div className="flex justify-center">
+        <div className="lg:flex justify-center hidden">
           <div className="flex flex-col justify-center">
             <p className="flex justify-center mb-5 font-bold text-[24px] text-jade">
               Safety

@@ -4,7 +4,7 @@ import { StarIcon } from "@heroicons/react/solid";
 const DashboardReviews = () => {
   return (
     <div className="w-full h-screen">
-      <div className="flex justify-center mt-[130px]">
+      <div className="flex justify-center mt-[130px] text-center">
         <p className="text-3xl font-semibold">
           See what customers say about{" "}
           <a className="text-jade text-3xl font-semibold">HomePetGuardians</a>
@@ -24,98 +24,110 @@ const DashboardReviews = () => {
         </p>
       </div>
       <div className="flex justify-center mt-10">
-        <div className="grid grid-cols-3 mx-8 gap-x-[100px] gap-y-[50px]">
-          <div className="w-[400px] h-[150px] bg-almond rounded-[32px] p-6">
+        <div className="grid grid-cols-2 xl:grid-cols-3 mx-8 gap-x-[5%] xl:gap-x-[100px] gap-y-[50px]">
+          <div className="w-[100%] h-[150px] bg-almond rounded-[32px] p-6">
             <div className="flex justify-center">
-              <p className="text-2xl font-semibold mr-5">Szymon</p>
+              <p className="text-base xl:text-2xl font-semibold mr-3 xl:mr-5">
+                Szymon
+              </p>
               <div className="flex">
                 {Array(5)
                   .fill()
                   .map((_, i) => (
-                    <StarIcon className="h-[32px] px-1 text-yellow-500" />
+                    <StarIcon className="h-[24px] xl:h-[32px] px-1 text-yellow-500" />
                   ))}
               </div>
             </div>
-            <p className="mt-2 mx-5">
+            <p className="text-sm lg:text-base mt-2 mx-5">
               Amazing care! My dog loves spending time with the caregivers.
             </p>
           </div>
-          <div className="w-[400px] h-[150px] bg-almond rounded-[32px] p-6">
+          <div className="w-[100%] h-[150px] bg-almond rounded-[32px] p-6">
             <div className="flex justify-center">
-              <p className="text-2xl font-semibold mr-5">Jakub</p>
+              <p className="text-base xl:text-2xl font-semibold mr-3 xl:mr-5">
+                Jakub
+              </p>
               <div className="flex">
                 {Array(4)
                   .fill()
                   .map((_, i) => (
-                    <StarIcon className="h-[32px] px-1 text-yellow-500" />
+                    <StarIcon className="h-[24px] xl:h-[32px] px-1 text-yellow-500" />
                   ))}
-                <StarIcon className="h-[32px] px-1 text-white" />
+                <StarIcon className="h-[24px] xl:h-[32px] px-1 text-white" />
               </div>
             </div>
-            <p className="mt-2 mx-5">
+            <p className="text-sm lg:text-base mt-2 mx-5">
               Professionalism and love for animals at the highest level. I
               highly recommend it.
             </p>
           </div>
-          <div className="w-[400px] h-[150px] bg-almond rounded-[32px] p-6">
+          <div className="w-[100%] h-[150px] bg-almond rounded-[32px] p-6">
             <div className="flex justify-center">
-              <p className="text-2xl font-semibold mr-5">Adam</p>
+              <p className="text-base xl:text-2xl font-semibold mr-3 xl:mr-5">
+                Adam
+              </p>
               <div className="flex">
                 {Array(5)
                   .fill()
                   .map((_, i) => (
-                    <StarIcon className="h-[32px] px-1 text-yellow-500" />
+                    <StarIcon className="h-[24px] xl:h-[32px] px-1 text-yellow-500" />
                   ))}
               </div>
             </div>
-            <p className="mt-2 mx-5">
+            <p className="text-sm lg:text-base mt-2 mx-5">
               Safety and joy for my cat are always the priority.
             </p>
           </div>
-          <div className="w-[400px] h-[150px] bg-almond rounded-[32px] p-6">
+          <div className="w-[100%] h-[150px] bg-almond rounded-[32px] p-6">
             <div className="flex justify-center">
-              <p className="text-2xl font-semibold mr-5">Julia</p>
+              <p className="text-base xl:text-2xl font-semibold mr-3 xl:mr-5">
+                Julia
+              </p>
               <div className="flex">
                 {Array(4)
                   .fill()
                   .map((_, i) => (
-                    <StarIcon className="h-[32px] px-1 text-yellow-500" />
+                    <StarIcon className="h-[24px] xl:h-[32px] px-1 text-yellow-500" />
                   ))}
-                <StarIcon className="h-[32px] px-1 text-white" />
+                <StarIcon className="h-[24px] xl:h-[32px] px-1 text-white" />
               </div>
             </div>
-            <p className="mt-2 mx-5">
+            <p className="text-sm lg:text-base mt-2 mx-5">
               Unique approach to each pet. Definitely the best care in the area!
             </p>
           </div>
-          <div className="w-[400px] h-[150px] bg-almond rounded-[32px] p-6">
+          <div className="sm:block hidden w-[100%] h-[150px] bg-almond rounded-[32px] p-6">
             <div className="flex justify-center">
-              <p className="text-2xl font-semibold mr-5">Kasia</p>
+              <p className="text-base xl:text-2xl font-semibold mr-3 xl:mr-5">
+                Kasia
+              </p>
               <div className="flex">
                 {Array(5)
                   .fill()
                   .map((_, i) => (
-                    <StarIcon className="h-[32px] px-1 text-yellow-500" />
+                    <StarIcon className="h-[24px] xl:h-[32px] px-1 text-yellow-500" />
                   ))}
               </div>
             </div>
-            <p className="mt-2 mx-4">
+            <p className="text-sm lg:text-base mt-2 mx-5">
               The caregivers are not only competent but also full of passion for
-              animals. Fantastic!
+              animals.
             </p>
           </div>
-          <div className="w-[400px] h-[150px] bg-almond rounded-[32px] p-6">
+          <div className="sm:block hidden w-[100%] h-[150px] bg-almond rounded-[32px] p-6">
             <div className="flex justify-center">
-              <p className="text-2xl font-semibold mr-5">Bartek</p>
+              <p className="text-base xl:text-2xl font-semibold mr-3 xl:mr-5">
+                Bartek
+              </p>
               <div className="flex">
                 {Array(5)
                   .fill()
                   .map((_, i) => (
-                    <StarIcon className="h-[32px] px-1 text-yellow-500" />
+                    <StarIcon className="h-[24px] xl:h-[32px] px-1 text-yellow-500" />
                   ))}
               </div>
             </div>
-            <p className="mt-2 mx-5">
+            <p className="text-sm lg:text-base mt-2 mx-5">
               I never have to worry about my dog when I'm away.
             </p>
           </div>
