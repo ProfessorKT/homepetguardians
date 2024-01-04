@@ -9,6 +9,10 @@ import { collection, getDocs } from "firebase/firestore";
 import firebaseConfig from "../../lib/firebase.config.js";
 import { db } from "../../lib/firebase.config.js";
 import DashboardSelectForm from "../components/DashboardSelectForm.jsx";
+import PetsittersAvailable from "../components/PetsittersAvailable.jsx";
+import DashboardSecondSection from "../components/DashboardSecondSection.jsx";
+import Footer from "../components/Footer.jsx";
+import DashboardReviews from "../components/DashboardReviews.jsx";
 
 async function fetchPetsitterDataFromFirestore() {
   const querySnapshot = await getDocs(collection(db, "Petsitters"));
@@ -19,9 +23,6 @@ async function fetchPetsitterDataFromFirestore() {
   });
   return data;
 }
-
-import PetsittersAvailable from "./PetsittersAvailable";
-
 
 // initializeApp(firebaseConfig);
 
@@ -55,7 +56,6 @@ const DashboardPage = () => {
 
   return (
     <>
-
       {/* <div className="mt-[300px]">
         {petsitterData.map((petsitter) => (
           <div className="mb-4 ml-3" key={petsitter.id}>
@@ -68,8 +68,10 @@ const DashboardPage = () => {
         ))}
       </div> */}
       <DashboardSelectForm />
-      <PetsittersAvailable />
-
+      <DashboardSecondSection />
+      <DashboardReviews />
+      {/* <PetsittersAvailable /> */}
+      <Footer />
     </>
   );
 };
