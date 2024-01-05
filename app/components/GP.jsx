@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { db } from "../../lib/firebaseConfig.js";
+import { db } from "../../lib/firebase.config.js";
 import { getDocs, collection } from "firebase/firestore";
 import Image from "next/image";
 import PlaceholderProfilePicture from "../assets/PlaceholderProfilePicture.jpg";
