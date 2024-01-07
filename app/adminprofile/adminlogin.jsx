@@ -3,30 +3,35 @@ import React, { useState } from "react";
 // import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from "../../lib/firebase.config.js";
+import AdminPanel from "./adminpanel.jsx"; 
+import { useRouter } from 'next/navigation'
+
+
 
 
 
 const AdminLogin = ({ onLogin }) => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
+    const [login, setLogin] = useState('');
+    const [haslo, setHaslo] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+    const [isLoggedIn, setIsLoggedIn] = useState(false); 
+    const router = useRouter()
 
-    const handleLogin = async () => {
-        try {
- 
-            const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            const user = userCredential.user;
+  
+    const handleLogin = () => {
+      if (login === 'admin' && haslo === 'admin123') {
+        console.log('Zalogowano pomyślnie jako administrator.');
+        setIsLoggedIn(true); 
+        // router.push('/adminpanel');
 
-            console.log("Pomyślne logowanie.", user);
-
-       
-            onLogin("/adminpanel");
-
-        } catch (error) {
-            console.error("Błąd logowania:", error);
-            setError("Złe dane");
-        }
+      } else {
+        setErrorMessage('Błąd logowania. Spróbuj ponownie.');
+      }
     };
+  
+    if (isLoggedIn) {
+      return <AdminPanel />;
+    }
 
     return (
 <div className="flex flex-col min-h-screen w-full items-center justify-center">
@@ -35,10 +40,10 @@ const AdminLogin = ({ onLogin }) => {
         <label></label>
         <input
             className="border-jade border-2 rounded-[10px] p-2 w-full width-[300px] md:w-[400px] lg:w"
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="text"
+            placeholder="Login"
+            value={login}
+            onChange={(e) => setLogin(e.target.value)}
         />
     </div>
     <div className="mb-10">
@@ -47,8 +52,8 @@ const AdminLogin = ({ onLogin }) => {
             className="border-jade border-2 rounded-[10px] p-2 w-full width-[300px] md:w-[400px] lg:w"
             type="password"
             placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={haslo}
+            onChange={(e) => setHaslo(e.target.value)}
         />
     <div className="text-jade mt-5 text-right">Forgot Password?</div>
     </div>
@@ -58,7 +63,7 @@ const AdminLogin = ({ onLogin }) => {
     >
         Sign in
     </button>
-    {error && <p style={{ color: "red" }}>{error}</p>}
+    {errorMessage  && <p style={{ color: "red" }}>{errorMessage }</p>}
 </div>
     );
 };

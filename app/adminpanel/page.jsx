@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from "react";
-import AdminLogin from "./adminlogin";
-import AdminPanel from "./adminpanel"; 
+import AdminLogin from "../adminprofile/adminlogin";
+import AdminPanel from "../adminprofile/adminpanel"; 
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -22,7 +22,7 @@ const AdminPage = () => {
     return (
       <>
        {isLoggedIn ? (
-        <Navigate to="/adminpanel"/>
+        <AdminPanel/>
       ) : (
         <AdminLogin onLogin={handleLogin} />
       )}
