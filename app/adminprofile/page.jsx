@@ -15,11 +15,14 @@ const AdminPage = () => {
   
     return (
       <>
-        {isLoggedIn ? (
-          <AdminPanel />
-        ) : (
-          <AdminLogin onLogin={handleLogin} />
-        )}
+       {isLoggedIn ? (
+    <>
+        <AdminPanel />
+        <Link href="/adminpanel"></Link>
+    </>
+) : (
+    <AdminLogin onLogin={handleLogin} />
+)}
       </>
     );
   };
