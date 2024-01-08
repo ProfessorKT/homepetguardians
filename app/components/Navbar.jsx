@@ -87,6 +87,7 @@ const Navbar = () => {
   result to the variable isDashboardPage. */
   const isDashboardPage = pathname === "/dashboard";
 
+  const isProfilePage = pathname === "/profile";
   /**
    * The toggleMenu function toggles the value of the open state variable.
    */
@@ -159,70 +160,82 @@ const Navbar = () => {
               <p className="px-4 cursor-default text-xl">Find petsitter</p>
             </>
           )}
-
-          <ul className="hidden md:flex px-4 text-xl ">
-            {!isDashboardPage && (
-              <>
-                {!isSignupOrLoginPage && (
+          {isProfilePage ? (
+            <>
+              <Link href="/dashboard" className="items-center text-xl px-4">
+                <div className="flex items-center nav-link relative pb-2 -mb-2">
+                  <FiArrowLeft className="mr-1 text-2xl leading-none" />
+                  <span>Return</span>
+                </div>
+              </Link>
+            </>
+          ) : (
+            <>
+              <ul className="hidden md:flex px-4 text-xl ">
+                {!isDashboardPage && (
                   <>
-                    <li>
-                      {isSignupOrLoginPage ? (
-                        <Link href="/">Return to Home</Link>
-                      ) : (
-                        <LinkScroll
-                          to="home"
-                          smooth={true}
-                          duration={500}
-                          className="nav-link relative block pb-1"
-                          spy={true}
-                          activeClass="active"
-                        >
-                          Home
-                        </LinkScroll>
-                      )}
-                    </li>
-                    <li>
-                      <LinkScroll
-                        to="services"
-                        smooth={true}
-                        duration={500}
-                        className="nav-link relative block pb-1"
-                        spy={true}
-                        activeClass="active"
-                      >
-                        Services
-                      </LinkScroll>
-                    </li>
-                    <li>
-                      <LinkScroll
-                        to="about-us"
-                        smooth={true}
-                        duration={500}
-                        className="whitespace-nowrap nav-link relative block pb-1"
-                        spy={true}
-                        activeClass="active"
-                      >
-                        About us
-                      </LinkScroll>
-                    </li>
-                    <li className="!pr-0">
-                      <LinkScroll
-                        to="contact"
-                        href="/"
-                        smooth={true}
-                        duration={500}
-                        className="nav-link relative block pb-1"
-                        spy={true}
-                        activeClass="active"
-                      >
-                        Contact
-                      </LinkScroll>
-                    </li>
+                    {!isSignupOrLoginPage && (
+                      <>
+                        <li>
+                          {isSignupOrLoginPage ? (
+                            <Link href="/">Return to Home</Link>
+                          ) : (
+                            <LinkScroll
+                              to="home"
+                              smooth={true}
+                              duration={500}
+                              className="nav-link relative block pb-1"
+                              spy={true}
+                              activeClass="active"
+                            >
+                              Home
+                            </LinkScroll>
+                          )}
+                        </li>
+                        <li>
+                          <LinkScroll
+                            to="services"
+                            smooth={true}
+                            duration={500}
+                            className="nav-link relative block pb-1"
+                            spy={true}
+                            activeClass="active"
+                          >
+                            Services
+                          </LinkScroll>
+                        </li>
+                        <li>
+                          <LinkScroll
+                            to="about-us"
+                            smooth={true}
+                            duration={500}
+                            className="whitespace-nowrap nav-link relative block pb-1"
+                            spy={true}
+                            activeClass="active"
+                          >
+                            About us
+                          </LinkScroll>
+                        </li>
+                        <li className="!pr-0">
+                          <LinkScroll
+                            to="contact"
+                            href="/"
+                            smooth={true}
+                            duration={500}
+                            className="nav-link relative block pb-1"
+                            spy={true}
+                            activeClass="active"
+                          >
+                            Contact
+                          </LinkScroll>
+                        </li>
+                      </>
+                    )}
                   </>
                 )}
-              </>
-            )}
-          </ul>
+              </ul>
+            </>
+          )}
           <div className="items-center hidden md:flex">
             <SignedOut>
               <>
@@ -287,32 +300,34 @@ const Navbar = () => {
               <Link href="/dashboard">Return to Home</Link>
             </SignedIn>
           )}
-          <div
-            className={`items-center md:flex ${
-              pathname === "/" ? "hidden" : ""
-            }`}
-          >
-            <SignedOut>
-              <>
-                {!isSignUpPage && (
-                  <Link
-                    href="/sign-up"
-                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-dark-green flex rounded-full cursor-pointer"
-                  >
-                    Sign up
-                  </Link>
-                )}
-                {!isSignInPage && (
-                  <Link
-                    href="/sign-in"
-                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-dark-green flex rounded-full cursor-pointer"
-                  >
-                    Sign in
-                  </Link>
-                )}
-              </>
-            </SignedOut>
-          </div>
+          {isHomePage && (
+            <div
+              className={`items-center md:flex ${
+                pathname === "/" ? "hidden" : ""
+              }`}
+            >
+              <SignedOut>
+                <>
+                  {!isSignUpPage && (
+                    <Link
+                      href="/sign-up"
+                      className="h-[45px] w-[100px] justify-center items-center align-middle bg-dark-green flex rounded-full cursor-pointer"
+                    >
+                      Sign up
+                    </Link>
+                  )}
+                  {!isSignInPage && (
+                    <Link
+                      href="/sign-in"
+                      className="h-[45px] w-[100px] justify-center items-center align-middle bg-dark-green flex rounded-full cursor-pointer"
+                    >
+                      Sign in
+                    </Link>
+                  )}
+                </>
+              </SignedOut>
+            </div>
+          )}
         </div>
         {isHomePage && (
           <>
