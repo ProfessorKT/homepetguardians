@@ -87,6 +87,7 @@ const Navbar = () => {
   result to the variable isDashboardPage. */
   const isDashboardPage = pathname === "/dashboard";
 
+  const isProfilePage = pathname === "/profile";
   /**
    * The toggleMenu function toggles the value of the open state variable.
    */
@@ -154,105 +155,132 @@ const Navbar = () => {
               </div>
             </Link>
           )}
-
-          <ul className="hidden md:flex px-4 text-xl ">
-            {isDashboardPage && (
-              <>
-                <li className="cursor-default">Find petsitter</li>
-              </>
-            )}
-            {!isDashboardPage && (
-              <>
-                {!isSignupOrLoginPage && (
+          {isDashboardPage && (
+            <>
+              <p className="px-4 cursor-default text-xl">Find petsitter</p>
+            </>
+          )}
+          {isProfilePage ? (
+            <>
+              <Link href="/dashboard" className="items-center text-xl px-4">
+                <div className="flex items-center nav-link relative pb-2 -mb-2">
+                  <FiArrowLeft className="mr-1 text-2xl leading-none" />
+                  <span>Return</span>
+                </div>
+              </Link>
+            </>
+          ) : (
+            <>
+              <ul className="hidden md:flex px-4 text-xl ">
+                {!isDashboardPage && (
                   <>
-                    <li>
-                      {isSignupOrLoginPage ? (
-                        <Link href="/">Return to Home</Link>
-                      ) : (
-                        <LinkScroll
-                          to="home"
-                          smooth={true}
-                          duration={500}
-                          className="nav-link relative block pb-1"
-                          spy={true}
-                          activeClass="active"
-                        >
-                          Home
-                        </LinkScroll>
-                      )}
-                    </li>
-                    <li>
-                      <LinkScroll
-                        to="services"
-                        smooth={true}
-                        duration={500}
-                        className="nav-link relative block pb-1"
-                        spy={true}
-                        activeClass="active"
-                      >
-                        Services
-                      </LinkScroll>
-                    </li>
-                    <li>
-                      <LinkScroll
-                        to="about-us"
-                        smooth={true}
-                        duration={500}
-                        className="whitespace-nowrap nav-link relative block pb-1"
-                        spy={true}
-                        activeClass="active"
-                      >
-                        About us
-                      </LinkScroll>
-                    </li>
-                    <li className="!pr-0">
-                      <LinkScroll
-                        to="contact"
-                        href="/"
-                        smooth={true}
-                        duration={500}
-                        className="nav-link relative block pb-1"
-                        spy={true}
-                        activeClass="active"
-                      >
-                        Contact
-                      </LinkScroll>
-                    </li>
+                    {!isSignupOrLoginPage && (
+                      <>
+                        <li>
+                          {isSignupOrLoginPage ? (
+                            <Link href="/">Return to Home</Link>
+                          ) : (
+                            <LinkScroll
+                              to="home"
+                              smooth={true}
+                              duration={500}
+                              className="nav-link relative block pb-1"
+                              spy={true}
+                              activeClass="active"
+                            >
+                              Home
+                            </LinkScroll>
+                          )}
+                        </li>
+                        <li>
+                          <LinkScroll
+                            to="services"
+                            smooth={true}
+                            duration={500}
+                            className="nav-link relative block pb-1"
+                            spy={true}
+                            activeClass="active"
+                          >
+                            Services
+                          </LinkScroll>
+                        </li>
+                        <li>
+                          <LinkScroll
+                            to="about-us"
+                            smooth={true}
+                            duration={500}
+                            className="whitespace-nowrap nav-link relative block pb-1"
+                            spy={true}
+                            activeClass="active"
+                          >
+                            About us
+                          </LinkScroll>
+                        </li>
+                        <li className="!pr-0">
+                          <LinkScroll
+                            to="contact"
+                            href="/"
+                            smooth={true}
+                            duration={500}
+                            className="nav-link relative block pb-1"
+                            spy={true}
+                            activeClass="active"
+                          >
+                            Contact
+                          </LinkScroll>
+                        </li>
+                      </>
+                    )}
                   </>
                 )}
-              </>
-            )}
-          </ul>
+              </ul>
+            </>
+          )}
           <div className="items-center hidden md:flex">
             <SignedOut>
               <>
-                {!isSignUpPage && (
-                  <Link
-                    href="/sign-up"
-                    className={`relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-dark-green rounded-full hover:bg-almond group ${
-                      !isSignInPage ? "mr-4" : ""
-                    }`}
-                  >
-                    <span class="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-almond rounded-full"></span>
-                    <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-black whitespace-nowrap">
-                      Sign-Up
-                    </span>
-                  </Link>
+                {isHomePage && (
+                  <>
+                    {!isSignUpPage && (
+                      <>
+                        <Link
+                          href="/sign-up"
+                          className={`relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-dark-green rounded-full hover:bg-almond group ${
+                            !isSignInPage ? "mr-4" : ""
+                          }`}
+                        >
+                          <span class="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-almond rounded-full"></span>
+                          <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-black whitespace-nowrap">
+                            Sign-Up
+                          </span>
+                        </Link>
+                      </>
+                    )}
+                  </>
                 )}
-                {!isSignInPage && (
-                  <Link
-                    href="/sign-in"
-                    className="relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-dark-green rounded-full hover:bg-almond group"
-                  >
-                    <span class=" absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-almond rounded-full"></span>
-                    <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-black whitespace-nowrap">
-                      Sign-In
-                    </span>
-                  </Link>
+                {isHomePage && (
+                  <>
+                    {!isSignInPage && (
+                      <>
+                        <Link
+                          href="/sign-in"
+                          className="relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-dark-green rounded-full hover:bg-almond group"
+                        >
+                          <span class=" absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-almond rounded-full"></span>
+                          <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-black whitespace-nowrap">
+                            Sign-In
+                          </span>
+                        </Link>
+                      </>
+                    )}
+                  </>
                 )}
               </>
             </SignedOut>
-            {!isHomePage ? (
+          </div>
+
+          {!isHomePage ? (
+            <div className="items-center flex">
               <SignedIn>
                 <Link href="profile" className="mr-4 text-lg">
                   Profile
@@ -266,43 +294,49 @@ const Navbar = () => {
                   afterSignOutUrl="/"
                 />
               </SignedIn>
-            ) : (
-              <SignedIn>
-                <Link href="/dashboard">Return to Home</Link>
-              </SignedIn>
-            )}
-          </div>
-          <div
-            className={`items-center md:hidden flex ${
-              pathname === "/" ? "hidden" : ""
-            }`}
-          >
-            <SignedOut>
-              <>
-                {!isSignUpPage && (
-                  <Link
-                    href="/sign-up"
-                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-dark-green flex rounded-2xl cursor-pointer"
-                  >
-                    Sign up
-                  </Link>
-                )}
-                {!isSignInPage && (
-                  <Link
-                    href="/sign-in"
-                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-dark-green flex rounded-2xl cursor-pointer"
-                  >
-                    Sign in
-                  </Link>
-                )}
-              </>
-            </SignedOut>
-          </div>
+            </div>
+          ) : (
+            <SignedIn>
+              <Link href="/dashboard">Return to Home</Link>
+            </SignedIn>
+          )}
+          {isHomePage && (
+            <div
+              className={`items-center md:flex ${
+                pathname === "/" ? "hidden" : ""
+              }`}
+            >
+              <SignedOut>
+                <>
+                  {!isSignUpPage && (
+                    <Link
+                      href="/sign-up"
+                      className="h-[45px] w-[100px] justify-center items-center align-middle bg-dark-green flex rounded-full cursor-pointer"
+                    >
+                      Sign up
+                    </Link>
+                  )}
+                  {!isSignInPage && (
+                    <Link
+                      href="/sign-in"
+                      className="h-[45px] w-[100px] justify-center items-center align-middle bg-dark-green flex rounded-full cursor-pointer"
+                    >
+                      Sign in
+                    </Link>
+                  )}
+                </>
+              </SignedOut>
+            </div>
+          )}
         </div>
-        {!isSignupOrLoginPage && (
-          <div onClick={toggleMenu} className="flex md:hidden z-30">
-            <Hamburger toggled={open} />
-          </div>
+        {isHomePage && (
+          <>
+            {!isSignupOrLoginPage && (
+              <div onClick={toggleMenu} className="flex md:hidden z-30">
+                <Hamburger toggled={open} />
+              </div>
+            )}
+          </>
         )}
       </div>
       {!isSignupOrLoginPage && (
