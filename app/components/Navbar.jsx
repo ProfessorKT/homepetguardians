@@ -154,13 +154,13 @@ const Navbar = () => {
               </div>
             </Link>
           )}
+          {isDashboardPage && (
+            <>
+              <p className="px-4 cursor-default text-xl">Find petsitter</p>
+            </>
+          )}
 
           <ul className="hidden md:flex px-4 text-xl ">
-            {isDashboardPage && (
-              <>
-                <li className="cursor-default">Find petsitter</li>
-              </>
-            )}
             {!isDashboardPage && (
               <>
                 {!isSignupOrLoginPage && (
@@ -226,33 +226,48 @@ const Navbar = () => {
           <div className="items-center hidden md:flex">
             <SignedOut>
               <>
-                {!isSignUpPage && (
-                  <Link
-                    href="/sign-up"
-                    className={`relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-dark-green rounded-full hover:bg-almond group ${
-                      !isSignInPage ? "mr-4" : ""
-                    }`}
-                  >
-                    <span class="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-almond rounded-full"></span>
-                    <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-black whitespace-nowrap">
-                      Sign-Up
-                    </span>
-                  </Link>
+                {isHomePage && (
+                  <>
+                    {!isSignUpPage && (
+                      <>
+                        <Link
+                          href="/sign-up"
+                          className={`relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-dark-green rounded-full hover:bg-almond group ${
+                            !isSignInPage ? "mr-4" : ""
+                          }`}
+                        >
+                          <span class="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-almond rounded-full"></span>
+                          <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-black whitespace-nowrap">
+                            Sign-Up
+                          </span>
+                        </Link>
+                      </>
+                    )}
+                  </>
                 )}
-                {!isSignInPage && (
-                  <Link
-                    href="/sign-in"
-                    className="relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-dark-green rounded-full hover:bg-almond group"
-                  >
-                    <span class=" absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-almond rounded-full"></span>
-                    <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-black whitespace-nowrap">
-                      Sign-In
-                    </span>
-                  </Link>
+                {isHomePage && (
+                  <>
+                    {!isSignInPage && (
+                      <>
+                        <Link
+                          href="/sign-in"
+                          className="relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-dark-green rounded-full hover:bg-almond group"
+                        >
+                          <span class=" absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-almond rounded-full"></span>
+                          <span class="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-black whitespace-nowrap">
+                            Sign-In
+                          </span>
+                        </Link>
+                      </>
+                    )}
+                  </>
                 )}
               </>
             </SignedOut>
-            {!isHomePage ? (
+          </div>
+
+          {!isHomePage ? (
+            <div className="items-center flex">
               <SignedIn>
                 <Link href="profile" className="mr-4 text-lg">
                   Profile
@@ -266,14 +281,14 @@ const Navbar = () => {
                   afterSignOutUrl="/"
                 />
               </SignedIn>
-            ) : (
-              <SignedIn>
-                <Link href="/dashboard">Return to Home</Link>
-              </SignedIn>
-            )}
-          </div>
+            </div>
+          ) : (
+            <SignedIn>
+              <Link href="/dashboard">Return to Home</Link>
+            </SignedIn>
+          )}
           <div
-            className={`items-center md:hidden flex ${
+            className={`items-center md:flex ${
               pathname === "/" ? "hidden" : ""
             }`}
           >
@@ -282,7 +297,7 @@ const Navbar = () => {
                 {!isSignUpPage && (
                   <Link
                     href="/sign-up"
-                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-dark-green flex rounded-2xl cursor-pointer"
+                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-dark-green flex rounded-full cursor-pointer"
                   >
                     Sign up
                   </Link>
@@ -290,7 +305,7 @@ const Navbar = () => {
                 {!isSignInPage && (
                   <Link
                     href="/sign-in"
-                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-dark-green flex rounded-2xl cursor-pointer"
+                    className="h-[45px] w-[100px] justify-center items-center align-middle bg-dark-green flex rounded-full cursor-pointer"
                   >
                     Sign in
                   </Link>
@@ -299,10 +314,14 @@ const Navbar = () => {
             </SignedOut>
           </div>
         </div>
-        {!isSignupOrLoginPage && (
-          <div onClick={toggleMenu} className="flex md:hidden z-30">
-            <Hamburger toggled={open} />
-          </div>
+        {isHomePage && (
+          <>
+            {!isSignupOrLoginPage && (
+              <div onClick={toggleMenu} className="flex md:hidden z-30">
+                <Hamburger toggled={open} />
+              </div>
+            )}
+          </>
         )}
       </div>
       {!isSignupOrLoginPage && (
