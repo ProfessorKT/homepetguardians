@@ -3,6 +3,8 @@ import { db } from "../../lib/firebaseConfig.js";
 import { getDocs, collection } from "firebase/firestore";
 import Image from "next/image";
 import PlaceholderProfilePicture from "../assets/PlaceholderProfilePicture.jpg";
+import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker";
 
 async function fetchDataFromFirestore() {
   const querySnapshot = await getDocs(collection(db, "petsitters"));
@@ -17,6 +19,19 @@ async function fetchDataFromFirestore() {
 
 const GuardianProfile = () => {
   const [petsitterData, setPetsitterData] = useState([]);
+
+  const formatDateRange = (start, end) => {
+    if (!start || !end) return "Choose date range";
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return `${start.toLocaleDateString(
+      "en-US",
+      options
+    )} - ${end.toLocaleDateString("en-US", options)}`;
+  };
+
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+
   useEffect(() => {
     async function fetchData() {
       const data = await fetchDataFromFirestore();
@@ -52,9 +67,9 @@ const GuardianProfile = () => {
         </div>
         <form
           action=""
-          className="w-[100%] lg:w-[60%] py-[32px] border-2 border-solid border-jade rounded-[28px] flex flex-col gap-y-[10px] lg:gap-y-[20px] items-center justify-center"
+          className="w-[100%] lg:w-[60%] py-[32px] px-5 border-2 border-solid border-jade rounded-[28px] flex flex-col gap-y-[10px] lg:gap-y-[20px] items-center justify-center"
         >
-          <select
+          {/* <select
             name=""
             id=""
             className="bg-almond rounded-[10px] border-2 border-solid border-jade w-[60%] p-[10px]"
@@ -64,8 +79,9 @@ const GuardianProfile = () => {
             <option value="">Placeholder3</option>
             <option value="">Placeholder4</option>
             <option value="">Placeholder5</option>
-          </select>
-          <select
+          </select> */}
+
+          {/* <select
             name=""
             id=""
             className="bg-almond rounded-[10px] border-2 border-solid border-jade w-[60%] p-[10px]"
@@ -75,7 +91,30 @@ const GuardianProfile = () => {
             <option value="">Placeholder3</option>
             <option value="">Placeholder4</option>
             <option value="">Placeholder5</option>
-          </select>
+          </select> */}
+
+          <input
+            type="text"
+            value={formatDateRange(startDate, endDate)}
+            readOnly
+            className="w-full my-5 mx-auto border-solid border-[1px] rounded-xl p-1 bg-almond border-jade focus-visible:outline-none"
+          />
+          <div className="flex justify-center">
+            <DatePicker
+              selected={startDate}
+              onChange={(dates) => {
+                const [start, end] = dates;
+                setStartDate(start);
+                setEndDate(end);
+              }}
+              startDate={startDate}
+              endDate={endDate}
+              selectsRange
+              inline
+              className=""
+            />
+          </div>
+
           <p>Cost: 100zł</p>
         </form>
         <button className="bg-jade rounded-[24px] text-white h-[35px] w-[100px] lg:h-[5%] lg:w-[15%]">

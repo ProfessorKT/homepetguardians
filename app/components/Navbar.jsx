@@ -280,7 +280,7 @@ const Navbar = () => {
           </div>
 
           {!isHomePage ? (
-            <div className="items-center flex">
+            <div className="items-center flex order-last">
               <SignedIn>
                 <Link href="profile" className="mr-4 text-lg">
                   Profile
@@ -303,7 +303,7 @@ const Navbar = () => {
           {!isHomePage && (
             <div
               className={`items-center md:flex ${
-                pathname === "/" ? "hidden" : ""
+                isSignupOrLoginPage ? "order-last" : ""
               }`}
             >
               <SignedOut>
