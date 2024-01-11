@@ -9,8 +9,8 @@ import {
   Pin,
   InfoWindow,
 } from "@vis.gl/react-google-maps";
-import Guardian from "../assets/Guardian.png";
 import Image from "next/image";
+import { differenceInCalendarYears } from "date-fns";
 
 async function fetchDataFromFirestore() {
   const querySnapshot = await getDocs(collection(db, "petsitters"));
@@ -70,6 +70,8 @@ const PetsittersAvailable = () => {
           </div>
           <div className="overflow-scroll max-h-[700px] md:w-full w-[95%] m-2">
             {petsitterData.map((petsitter) => {
+              const dob = petsitter.date_of_birth.toDate();
+              const age = differenceInCalendarYears(new Date(), dob);
               return (
                 <div
                   className="my-5 border-jade border-2 w-full md:w-auto h-[auto] text-[14px] md:text-[22px]"
@@ -77,28 +79,68 @@ const PetsittersAvailable = () => {
                 >
                   <div>
                     <Image
-                      src={Guardian}
+                      src={petsitter.url}
                       alt=""
-                      style={{ width: "200px", height: "200px", padding: 10 }}
+                      style={{
+                        padding: 10,
+                        minHeight: "200px",
+                        minWidth: "200px",
+                        objectFit: "cover",
+                      }}
+                      width={200}
+                      height={200}
                       className=""
                     />
                   </div>
                   <div className="ml-[260px] mt-[-200px] text-[18px] md:text-[26px]">
                     <p>Petsitter</p>
                     <p>{petsitter.name}</p>
-                    <p>{petsitter.location}</p>
-                    <p>{petsitter.price}zł</p>
-                    <p>{petsitter.availHours}</p>
+                    <p>{petsitter.city}</p>
+                    <p>
+                      {age + " "}
+                      years old
+                    </p>
+                    <p>Average: {petsitter.rating}</p>
                   </div>
                   <p className="flex">
-                    {petsitter.availAnimals.map((animal, index) => (
-                      <span
+                    {petsitter.bird ? (
+                      <span className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[70px] text-white ml-[10px] mb-[10px]">
+                        Bird
+                      </span>
+                    ) : (
+                      <></>
+                    )}
+
+                    {petsitter.cat ? (
+                      <span className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[70px] text-white ml-[10px] mb-[10px]">
+                        Cat
+                      </span>
+                    ) : (
+                      <></>
+                    )}
+
+                    {petsitter.dog ? (
+                      <span className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[70px] text-white ml-[10px] mb-[10px]">
+                        Dog
+                      </span>
+                    ) : (
+                      <></>
+                    )}
+
+                    {petsitter.rodent ? (
+                      <span className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[70px] text-white ml-[10px] mb-[10px]">
+                        Rodent
+                      </span>
+                    ) : (
+                      <></>
+                    )}
+
+                    {/* <span
                         key={index}
                         className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[70px] text-white ml-[10px] mb-[10px]"
                       >
                         {animal}
-                      </span>
-                    ))}
+                      </span> */}
                     <button className="ml-auto bg-jade rounded-[30px] mr-2 p-2 pl-3 pr-3 mt-[70px] text-white mb-[10px]">
                       Check more
                     </button>
