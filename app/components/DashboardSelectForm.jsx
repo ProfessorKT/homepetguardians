@@ -47,6 +47,11 @@ const DashboardSelectForm = () => {
     fetchData();
   }, []);
 
+  const handleButtonClick = () => {
+    localStorage.setItem("selectedCity", city);
+    localStorage.setItem("selectedPet", pet);
+  };
+
   return (
     <div className="w-full h-screen">
       <div className="flex justify-center pt-[100px]">
@@ -109,6 +114,7 @@ const DashboardSelectForm = () => {
             />
           </div>
           <button
+            onClick={handleButtonClick}
             disabled={
               city === "Choose city" ||
               pet === "Choose pet" ||
