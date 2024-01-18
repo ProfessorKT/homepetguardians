@@ -41,7 +41,6 @@ const GuardianProfile = () => {
     date_of_birth: "",
   });
   useEffect(() => {
-    // Pobierz parametry zapytania z adresu URL
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
     const name = urlParams.get("name");
@@ -59,7 +58,6 @@ const GuardianProfile = () => {
     const rodent = urlParams.get("rodent");
     const date_of_birth = urlParams.get("date_of_birth");
 
-    // Aktualizuj stan informacji o opiekunie
     setPetsitterInfo({
       id: id || "",
       name: name || "",
@@ -112,14 +110,12 @@ const GuardianProfile = () => {
       <div className="w-1/2 h-[calc(100vh-70px)] mt-[70px] flex flex-col gap-y-[10px] lg:gap-y-[20px] items-center justify-center">
         <div className="flex flex-row w-[100%] lg:w-[60%] justify-around">
         <Image
-        src={petsitterData.url}
+        src={petsitterInfo.url}
         alt=""
-        style={{
-          width: '55px',
-          height: '55px',
-          sm: { width: '80px', height: '80px' },
-          lg: { width: '120px', height: '120px' },
-        }}
+        width={120}
+        height={120}
+        loading="eager"
+
         className="rounded-full text-center"
         priority={true}
       />
