@@ -5,6 +5,7 @@ import { collection, getDocs } from "firebase/firestore";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Select from "react-select";
+import Link from "next/link.js";
 
 const DashboardSelectForm = () => {
   const [cities, setCities] = useState([]);
@@ -28,8 +29,8 @@ const DashboardSelectForm = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const cityData = await getDocs(collection(db, "Cities"));
-      const petData = await getDocs(collection(db, "Pets"));
+      const cityData = await getDocs(collection(db, "cities"));
+      const petData = await getDocs(collection(db, "pets"));
 
       // console.log("cityData", cityData);
       // console.log("petData", petData);
@@ -113,27 +114,29 @@ const DashboardSelectForm = () => {
               className=""
             />
           </div>
-          <button
-            onClick={handleButtonClick}
-            disabled={
-              city === "Choose city" ||
-              pet === "Choose pet" ||
-              startDate === null ||
-              endDate === null
-            }
-            href="#_"
-            class={`w-[200px] mx-auto text-center rounded-2xl px-5 py-2.5 mt-4 overflow-hidden group relative hover:ring-2 hover:ring-offset-2  transition-all ease-out duration-300 ${
-              city === "Choose city" ||
-              pet === "Choose pet" ||
-              startDate === null ||
-              endDate === null
-                ? "bg-gray-400 hover:ring-gray-400"
-                : "bg-jade hover:bg-gradient-to-r hover:from-jade hover:lightTurquoiseColor text-snow-white hover:ring-green-400"
-            }`}
-          >
-            <span class="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-snow-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-            <span class="relative">Look for petsitter</span>
-          </button>
+          <Link href="/results" className="mx-auto">
+            <button
+              onClick={handleButtonClick}
+              disabled={
+                city === "Choose city" ||
+                pet === "Choose pet" ||
+                startDate === null ||
+                endDate === null
+              }
+              href="/results"
+              class={`w-[200px] mx-auto text-center rounded-2xl px-5 py-2.5 mt-4 overflow-hidden group relative hover:ring-2 hover:ring-offset-2  transition-all ease-out duration-300 ${
+                city === "Choose city" ||
+                pet === "Choose pet" ||
+                startDate === null ||
+                endDate === null
+                  ? "bg-gray-400 hover:ring-gray-400"
+                  : "bg-jade hover:bg-gradient-to-r hover:from-jade hover:lightTurquoiseColor text-snow-white hover:ring-green-400"
+              }`}
+            >
+              <span class="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-snow-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+              <span class="relative">Look for petsitter</span>
+            </button>
+          </Link>
         </form>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-[30px] lg:mx-8">
