@@ -11,6 +11,7 @@ import {
 } from "@vis.gl/react-google-maps";
 import Image from "next/image";
 import { differenceInCalendarYears } from "date-fns";
+import Link from "next/link";
 
 async function fetchDataFromFirestore() {
   const querySnapshot = await getDocs(collection(db, "petsitters"));
@@ -29,6 +30,7 @@ const PetsittersAvailable = () => {
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedPet, setSelectedPet] = useState("");
   const [mapPosition, setMapPosition] = useState();
+
 
   //defines the starting position of the map - Gdańsk
   const position = { lat: 54.372158, lng: 18.638306 };
@@ -178,15 +180,20 @@ const PetsittersAvailable = () => {
                         >
                           {animal}
                         </span> */}
-                        <button className="ml-auto bg-jade rounded-[30px] mr-2 p-2 pl-3 pr-3 mt-[70px] text-white mb-[10px]">
+                        <Link
+                          href={`/guardianprofile?id=${petsitter.id}&name=${petsitter.name}&city=${petsitter.city}&rating=${petsitter.rating}&last_name=${petsitter.last_name}
+                          &email=${petsitter.email}&phone_number=${petsitter.phone_number}&bio=${petsitter.bio}&url=${petsitter.url}&age=${age}
+                          &bird=${petsitter.bird}&cat=${petsitter.cat}&dog=${petsitter.dog}&rodent=${petsitter.rodent}&date_of_birth=${petsitter.date_of_birth}`}
+                          className="ml-auto bg-jade rounded-[30px] mr-2 p-2 pl-3 pr-3 mt-[70px] text-white mb-[10px]"
+                        >
                           Check more
-                        </button>
+                      </Link>
                       </p>
                     </div>
                   );
                 }
               })}
-            </div>
+            </div>  
           </div>
 
           {position && (
