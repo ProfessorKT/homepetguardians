@@ -7,9 +7,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import { differenceInCalendarYears } from "date-fns";
 
-
-
-
 async function fetchDataFromFirestore() {
   const querySnapshot = await getDocs(collection(db, "petsitters"));
 
@@ -22,7 +19,6 @@ async function fetchDataFromFirestore() {
 }
 
 const GuardianProfile = () => {
-
   const [petsitterInfo, setPetsitterInfo] = useState({
     id: "",
     name: "",
@@ -35,9 +31,13 @@ const GuardianProfile = () => {
     url: "",
     age: "",
     bird: "",
+    bird_price: "",
     cat: "",
+    cat_price: "",
     dog: "",
+    dog_price: "",
     rodent: "",
+    rodent_price: "",
     date_of_birth: "",
   });
   useEffect(() => {
@@ -53,9 +53,13 @@ const GuardianProfile = () => {
     const url = urlParams.get("url");
     const age = urlParams.get("age");
     const bird = urlParams.get("bird");
+    const bird_price = urlParams.get("bird_price");
     const cat = urlParams.get("cat");
+    const cat_price = urlParams.get("cat_price");
     const dog = urlParams.get("dog");
+    const dog_price = urlParams.get("dog_price");
     const rodent = urlParams.get("rodent");
+    const rodent_price = urlParams.get("rodent_price");
     const date_of_birth = urlParams.get("date_of_birth");
 
     setPetsitterInfo({
@@ -70,18 +74,19 @@ const GuardianProfile = () => {
       url: url || "",
       age: age || "",
       bird: bird || "",
+      bird_price: bird_price || "",
       cat: cat || "",
+      cat_price: cat_price || "",
       dog: dog || "",
+      dog_price: dog_price || "",
       rodent: rodent || "",
+      rodent_price: rodent_price || "",
       date_of_birth: date_of_birth || "",
     });
   }, []); // Wywołaj to tylko raz, po zamontowaniu komponentu
   const [petsitterData, setPetsitterData] = useState([]);
   // const router = useRouter();
   // const { id } = router.query;
-
-
-
 
   const formatDateRange = (start, end) => {
     if (!start || !end) return "Choose date range";
@@ -103,35 +108,66 @@ const GuardianProfile = () => {
     fetchData();
   }, []);
 
+  // let cost = 0;
+  // if (startDate && endDate) {
+  //   const diffTime = Math.abs(endDate - startDate);
+  //   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // convert milliseconds to days
+  //   cost = diffDays * petsitterInfo.dog_price;
+  // }
 
+  let cost = 0;
+  if (startDate && endDate) {
+    const diffTime = Math.abs(endDate - startDate);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1; // add 1 to include an additional day
+
+    const selectedPet = localStorage.getItem("selectedPet");
+    let pricePerDay;
+
+    switch (selectedPet) {
+      case "Dog":
+        pricePerDay = petsitterInfo.dog_price;
+        break;
+      case "Cat":
+        pricePerDay = petsitterInfo.cat_price;
+        break;
+      case "Bird":
+        pricePerDay = petsitterInfo.bird_price;
+        break;
+      case "Rodent":
+        pricePerDay = petsitterInfo.rodent_price;
+        break;
+      default:
+        pricePerDay = 0; // default price if no pet is selected or if the selectedPet value is not recognized
+    }
+
+    cost = diffDays * pricePerDay;
+  }
 
   return (
     <div className="w-full h-screen flex flex-col items-center pt-[20px] lg:pt-[0px] lg:flex-row ">
       <div className="w-1/2 h-[calc(100vh-70px)] mt-[70px] flex flex-col gap-y-[10px] lg:gap-y-[20px] items-center justify-center">
         <div className="flex flex-row w-[100%] lg:w-[60%] justify-around">
-        <Image
-        src={petsitterInfo.url}
-        alt=""
-        width={120}
-        height={120}
-        loading="eager"
-
-        className="rounded-full text-center"
-        priority={true}
-      />
+          <Image
+            src={petsitterInfo.url}
+            alt=""
+            width={120}
+            height={120}
+            loading="eager"
+            className="rounded-full text-center"
+            priority={true}
+          />
 
           <div className="flex flex-col items-stretch justify-center">
             <p className="text-[18px] sm:text-[24px] lg:text-[30px] font-semibold">
-            {petsitterInfo.name}
-
+              {petsitterInfo.name}
             </p>
             <p className="text-[18px] sm:text-[24px] lg:text-[30px] font-semibold">
-            {petsitterInfo.city}
+              {petsitterInfo.city}
             </p>
             <p className="text-[18px] sm:text-[24px] lg:text-[30px] font-semibold">
               Rating:{" "}
               <span className="text-[18px] sm:text-[24px] lg:text-[30px] font-semibold text-jade">
-              {petsitterInfo.rating}
+                {petsitterInfo.rating}
               </span>
             </p>
           </div>
@@ -186,7 +222,11 @@ const GuardianProfile = () => {
             />
           </div>
 
-          <p>Cost: 100zł</p>
+          <p>Cost: {cost}</p>
+          {/* <p>Dog cost: {petsitterInfo.dog_price}</p>
+          <p>Cat cost: {petsitterInfo.cat_price}</p>
+          <p>Bird cost: {petsitterInfo.bird_price}</p>
+          <p>Rodent cost: {petsitterInfo.rodent_price}</p> */}
         </form>
         <button className="bg-jade rounded-[24px] text-white h-[35px] w-[100px] lg:h-[5%] lg:w-[15%]">
           Book
@@ -195,53 +235,48 @@ const GuardianProfile = () => {
       <div className="w-[80%] lg:w-1/2 h-[calc(100vh-70px)] mt-[70px] flex flex-col gap-y-[10px] lg:gap-y-[20px] items-center justify-center pb-[10px] lg:pb-[0px]">
         <div className="flex flex-row gap-x-[10px] w-[100%] justify-center">
           <p className="w-[calc(30%-5px)] bg-almond border-2 border-solid border-jade rounded-[10px] p-[10px]">
-          {petsitterInfo.name} {petsitterInfo.last_name} 
+            {petsitterInfo.name} {petsitterInfo.last_name}
           </p>
           <p className="w-[calc(30%-5px)] bg-almond border-2 border-solid border-jade rounded-[10px] p-[10px]">
-          {petsitterInfo.phone_number}
+            {petsitterInfo.phone_number}
           </p>
         </div>
         <div className="flex flex-col gap-y-[10px] lg:flex-row gap-x-[10px] w-[100%] items-center justify-center">
           <p className="w-[60%] lg:w-[calc(30%-5px)] bg-almond border-2 border-solid border-jade rounded-[10px] p-[10px]">
-          {petsitterInfo.email}
+            {petsitterInfo.email}
           </p>
           <p className="w-[60%] lg:w-[calc(30%-5px)] bg-almond border-2 border-solid border-jade rounded-[10px] p-[10px]">
-           {petsitterInfo.age} years old
-
+            {petsitterInfo.age} years old
           </p>
         </div>
         <p className="bg-almond border-2 border-solid border-jade rounded-[10px] w-[60%] p-[10px] text-center">
           <div className=" text-left">I take care of :</div>
-        {petsitterInfo.bird && petsitterInfo.bird.toLowerCase() === 'true' && (
-          <div className="bg-jade rounded-[10px] p-2 pl-3 pr-3 mt-[10px] text-white mb-[10px] block w-[20%]">
-            Bird
-          </div>
-        )}
-        {petsitterInfo.cat && petsitterInfo.cat.toLowerCase() === 'true' && (
-          <div className="bg-jade rounded-[10px] p-2 pl-3 pr-3 mt-[10px] text-white mb-[10px] block w-[20%]">
-            Cat
-          </div>
-        )}
-        {petsitterInfo.dog && petsitterInfo.dog.toLowerCase() === 'true' && (
-          <div className="bg-jade rounded-[10px] p-2 pl-3 pr-3 mt-[10px] text-white mb-[10px] block w-[20%]">
-            Dog
-          </div>
-        )}
-        {petsitterInfo.rodent && petsitterInfo.rodent.toLowerCase() === 'true' && (
-          <div className="bg-jade rounded-[10px] p-2 pl-3 pr-3 mt-[10px] text-white mb-[10px] block w-[20%]">
-            Rodent
-          </div>
-        )}
-      </p>
-
-
-
-
-
+          {petsitterInfo.bird &&
+            petsitterInfo.bird.toLowerCase() === "true" && (
+              <div className="bg-jade rounded-[10px] p-2 pl-3 pr-3 mt-[10px] text-white mb-[10px] block w-[20%]">
+                Bird
+              </div>
+            )}
+          {petsitterInfo.cat && petsitterInfo.cat.toLowerCase() === "true" && (
+            <div className="bg-jade rounded-[10px] p-2 pl-3 pr-3 mt-[10px] text-white mb-[10px] block w-[20%]">
+              Cat
+            </div>
+          )}
+          {petsitterInfo.dog && petsitterInfo.dog.toLowerCase() === "true" && (
+            <div className="bg-jade rounded-[10px] p-2 pl-3 pr-3 mt-[10px] text-white mb-[10px] block w-[20%]">
+              Dog
+            </div>
+          )}
+          {petsitterInfo.rodent &&
+            petsitterInfo.rodent.toLowerCase() === "true" && (
+              <div className="bg-jade rounded-[10px] p-2 pl-3 pr-3 mt-[10px] text-white mb-[10px] block w-[20%]">
+                Rodent
+              </div>
+            )}
+        </p>
 
         <p className="bg-almond border-2 border-solid border-jade rounded-[10px] w-[60%] p-[10px]">
-        {petsitterInfo.bio}
-
+          {petsitterInfo.bio}
         </p>
         <button className="bg-jade rounded-[24px] text-white h-[35px] w-[100px] lg:h-[5%] lg:w-[15%]">
           Back

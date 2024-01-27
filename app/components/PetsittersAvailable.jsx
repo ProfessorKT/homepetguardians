@@ -31,7 +31,6 @@ const PetsittersAvailable = () => {
   const [selectedPet, setSelectedPet] = useState("");
   const [mapPosition, setMapPosition] = useState();
 
-
   //defines the starting position of the map - Gdańsk
   const position = { lat: 54.372158, lng: 18.638306 };
 
@@ -183,17 +182,17 @@ const PetsittersAvailable = () => {
                         <Link
                           href={`/guardianprofile?id=${petsitter.id}&name=${petsitter.name}&city=${petsitter.city}&rating=${petsitter.rating}&last_name=${petsitter.last_name}
                           &email=${petsitter.email}&phone_number=${petsitter.phone_number}&bio=${petsitter.bio}&url=${petsitter.url}&age=${age}
-                          &bird=${petsitter.bird}&cat=${petsitter.cat}&dog=${petsitter.dog}&rodent=${petsitter.rodent}&date_of_birth=${petsitter.date_of_birth}`}
+                          &bird=${petsitter.bird}&bird_price=${petsitter.bird_price}&cat=${petsitter.cat}&cat_price=${petsitter.cat_price}&dog=${petsitter.dog}&dog_price=${petsitter.dog_price}&rodent=${petsitter.rodent}&rodent_price=${petsitter.rodent_price}&date_of_birth=${petsitter.date_of_birth}`}
                           className="ml-auto bg-jade rounded-[30px] mr-2 p-2 pl-3 pr-3 mt-[70px] text-white mb-[10px]"
                         >
                           Check more
-                      </Link>
+                        </Link>
                       </p>
                     </div>
                   );
                 }
               })}
-            </div>  
+            </div>
           </div>
 
           {position && (

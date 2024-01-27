@@ -18,14 +18,14 @@ const DashboardSelectForm = () => {
   const [pet, setPet] = useState("Choose pet");
   // const [dateRange, setDateRange] = useState("Choose date range");
 
-  const formatDateRange = (start, end) => {
-    if (!start || !end) return "Choose date range";
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    return `${start.toLocaleDateString(
-      "en-US",
-      options
-    )} - ${end.toLocaleDateString("en-US", options)}`;
-  };
+  // const formatDateRange = (start, end) => {
+  //   if (!start || !end) return "Choose date range";
+  //   const options = { year: "numeric", month: "long", day: "numeric" };
+  //   return `${start.toLocaleDateString(
+  //     "en-US",
+  //     options
+  //   )} - ${end.toLocaleDateString("en-US", options)}`;
+  // };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -93,13 +93,13 @@ const DashboardSelectForm = () => {
               </option>
             ))}
           </select>
-          <input
+          {/* <input
             type="text"
             value={formatDateRange(startDate, endDate)}
             readOnly
             className="w-full my-5 mx-auto border-solid border-[1px] rounded-xl p-1 bg-almond border-jade focus-visible:outline-none"
-          />
-          <div className="flex justify-center">
+          /> */}
+          {/* <div className="flex justify-center">
             <DatePicker
               selected={startDate}
               onChange={(dates) => {
@@ -113,22 +113,14 @@ const DashboardSelectForm = () => {
               inline
               className=""
             />
-          </div>
+          </div> */}
           <Link href="/results" className="mx-auto">
             <button
               onClick={handleButtonClick}
-              disabled={
-                city === "Choose city" ||
-                pet === "Choose pet" ||
-                startDate === null ||
-                endDate === null
-              }
+              disabled={city === "Choose city" || pet === "Choose pet"}
               href="/results"
               class={`w-[200px] mx-auto text-center rounded-2xl px-5 py-2.5 mt-4 overflow-hidden group relative hover:ring-2 hover:ring-offset-2  transition-all ease-out duration-300 ${
-                city === "Choose city" ||
-                pet === "Choose pet" ||
-                startDate === null ||
-                endDate === null
+                city === "Choose city" || pet === "Choose pet"
                   ? "bg-gray-400 hover:ring-gray-400"
                   : "bg-jade hover:bg-gradient-to-r hover:from-jade hover:lightTurquoiseColor text-snow-white hover:ring-green-400"
               }`}
