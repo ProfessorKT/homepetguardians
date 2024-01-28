@@ -6,6 +6,7 @@ import PlaceholderProfilePicture from "../assets/PlaceholderProfilePicture.jpg";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import { differenceInCalendarYears } from "date-fns";
+import Link from "next/link";
 
 async function fetchDataFromFirestore() {
   const querySnapshot = await getDocs(collection(db, "petsitters"));
@@ -228,9 +229,12 @@ const GuardianProfile = () => {
           <p>Bird cost: {petsitterInfo.bird_price}</p>
           <p>Rodent cost: {petsitterInfo.rodent_price}</p> */}
         </form>
-        <button className="bg-jade rounded-[24px] text-white h-[35px] w-[100px] lg:h-[5%] lg:w-[15%]">
+        <Link
+          className="bg-jade rounded-[24px] text-white py-2 w-[100px]  lg:w-[15%] text-center py-auto"
+          href="https://buy.stripe.com/test_aEUaGfgDq9ks4EgfYY"
+        >
           Book
-        </button>
+        </Link>
       </div>
       <div className="w-[80%] lg:w-1/2 h-[calc(100vh-70px)] mt-[70px] flex flex-col gap-y-[10px] lg:gap-y-[20px] items-center justify-center pb-[10px] lg:pb-[0px]">
         <div className="flex flex-row gap-x-[10px] w-[100%] justify-center">
@@ -249,7 +253,7 @@ const GuardianProfile = () => {
             {petsitterInfo.age} years old
           </p>
         </div>
-        <p className="bg-almond border-2 border-solid border-jade rounded-[10px] w-[60%] p-[10px] text-center">
+        <div className="bg-almond border-2 border-solid border-jade rounded-[10px] w-[60%] p-[10px] text-center">
           <div className=" text-left">I take care of :</div>
           {petsitterInfo.bird &&
             petsitterInfo.bird.toLowerCase() === "true" && (
@@ -273,7 +277,7 @@ const GuardianProfile = () => {
                 Rodent
               </div>
             )}
-        </p>
+        </div>
 
         <p className="bg-almond border-2 border-solid border-jade rounded-[10px] w-[60%] p-[10px]">
           {petsitterInfo.bio}
