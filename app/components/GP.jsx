@@ -129,7 +129,7 @@ const GuardianProfile = () => {
             type="text"
             value={formatDateRange(startDate, endDate)}
             readOnly
-            className="w-full my-5 mx-auto border-solid border-[1px] rounded-xl p-1 bg-almond border-jade focus-visible:outline-none"
+            className="w-[90%] my-5 mx-auto border-solid border-[1px] rounded-xl p-1 bg-almond border-jade focus-visible:outline-none"
           />
           <div className="flex justify-center">
             <DatePicker
@@ -150,13 +150,14 @@ const GuardianProfile = () => {
           <p>Cost: {cost} PLN</p>
         </form>
         {startDate === null || endDate === null ? (
-          <div className="rounded-[24px] text-white py-2 w-[100px] lg:w-[15%] text-center py-auto bg-gray-500 cursor-not-allowed">
+          <div className="rounded-[24px] text-white py-2 w-[100px] lg:w-[15%] text-center py-auto bg-gray-500 cursor-default">
             Book
           </div>
         ) : (
           <Link
             className="rounded-[24px] text-white py-2 w-[100px] lg:w-[15%] text-center py-auto bg-jade"
             href="https://buy.stripe.com/test_aEUaGfgDq9ks4EgfYY"
+            target="_blank"
           >
             Book
           </Link>
@@ -164,51 +165,48 @@ const GuardianProfile = () => {
       </div>
       <div className="w-[80%] lg:w-1/2 h-[calc(100vh-70px)] mt-[70px] flex flex-col gap-y-[10px] lg:gap-y-[20px] items-center justify-center pb-[10px] lg:pb-[0px]">
         <div className="flex flex-row gap-x-[10px] w-[100%] justify-center">
-          <p className="w-[calc(30%-5px)] bg-almond border-2 border-solid border-jade rounded-[10px] p-[10px]">
+          <p className="w-[calc(40%-5px)] bg-almond border-2 border-solid border-jade rounded-[10px] p-[10px] text-xl">
             {petsitterInfo.name} {petsitterInfo.last_name}
           </p>
-          <p className="w-[calc(30%-5px)] bg-almond border-2 border-solid border-jade rounded-[10px] p-[10px]">
+          <p className="w-[calc(40%-5px)] bg-almond border-2 border-solid border-jade rounded-[10px] p-[10px] text-xl">
             {petsitterInfo.phone_number}
           </p>
         </div>
         <div className="flex flex-col gap-y-[10px] lg:flex-row gap-x-[10px] w-[100%] items-center justify-center">
-          <p className="w-[60%] lg:w-[calc(30%-5px)] bg-almond border-2 border-solid border-jade rounded-[10px] p-[10px]">
+          <p className="w-[60%] lg:w-[calc(40%-5px)] bg-almond border-2 border-solid border-jade rounded-[10px] p-[10px] text-xl">
             {petsitterInfo.email}
           </p>
-          <p className="w-[60%] lg:w-[calc(30%-5px)] bg-almond border-2 border-solid border-jade rounded-[10px] p-[10px]">
+          <p className="w-[60%] lg:w-[calc(40%-5px)] bg-almond border-2 border-solid border-jade rounded-[10px] p-[10px] text-xl">
             {petsitterInfo.date_of_birth} years old
           </p>
         </div>
-        <div className="bg-almond border-2 border-solid border-jade rounded-[10px] w-[60%] p-[10px] text-center">
-          <div className=" text-left">I take care of :</div>
+        <div className="bg-almond border-2 border-solid border-jade rounded-[10px] w-[80%] p-[10px] text-xl">
+          {petsitterInfo.bio}
+        </div>
+
+        <div className="bg-almond border-2 border-solid border-jade rounded-[10px] w-[80%] p-[10px] flex items-center text-xl">
+          <div className="text-left mr-2">I take care of: </div>
           {petsitterInfo.bird && (
-            <div className="bg-jade rounded-[10px] p-2 pl-3 pr-3 mt-[10px] text-white mb-[10px] block w-[20%]">
-              Bird
+            <div className="bg-jade rounded-[10px] py-2 px-4 mx-1 text-white">
+              Birds
             </div>
           )}
           {petsitterInfo.cat && (
-            <div className="bg-jade rounded-[10px] p-2 pl-3 pr-3 mt-[10px] text-white mb-[10px] block w-[20%]">
-              Cat
+            <div className="bg-jade rounded-[10px] py-2 px-4 mx-1 text-white">
+              Cats
             </div>
           )}
           {petsitterInfo.dog && (
-            <div className="bg-jade rounded-[10px] p-2 pl-3 pr-3 mt-[10px] text-white mb-[10px] block w-[20%]">
-              Dog
+            <div className="bg-jade rounded-[10px] py-2 px-4 mx-1 text-white">
+              Dogs
             </div>
           )}
           {petsitterInfo.rodent && (
-            <div className="bg-jade rounded-[10px] p-2 pl-3 pr-3 mt-[10px] text-white mb-[10px] block w-[20%]">
-              Rodent
+            <div className="bg-jade rounded-[10px] py-2 px-4 mx-1 text-white">
+              Rodents
             </div>
           )}
         </div>
-
-        <p className="bg-almond border-2 border-solid border-jade rounded-[10px] w-[60%] p-[10px]">
-          {petsitterInfo.bio}
-        </p>
-        <button className="bg-jade rounded-[24px] text-white h-[35px] w-[100px] lg:h-[5%] lg:w-[15%]">
-          Back
-        </button>
       </div>
     </div>
   );
