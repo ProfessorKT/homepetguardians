@@ -75,13 +75,47 @@ const PetsittersAvailable = () => {
 
   const filterByPrice = () => {
     const sortedData = [...petsitterData];
+    const selectedPet = localStorage.getItem("selectedPet");
 
-    if (sortOrder === "asc") {
-      sortedData.sort((a, b) => a.price - b.price);
-      setSortOrder("desc");
-    } else {
-      sortedData.sort((a, b) => b.price - a.price);
-      setSortOrder("asc");
+    switch (selectedPet) {
+      case "Dog":
+        if (sortOrder === "asc") {
+          sortedData.sort((a, b) => a.dog_price - b.dog_price);
+          setSortOrder("desc");
+        } else {
+          sortedData.sort((a, b) => b.dog_price - a.dog_price);
+          setSortOrder("asc");
+        }
+        break;
+      case "Cat":
+        if (sortOrder === "asc") {
+          sortedData.sort((a, b) => a.cat_price - b.cat_price);
+          setSortOrder("desc");
+        } else {
+          sortedData.sort((a, b) => b.cat_price - a.cat_price);
+          setSortOrder("asc");
+        }
+        break;
+      case "Bird":
+        if (sortOrder === "asc") {
+          sortedData.sort((a, b) => a.bird_price - b.bird_price);
+          setSortOrder("desc");
+        } else {
+          sortedData.sort((a, b) => b.bird_price - a.bird_price);
+          setSortOrder("asc");
+        }
+        break;
+      case "Rodent":
+        if (sortOrder === "asc") {
+          sortedData.sort((a, b) => a.rodent_price - b.rodent_price);
+          setSortOrder("desc");
+        } else {
+          sortedData.sort((a, b) => b.rodent_price - a.rodent_price);
+          setSortOrder("asc");
+        }
+        break;
+      default:
+        pricePerDay = 0; // default price if no pet is selected or if the selectedPet value is not recognized
     }
 
     setPetsitterData(sortedData);
@@ -91,7 +125,7 @@ const PetsittersAvailable = () => {
     return (
       <div className="flex flex-col min-h-screen w-full items-center justify-center">
         <div className="xl:flex lg:mt-[100px] xl:mt-[30px] md:mt-[100px] lg:flex ">
-          <div className="flex flex-col space-y-4 w-full  lg:w-[1000px] xl:w-[1200px] md:w-[120%] ">
+          <div className="flex flex-col space-y-4 w-full  lg:w-[1000px] xl:w-[1400px] md:w-[120%] ">
             <div className="flex md:justify-between space-y-4 md:space-y-0 md:space-x-4 mt-[60px]">
               <div className="border-2 border-jade p-2 flex items-center w-full md:w-full rounded-[20px] lg:w-full sm:h-full sm:mt-[16px] md:mt-[0px] mt-[16px] ml-2">
                 Selected city: {selectedCity}, pet: {selectedPet}
@@ -130,7 +164,7 @@ const PetsittersAvailable = () => {
                           className=""
                         />
                       </div>
-                      <div className="ml-[260px] mt-[-200px] text-[18px] md:text-[26px]">
+                      <div className="ml-[260px] mt-[-200px] text-[16px] md:text-[26px]">
                         <p>Petsitter</p>
                         <p>{petsitter.name}</p>
                         <p>{petsitter.city}</p>
@@ -142,43 +176,37 @@ const PetsittersAvailable = () => {
                       </div>
                       <p className="flex">
                         {petsitter.bird ? (
-                          <span className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[30px] text-white ml-[10px] mb-[10px]">
-                            Bird
+                          <span className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[30px] text-white ml-[10px] mb-[10px] text-[18px] self-center">
+                            Bird - {petsitter.bird_price} PLN
                           </span>
                         ) : (
                           <></>
                         )}
 
                         {petsitter.cat ? (
-                          <span className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[30px] text-white ml-[10px] mb-[10px]">
-                            Cat
+                          <span className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[30px] text-white ml-[10px] mb-[10px] text-[18px] self-center">
+                            Cat - {petsitter.cat_price} PLN
                           </span>
                         ) : (
                           <></>
                         )}
 
                         {petsitter.dog ? (
-                          <span className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[30px] text-white ml-[10px] mb-[10px]">
-                            Dog
+                          <span className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[30px] text-white ml-[10px] mb-[10px] text-[18px] self-center">
+                            Dog - {petsitter.dog_price} PLN
                           </span>
                         ) : (
                           <></>
                         )}
 
                         {petsitter.rodent ? (
-                          <span className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[30px] text-white ml-[10px] mb-[10px]">
-                            Rodent
+                          <span className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[30px] text-white ml-[10px] mb-[10px] text-[18px] self-center">
+                            Rodent - {petsitter.rodent_price} PLN
                           </span>
                         ) : (
                           <></>
                         )}
 
-                        {/* <span
-                          key={index}
-                          className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[70px] text-white ml-[10px] mb-[10px]"
-                        >
-                          {animal}
-                        </span> */}
                         <Link
                           href={`/guardianprofile?id=${petsitter.id}`}
                           className="ml-auto bg-jade rounded-[30px] mr-2 p-2 pl-3 pr-3 mt-[30px] text-white mb-[10px]"
