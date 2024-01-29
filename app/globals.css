@@ -77,3 +77,9 @@ select:-webkit-autofill:focus {
 .react-datepicker__day--range-end {
   background-color: #05835d !important;
 }
+.gm-style-mtc {
+  display: none;
+}
+.gm-style-cc {
+  display: none;
+}
