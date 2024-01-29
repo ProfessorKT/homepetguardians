@@ -63,6 +63,34 @@ const GuardianProfile = () => {
     )} - ${end.toLocaleDateString("en-US", options)}`;
   };
 
+  let cost = 0;
+  if (startDate && endDate) {
+    const diffTime = Math.abs(endDate - startDate);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1; // add 1 to include an additional day
+
+    const selectedPet = localStorage.getItem("selectedPet");
+    let pricePerDay;
+
+    switch (selectedPet) {
+      case "Dog":
+        pricePerDay = petsitterInfo.dog_price;
+        break;
+      case "Cat":
+        pricePerDay = petsitterInfo.cat_price;
+        break;
+      case "Bird":
+        pricePerDay = petsitterInfo.bird_price;
+        break;
+      case "Rodent":
+        pricePerDay = petsitterInfo.rodent_price;
+        break;
+      default:
+        pricePerDay = 0; // default price if no pet is selected or if the selectedPet value is not recognized
+    }
+
+    cost = diffDays * pricePerDay;
+  }
+
   return (
     <div className="w-full h-screen flex flex-col items-center pt-[20px] lg:pt-[0px] lg:flex-row ">
       <div className="w-1/2 h-[calc(100vh-70px)] mt-[70px] flex flex-col gap-y-[10px] lg:gap-y-[20px] items-center justify-center">
@@ -118,7 +146,7 @@ const GuardianProfile = () => {
             />
           </div>
 
-          <p>Cost: 100zł</p>
+          <p>Cost: {cost} PLN</p>
         </form>
         <button className="bg-jade rounded-[24px] text-white h-[35px] w-[100px] lg:h-[5%] lg:w-[15%]">
           Book
