@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import { differenceInCalendarYears } from "date-fns";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import Link from "next/link";
 
 async function fetchDataFromFirestore(id) {
   const docRef = doc(collection(db, "petsitters"), id);
@@ -148,9 +149,18 @@ const GuardianProfile = () => {
 
           <p>Cost: {cost} PLN</p>
         </form>
-        <button className="bg-jade rounded-[24px] text-white h-[35px] w-[100px] lg:h-[5%] lg:w-[15%]">
-          Book
-        </button>
+        {startDate === null || endDate === null ? (
+          <div className="rounded-[24px] text-white py-2 w-[100px] lg:w-[15%] text-center py-auto bg-gray-500 cursor-not-allowed">
+            Book
+          </div>
+        ) : (
+          <Link
+            className="rounded-[24px] text-white py-2 w-[100px] lg:w-[15%] text-center py-auto bg-jade"
+            href="https://buy.stripe.com/test_aEUaGfgDq9ks4EgfYY"
+          >
+            Book
+          </Link>
+        )}
       </div>
       <div className="w-[80%] lg:w-1/2 h-[calc(100vh-70px)] mt-[70px] flex flex-col gap-y-[10px] lg:gap-y-[20px] items-center justify-center pb-[10px] lg:pb-[0px]">
         <div className="flex flex-row gap-x-[10px] w-[100%] justify-center">

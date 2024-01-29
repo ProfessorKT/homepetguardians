@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../lib/firebaseConfig.js";
 import "firebase/firestore";
 import { collection, getDocs } from "firebase/firestore";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import Select from "react-select";
 import Link from "next/link.js";
 
 const DashboardSelectForm = () => {
@@ -16,30 +14,14 @@ const DashboardSelectForm = () => {
   //const for button disabling
   const [city, setCity] = useState("Choose city");
   const [pet, setPet] = useState("Choose pet");
-  // const [dateRange, setDateRange] = useState("Choose date range");
-
-  const formatDateRange = (start, end) => {
-    if (!start || !end) return "Choose date range";
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    return `${start.toLocaleDateString(
-      "en-US",
-      options
-    )} - ${end.toLocaleDateString("en-US", options)}`;
-  };
 
   useEffect(() => {
     const fetchData = async () => {
       const cityData = await getDocs(collection(db, "cities"));
       const petData = await getDocs(collection(db, "pets"));
 
-      // console.log("cityData", cityData);
-      // console.log("petData", petData);
-
       const cityArray = cityData.docs.map((doc) => doc.data().city);
       const petArray = petData.docs.map((doc) => doc.data().pet);
-
-      // console.log("cityArray", cityArray);
-      // console.log("petArray", petArray);
 
       setCities(cityArray.flat());
       setPets(petArray.flat());
@@ -54,8 +36,8 @@ const DashboardSelectForm = () => {
   };
 
   return (
-    <div className="w-full h-screen">
-      <div className="flex justify-center pt-[100px]">
+    <div className="w-full h-[60vh] pt-[100px]">
+      <div className="flex justify-center ">
         <p className="text-3xl font-bold text-dark-green text-center mx-3 md:mx-0">
           Find proven care for your pet
         </p>
@@ -93,27 +75,6 @@ const DashboardSelectForm = () => {
               </option>
             ))}
           </select>
-          {/* <input
-            type="text"
-            value={formatDateRange(startDate, endDate)}
-            readOnly
-            className="w-full my-5 mx-auto border-solid border-[1px] rounded-xl p-1 bg-almond border-jade focus-visible:outline-none"
-          />
-          <div className="flex justify-center">
-            <DatePicker
-              selected={startDate}
-              onChange={(dates) => {
-                const [start, end] = dates;
-                setStartDate(start);
-                setEndDate(end);
-              }}
-              startDate={startDate}
-              endDate={endDate}
-              selectsRange
-              inline
-              className=""
-            />
-          </div> */}
           <Link href="/results" className="mx-auto">
             <button
               onClick={handleButtonClick}
@@ -132,8 +93,8 @@ const DashboardSelectForm = () => {
         </form>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-[30px] lg:mx-8">
-        <div className="md:flex hidden justify-center">
-          <div className="flex flex-col justify-center">
+        <div className="flex justify-center">
+          <div className="flex flex-col mx-10 md:mx-0 justify-center">
             <p className="flex justify-center mb-5 font-bold text-[24px] text-jade">
               HomePetGuardian.com
             </p>

@@ -88,6 +88,8 @@ const Navbar = () => {
   const isDashboardPage = pathname === "/dashboard";
 
   const isProfilePage = pathname === "/profile";
+
+  const isResultsPage = pathname === "/results";
   /**
    * The toggleMenu function toggles the value of the open state variable.
    */
@@ -160,7 +162,7 @@ const Navbar = () => {
               <p className="px-4 cursor-default text-xl">Find petsitter</p>
             </>
           )}
-          {isProfilePage ? (
+          {isProfilePage || isResultsPage ? (
             <>
               <Link href="/dashboard" className="items-center text-xl px-4">
                 <div className="flex items-center nav-link relative pb-2 -mb-2">
@@ -171,69 +173,87 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <ul className="hidden md:flex px-4 text-xl ">
-                {!isDashboardPage && (
-                  <>
-                    {!isSignupOrLoginPage && (
-                      <>
-                        <li>
-                          {isSignupOrLoginPage ? (
-                            <Link href="/">Return to Home</Link>
-                          ) : (
+              {isHomePage ||
+              isSignupOrLoginPage ||
+              isDashboardPage ||
+              isProfilePage ||
+              isSignInPage ||
+              isSignUpPage ? (
+                <ul className="hidden md:flex px-4 text-xl ">
+                  {!isDashboardPage && (
+                    <>
+                      {!isSignupOrLoginPage && (
+                        <>
+                          <li>
+                            {isSignupOrLoginPage ? (
+                              <Link href="/">Return to Home</Link>
+                            ) : (
+                              <LinkScroll
+                                to="home"
+                                smooth={true}
+                                duration={500}
+                                className="nav-link relative block pb-1"
+                                spy={true}
+                                activeClass="active"
+                              >
+                                Home
+                              </LinkScroll>
+                            )}
+                          </li>
+                          <li>
                             <LinkScroll
-                              to="home"
+                              to="services"
                               smooth={true}
                               duration={500}
                               className="nav-link relative block pb-1"
                               spy={true}
                               activeClass="active"
                             >
-                              Home
+                              Services
                             </LinkScroll>
-                          )}
-                        </li>
-                        <li>
-                          <LinkScroll
-                            to="services"
-                            smooth={true}
-                            duration={500}
-                            className="nav-link relative block pb-1"
-                            spy={true}
-                            activeClass="active"
-                          >
-                            Services
-                          </LinkScroll>
-                        </li>
-                        <li>
-                          <LinkScroll
-                            to="about-us"
-                            smooth={true}
-                            duration={500}
-                            className="whitespace-nowrap nav-link relative block pb-1"
-                            spy={true}
-                            activeClass="active"
-                          >
-                            About us
-                          </LinkScroll>
-                        </li>
-                        <li className="!pr-0">
-                          <LinkScroll
-                            to="contact"
-                            href="/"
-                            smooth={true}
-                            duration={500}
-                            className="nav-link relative block pb-1"
-                            spy={true}
-                            activeClass="active"
-                          >
-                            Contact
-                          </LinkScroll>
-                        </li>
-                      </>
-                    )}
-                  </>
-                )}
-              </ul>
+                          </li>
+                          <li>
+                            <LinkScroll
+                              to="about-us"
+                              smooth={true}
+                              duration={500}
+                              className="whitespace-nowrap nav-link relative block pb-1"
+                              spy={true}
+                              activeClass="active"
+                            >
+                              About us
+                            </LinkScroll>
+                          </li>
+                          <li className="!pr-0">
+                            <LinkScroll
+                              to="contact"
+                              href="/"
+                              smooth={true}
+                              duration={500}
+                              className="nav-link relative block pb-1"
+                              spy={true}
+                              activeClass="active"
+                            >
+                              Contact
+                            </LinkScroll>
+                          </li>
+                        </>
+                      )}
+                    </>
+                  )}
+                </ul>
+              ) : (
+                <ul className="hidden md:flex px-4 text-xl ">
+                  <li>
+                    <Link href="/results" className="items-center text-xl px-4">
+                      <div className="flex items-center nav-link relative pb-2 -mb-2">
+                        <FiArrowLeft className="mr-1 text-2xl leading-none" />
+                        <span>Return</span>
+                      </div>
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </>
           )}
           <div className="items-center hidden md:flex">
@@ -309,12 +329,6 @@ const Navbar = () => {
               <SignedOut>
                 <>
                   {!isSignUpPage && (
-                    // <Link
-                    //   href="/sign-up"
-                    //   className="h-[45px] w-[100px] justify-center items-center align-middle bg-dark-green flex rounded-full cursor-pointer"
-                    // >
-                    //   Sign up
-                    // </Link>
                     <Link
                       href="/sign-up"
                       className={`relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-medium transition-all bg-dark-green rounded-full hover:bg-almond group ${
