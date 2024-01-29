@@ -94,7 +94,7 @@ const PetsittersAvailable = () => {
           <div className="flex flex-col space-y-4 w-full  lg:w-[1000px] xl:w-[1200px] md:w-[120%] ">
             <div className="flex md:justify-between space-y-4 md:space-y-0 md:space-x-4 mt-[60px]">
               <div className="border-2 border-jade p-2 flex items-center w-full md:w-full rounded-[20px] lg:w-full sm:h-full sm:mt-[16px] md:mt-[0px] mt-[16px] ml-2">
-                {selectedCity} {selectedPet} term Date
+                Selected city: {selectedCity}, pet: {selectedPet}
               </div>
               <button
                 onClick={filterByPrice}
@@ -104,7 +104,7 @@ const PetsittersAvailable = () => {
                 {sortOrder === "asc" ? <FaSortUp /> : <FaSortDown />}
               </button>
             </div>
-            <div className="overflow-scroll max-h-[700px] md:w-full w-[95%] m-2">
+            <div className="overflow-y-scroll max-h-[700px] md:w-full w-[95%] m-2 overflow-x-hidden">
               {petsitterData.map((petsitter) => {
                 const pet = selectedPet.toLocaleLowerCase();
                 if (petsitter.city === selectedCity && petsitter[pet]) {
@@ -112,7 +112,7 @@ const PetsittersAvailable = () => {
                   const age = differenceInCalendarYears(new Date(), dob);
                   return (
                     <div
-                      className="my-5 border-jade border-2 w-full md:w-auto h-[auto] text-[14px] md:text-[22px]"
+                      className="my-5 border-jade border-2 w-full md:w-auto h-[auto] text-[14px] md:text-[22px] rounded-xl"
                       key={petsitter.id}
                     >
                       <div>
@@ -142,7 +142,7 @@ const PetsittersAvailable = () => {
                       </div>
                       <p className="flex">
                         {petsitter.bird ? (
-                          <span className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[70px] text-white ml-[10px] mb-[10px]">
+                          <span className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[30px] text-white ml-[10px] mb-[10px]">
                             Bird
                           </span>
                         ) : (
@@ -150,7 +150,7 @@ const PetsittersAvailable = () => {
                         )}
 
                         {petsitter.cat ? (
-                          <span className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[70px] text-white ml-[10px] mb-[10px]">
+                          <span className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[30px] text-white ml-[10px] mb-[10px]">
                             Cat
                           </span>
                         ) : (
@@ -158,7 +158,7 @@ const PetsittersAvailable = () => {
                         )}
 
                         {petsitter.dog ? (
-                          <span className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[70px] text-white ml-[10px] mb-[10px]">
+                          <span className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[30px] text-white ml-[10px] mb-[10px]">
                             Dog
                           </span>
                         ) : (
@@ -166,7 +166,7 @@ const PetsittersAvailable = () => {
                         )}
 
                         {petsitter.rodent ? (
-                          <span className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[70px] text-white ml-[10px] mb-[10px]">
+                          <span className="bg-jade rounded-[10px] mr-2 p-2 pl-3 pr-3 mt-[30px] text-white ml-[10px] mb-[10px]">
                             Rodent
                           </span>
                         ) : (
@@ -181,7 +181,7 @@ const PetsittersAvailable = () => {
                         </span> */}
                         <Link
                           href={`/guardianprofile?id=${petsitter.id}`}
-                          className="ml-auto bg-jade rounded-[30px] mr-2 p-2 pl-3 pr-3 mt-[70px] text-white mb-[10px]"
+                          className="ml-auto bg-jade rounded-[30px] mr-2 p-2 pl-3 pr-3 mt-[30px] text-white mb-[10px]"
                         >
                           Check more
                         </Link>
